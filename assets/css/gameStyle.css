@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+    font-family: 'Open Sans', sans-serif !important;
+    
+}
+
+[data-role=page]{
+    height: 100% !important;
+    position: relative !important;
+}
+
+
+[data-role=header] img{
+    height: 30px;
+    padding: 0;
+    border: 0 !important;
+}
+
+.ui-page .ui-header,
+.ui-page .ui-header h1,
+.ui-page .ui-footer{
+    background: #4e4e60 !important;
+     text-shadow:  none !important;
+    color: white !important;
+    font-weight: 00 !important;
+    
+}
+
+[data-role=footer]{
+    bottom: 0;
+    position: fixed!important;
+    top: auto !important;
+    width: 100%;
+}
+
+[data-role=content]{
+    margin: 0;
+    text-align: center;
+}
+
+
+[data-role=content] h1{ 
+    font-family: 'Yellowtail', cursive;
+    font-size: 7vmax;
+    font-weight: 100;
+}

@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/***********GLOBAL***********/
+
+body{
+    font-family: 'Open Sans', sans-serif !important;
+    padding: 0 !important;
+    margin: 0 !important;    
+    overflow: hidden;
+    height: 100%;
+}
+
+[data-role=page]{
+    height: 100% !important;
+    position: relative !important;
+}
+
+
+[data-role=header] img{  
+    height: 35px;
+    padding: 0;
+    margin: 0;
+    border: 0 !important;
+}
+
+
+.ui-page .ui-header h1{
+    margin: 0px;
+    padding: 0px;
+    padding-top: 3px;
+}
+
+.ui-page .ui-header h1 a:nth-child(1){
+    margin: 0;
+    display: block;
+    padding: 0;
+}
+
+.ui-page .ui-header,
+.ui-page .ui-footer{
+    background: #4e4e60 !important;
+    text-shadow:  none !important;
+    color: white !important;
+    font-weight: 00 !important;
+    border: 0;
+    height: 42px;
+}
+
+[data-role=footer]{
+    bottom: 0;
+    position: fixed!important;
+    top: auto !important;
+    width: 100%;
+}
+
+[data-role=footer] img{
+    bottom: 0;
+    padding: 10px;
+    position: fixed !important;
+    top: auto !important;
+    width: 40px;
+}
+
+.stickyFooterFix{
+    padding: 0;
+    margin: 0;
+    height: 60px;
+}
+
+/***********MAIN PAGE***********/
+
+/*
+#page_home [data-role=content] h1{
+    font-family: 'Yellowtail', cursive;
+    font-size: 7vmax;
+    font-weight: 100;
+}
+*/
+
+
+#homePageCarousel .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
