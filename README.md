@@ -9,10 +9,9 @@ The hub content includes: Home, about us, contact us, booking, pub info and menu
 The game includes: sign in/up, game view, settings, rules, shop, achievements, hints and favourites pages.
 
 -Things to do:
-Build Pages
 
-Build Database
-
+Build Pages,
+Build Database,
 Build Game
 
 -Possible Additions:
