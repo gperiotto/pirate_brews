@@ -16,4 +16,4 @@ Build Game
 
 -Possible Additions:
 
-jQuery Lazy Load
+jQuery Lazy Load - https://www.appelsiini.net/projects/lazyload
