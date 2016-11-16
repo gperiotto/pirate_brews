@@ -15,4 +15,5 @@ Build Database,
 Build Game
 
 -Possible Additions:
+
 jQuery Lazy Load
