@@ -201,15 +201,15 @@ a[data-icon=calendar] {
     background: white;
 }
 
-[data-role=popup] form div:nth-child(2) {
+[data-role=popup] form div:nth-child(3) {
     font-weight: 100;
     text-align: center;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 15px;
     margin-bottom:20px;
 }
 
-[data-role=popup] [role=main] .ui-corner-all:nth-child(2) {
+[data-role=popup] [role=main] .ui-corner-all:nth-child(3) {
     border-radius: 0 !important;
     text-shadow: none;
     box-shadow: none;
@@ -224,16 +224,13 @@ a[data-icon=calendar] {
     font-size:10px;
 }
 
+[data-role=popup] [role=main] p.newsletterTextFieldValidation{
+    text-align: left;
+    width: 100%;
+}
+
 /***********MAIN PAGE***********/
 
-
-/*
-#page_home [data-role=content] h1{
-    font-family: 'Yellowtail', cursive;
-    font-size: 7vmax;
-    font-weight: 100;
-}
-*/
 
 #homePageCarousel .item img {
     display: block;
