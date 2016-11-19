@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/***********GLOBAL***********/
+/*********************GLOBAL*********************/
 
 body {
     font-family: 'Open Sans', sans-serif !important;
@@ -52,6 +52,7 @@ a[data-icon=calendar] {
     font-weight: 00 !important;
     border: 0;
     height: 42px;
+    overflow: visible;
 }
 
 [data-role=footer] {
@@ -70,7 +71,7 @@ a[data-icon=calendar] {
     text-align: center;
 }
 
-[data-role=footer] .footerTaskbar1{
+[data-role=footer] .footerTaskbar1 {
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -84,8 +85,6 @@ a[data-icon=calendar] {
     padding: 0;
     height: 42px;
     width: 50%;
-    border-left: 2px solid #eaeaea;
-    border-right: 2px solid #eaeaea;
 }
 
 [data-role=footer] .footerTaskbar3 {
@@ -96,16 +95,16 @@ a[data-icon=calendar] {
     width: 22%;
 }
 
-
-[data-role=footer] .footerTaskbar1 img{
+[data-role=footer] .footerTaskbar1 img {
     position: relative;
     display: inline;
     width: 40px;
-    top:-10px;
+    top: -10px;
     z-index: 1;
+    /*    overflow: visible !important;*/
 }
 
-[data-role=footer] .footerTaskbar1 p{
+[data-role=footer] .footerTaskbar1 p {
     font-size: 15px;
     color: #ffffff;
     text-shadow: 0 !important;
@@ -119,23 +118,33 @@ a[data-icon=calendar] {
     z-index: 2;
 }
 
-[data-role=footer] .footerTaskbar3 img{
-/*
-    float: right;
-    bottom: 5px;
-    right:5px;
-    padding: 5px;
-    position: fixed !important;
-    top: auto !important;
-*/
+[data-role=footer] .footerTaskbar2 img {
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    display: inline;
+    width: 26px;
+    top: -27px;
+}
+
+[data-role=footer] div .footerVerticalRuler {
+    height: 35px;
+    position: relative;
+    top: 4px;
+    border-left: 1px solid #eaeaea;
+    border-right: 1px solid #eaeaea;
+}
+
+[data-role=footer] .footerTaskbar3 img {
     width: 25px;
     position: relative;
     display: inline;
-    top:-15px;
+    top: -15px;
     z-index: 1;
 }
-[data-role=footer] .footerTaskbar3 p{
-    font-size: vmax;
+
+[data-role=footer] .footerTaskbar3 p {
+    font-size: 14px;
     color: #ffffff;
     text-shadow: 0 !important;
     font-weight: 100;
@@ -152,34 +161,68 @@ a[data-icon=calendar] {
     text-decoration: none;
 }
 
-
-/*
-[data-role=footer] table{
-    width: 100% !important;
-    display: inline-block !important;
-}
-[data-role=footer] table tr{
-    width: 100% !important;
-}
-[data-role=footer] td:nth-of-type(1){
-    width: 15%;
-}
-[data-role=footer] td:nth-of-type(2){
-    margin: 0;
-    text-align: center;
-    width: 70%;
-}
-[data-role=footer] td:nth-of-type(3){
-    width: 100%;
-}
-*/
-
 .stickyFooterFix {
     padding: 0;
     margin: 0;
     height: 60px;
 }
 
+[data-role=popup] {
+    max-width: 400px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+[data-role=popup] [data-role=header] {
+    box-shadow: 0;
+    border: 0;
+    background: #eaeaea;
+}
+
+[data-role=popup] [data-role=header] h1 {
+    margin: auto;
+    font-size: 16px;
+    box-shadow: 0;
+    font-weight: 100;
+}
+
+[data-role=popup] [role=main].newsletterPopupMain {
+    background: #eaeaea;
+    font-weight: 100 !important;
+}
+
+[data-role=popup] [role=main] .ui-corner-all:nth-child(1) {
+    border-radius: 0;
+    box-shadow: 0;
+    border-color: #646464;
+    background: white;
+}
+
+[data-role=popup] form div:nth-child(2) {
+    font-weight: 100;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom:20px;
+}
+
+[data-role=popup] [role=main] .ui-corner-all:nth-child(2) {
+    border-radius: 0 !important;
+    text-shadow: none;
+    box-shadow: none;
+    background: #4e4e60 !important;
+    color: white !important;
+    font-weight: 100 !important;
+    font-size: 10px !important;
+    width: 30%;
+}
+
+[data-role=popup] [role=main] p{
+    font-size:10px;
+}
 
 /***********MAIN PAGE***********/
 

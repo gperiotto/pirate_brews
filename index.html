@@ -11,8 +11,7 @@
 
     <!--jqueryMobile-->
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
 
     <!--Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
@@ -21,7 +20,7 @@
     <!--Carousel Pluggin-->
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
     <link rel="stylesheet" href="assets/css/owl.theme.css">
-    <script src="assets/js/owl.carousel.min.js"></script>
+
 
     <!--html5 and css support for old IE-->
     <!--[if lt IE 9]>
@@ -30,7 +29,7 @@
     <![endif]-->
 
     <!--jqueryFunctionality-->
-    <script type="text/javascript" src="assets/js/myScript.js"></script>
+
 
 </head>
 
@@ -45,7 +44,7 @@
             <a href="#nav-panel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
             <a href="#page_booking" data-icon="calendar" data-iconpos="notext">Book</a>
         </div>
-        <!--HEADER -->
+        <!--HEADER END -->
 
         <div data-role="content">
             <div id="homePageCarousel" class="owl-carousel owl-theme">
@@ -68,23 +67,6 @@
 
         <div data-role="footer" data-position="fixed">
 
-            <!--
-            <table>
-                <tr>
-                    <td>
-                        <a href="#"><img src="assets/ico/playGame.png" id="playGame"></a>
-                    </td>
-                    <td>
-                        <a href="#"><img src="assets/ico/facebook.png"></a>
-                        <a href="#"><img src="assets/ico/instagram.png"></a>
-                        <a href="#"><img src="assets/ico/twitter.png"></a>
-                    </td>
-                    <td>
-                        <a href="#"><img src="assets/ico/newsletter.png"></a>
-                    </td>
-                </tr>
-            </table>
--->
             <div class="footerContainer">
                 <div class="footerTaskbar1">
                     <a href="#panel-fixed-page1">
@@ -92,20 +74,28 @@
                         <p>Play!</p>
                     </a>
                 </div>
-                
-                <div class="footerTaskbar2">
 
-                </div>
-                
-                <div class="footerTaskbar3">
+                <div class="footerTaskbar2">
+                    <div class="footerVerticalRuler"></div>
                     <a href="#">
+                        <img src="assets/ico/facebook_Icon.png">
+                    </a>
+                    <a href="#">
+                        <img src="assets/ico/instagram_Icon.png">
+                    </a>
+                    <a href="#">
+                        <img src="assets/ico/twitter_Icon.png">
+                    </a>
+                    <div class="footerVerticalRuler"></div>
+                </div>
+
+                <div class="footerTaskbar3">
+                    <a href="#newsletterPopup" data-rel="popup" data-position-to="window">
                         <img src="assets/ico/newsletter300px.png">
                         <p>Newsletter</p>
                     </a>
                 </div>
             </div>
-            
-
 
         </div>
         <!--FOOTER-->
@@ -125,7 +115,32 @@
     </div>
     <!--HOME PAGE -->
 
+    <div data-role="popup" id="newsletterPopup" data-overlay-theme="b" data-dismissible="true">
+        <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <div data-role="header">
+            <h1>SUBSCRIBE TO NEWSLETTER</h1>
+        </div>
 
+        <div role="main" class="ui-content newsletterPopupMain">
+            <form>
+                <input type="email" name="newsletterTextField" id="newsletterTextField" placeholder="Email Address" value="">
+                <input class="newsletterButton" type="submit" value="Sign Up">
+            </form>
+
+            <p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
+            
+        </div>
+
+    </div>
+    <!--NEWSLETTER POPUP-->
+
+
+
+    <!--DEPENDENCIES-->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="assets/js/myScript.js"></script>
 </body>
 
 </html>
