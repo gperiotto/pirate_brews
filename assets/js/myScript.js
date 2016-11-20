@@ -3,9 +3,12 @@ var jQuery = jQuery.noConflict();
 jQuery(document).ready(function ($) {
 
     "use strict";
-
-    //Instantiate global popup
+    
+    //Instantiate global newsletterPopup
     $("#newsletterPopup").enhanceWithin().popup();
+    
+    //Instantiate global menuPanel
+    $("#navPanel").panel().enhanceWithin();
 
     $("#homePageCarousel").owlCarousel({
         navigation: false, // Show next and prev buttons
@@ -26,9 +29,9 @@ jQuery(document).ready(function ($) {
     //Newsletter field validator
     var newsletterForm = document.getElementById('newsletterForm');
     newsletterForm.onsubmit = function () {
-        if (newsletterForm.newsletterTextField.value == '') {
+        if (newsletterForm.newsletterTextField.value === '') {
             $("[data-role='popup'] [role='main'] .ui-corner-all:nth-child(1)").css("border-color", "#e26464");
-            $("[data-role='popup'] [role='main'] p.newsletterTextFieldValidation").text("Please enter your email above");
+            $("[data-role='popup'] [role='main'] p.newsletterTextFieldValidation").text("*Please enter your email above");
             return false;
         }
     };

@@ -55,6 +55,60 @@ a[data-icon=calendar] {
     overflow: visible;
 }
 
+[data-role=page] [data-role=content] {
+    background: #eaeaea;
+}
+
+[data-role=panel] {
+    background: #32323c !important;
+    text-align: left;
+}
+
+[data-role=panel] li a {
+    margin: 0 !important;
+    padding-left: 5px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    font-size: 20px;
+    background: #32323c !important;
+    border: 0 !important;
+}
+
+[data-role=panel] .panelItemHome {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-block;
+}
+
+[data-role=panel] .panelItemHome p {
+    padding: 0 !important;
+    margin: 15px !important;
+    margin-left: 60px !important;
+    display: block !important;
+    text-align: left;
+/*    font-weight: 600 !important;*/
+    font-size:30px;
+}
+
+[data-role=panel] img {
+    display: block !important;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 50px;
+    z-index: 10;
+}
+
+[data-role=panel] ul hr {
+    margin: 0;
+    width: 50%;
+}
+
+[data-role=panel] ul hr:first-of-type {
+    width: 100%;
+    border: 3px solid #ffffff;
+    z-index: 10;
+}
+
 [data-role=footer] {
     bottom: 0;
     position: fixed!important;
@@ -206,7 +260,7 @@ a[data-icon=calendar] {
     text-align: center;
     margin: auto;
     margin-top: 15px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
 [data-role=popup] [role=main] .ui-corner-all:nth-child(3) {
@@ -220,17 +274,17 @@ a[data-icon=calendar] {
     width: 30%;
 }
 
-[data-role=popup] [role=main] p{
-    font-size:10px;
+[data-role=popup] [role=main] p {
+    font-size: 10px;
 }
 
-[data-role=popup] [role=main] p.newsletterTextFieldValidation{
+[data-role=popup] [role=main] p.newsletterTextFieldValidation {
     text-align: left;
     width: 100%;
 }
 
-/***********MAIN PAGE***********/
 
+/***********MAIN PAGE***********/
 
 #homePageCarousel .item img {
     display: block;

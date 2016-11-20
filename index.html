@@ -34,14 +34,15 @@
 </head>
 
 <body>
-
-    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page1">
+            
+    
+    <div data-role="page" class="ui-responsive-panel" id="home_page">
 
         <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
             <h1>
-                <a href="#panel-fixed-page1"><img src="assets/ico/small_logo.png"></a>
+                <a href="#home_page"><img src="assets/ico/small_logo.png"></a>
             </h1>
-            <a href="#nav-panel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
+            <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
             <a href="#page_booking" data-icon="calendar" data-iconpos="notext">Book</a>
         </div>
         <!--HEADER END -->
@@ -100,6 +101,7 @@
         </div>
         <!--FOOTER-->
 
+        <!--
         <div data-role="panel" data-position-fixed="true" data-theme="b" id="nav-panel">
             <ul data-role="listview" data-theme="b" class="nav-search">
                 <li data-icon="delete"><a href="#" data-rel="close">Pirate Brews</a></li>
@@ -110,29 +112,29 @@
                 <li><a href="#">item5</a></li>
             </ul>
         </div>
-        <!--PANEL -->
+        -->
+        <!--oldPANEL -->
 
     </div>
     <!--HOME PAGE -->
-    
-    
-    
-    <div data-role="page" class="ui-responsive-panel" id="panel-fixed-page2">
 
+
+
+    <div data-role="page" class="ui-responsive-panel" id="pageTEST">
+        
         <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+            
             <h1>
-                <a href="#panel-fixed-page1"><img src="assets/ico/small_logo.png"></a>
+                <a href="#home_page"><img src="assets/ico/small_logo.png"></a>
             </h1>
-            <a href="#nav-panel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
+            <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
             <a href="#page_booking" data-icon="calendar" data-iconpos="notext">Book</a>
         </div>
         <!--HEADER END -->
 
         <div data-role="content">
-            
 
             <div>
-
                 <p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula. Leo tortor erat quo reiciendis a nibh. Egestas interdum in diam imperdiet quasi, lorem sapien eu ut nunc tellus dolor, tristique sit wisi a nunc enim massa, imperdiet erat molestie et nulla, vulputate eu recusandae at arcu id arcu. Nunc leo mi ipsum, suspendisse urna mauris hac, sem convallis tellus enim aliquet rhoncus magnis. Sem lacinia, duis duis nisl urna et facilisis non, vitae venenatis sed condimentum montes integer iaculis. Ridiculus nunc fusce ut placerat proin ullamcorper, facilisis mi aenean leo in ut, elementum turpis placerat proin, pellentesque donec, imperdiet phasellus nascetur lectus eget quam arcu. Laoreet velit diam ornare nunc enim, morbi adipiscing ut ipsum, id in. Scelerisque euismod dui ipsum amet, nunc libero dis, ante magna neque vestibulum, morbi justo, mi non sollicitudin amet dui. Luctus phasellus tempus erat nisl, proin est ante eros nisl risus nam, quisque tempor elit vivamus venenatis tellus, eros eleifend, a mollis id dignissim suspendisse wisi eros. Tortor consectetur eget vitae leo arcu, accumsan varius sagittis arcu integer molestie ac, dui nunc ullamcorper vivamus diam odio tortor.</p>
             </div>
 
@@ -150,7 +152,7 @@
                         <img id="playGame" src="assets/ico/playGame.png">
                         <p>Play!</p>
                     </a>
-                </div>
+                </div> 
 
                 <div class="footerTaskbar2">
                     <div class="footerVerticalRuler"></div>
@@ -176,30 +178,39 @@
 
         </div>
         <!--FOOTER-->
-
-        <div data-role="panel" data-position-fixed="true" data-theme="b" id="nav-panel">
-            <ul data-role="listview" data-theme="b" class="nav-search">
-                <li data-icon="delete"><a href="#" data-rel="close">Pirate Brews</a></li>
-                <li><a href="#panel-fixed-page1">PAGE 1</a></li>
-                <li><a href="#panel-fixed-page2">PAGE 2</a></li>
-                <li><a href="#panel-fixed-page2">item3</a></li>
-                <li><a href="#panel-fixed-page2">item4</a></li>
-                <li><a href="#panel-fixed-page2">item5</a></li>
-            </ul>
-        </div>
-        <!--PANEL -->
-
+ 
     </div>
-    <!--PAGE2 TEST -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <!--PAGE SAMPLE-->
+
+
+
+    <div data-role="panel" data-position-fixed="true" data-theme="b" id="navPanel">
+        <ul data-role="listview" data-theme="b" class="nav-search">
+<!--            <li data-icon="delete"><a href="#" data-rel="close">&nbsp;</a></li>-->
+            
+            <li data-icon="false" >
+                
+                <a href="#home_page" class="panelItemHome"><img src="assets/ico/small_logo.png"><p>Home</p></a>
+            </li>
+            <hr>
+<!--
+            <li data-icon="false"><a href="#pageTEST" >PAGE SAMPLE</a></li>
+            <hr>
+-->
+            <li data-icon="false"><a href="#pageTEST">About Us</a></li>
+            <hr>
+            <li data-icon="false"><a href="#panel-fixed-page2">Find Pub</a></li>
+            <hr>
+            <li data-icon="false"><a href="#panel-fixed-page2">Booking</a></li>
+            <hr>
+            <li data-icon="false"><a href="#panel-fixed-page2">Menu</a></li>
+            <hr>
+            <li data-icon="false"><a href="#panel-fixed-page2">Play</a></li>
+            <hr>
+            <li data-icon="false"><a href="#panel-fixed-page2">Contact Us</a></li>
+        </ul>
+    </div>
+    <!--MENU PANEL-->
 
     <div data-role="popup" id="newsletterPopup" data-overlay-theme="b" data-dismissible="true">
         <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
@@ -222,7 +233,7 @@
     <!--NEWSLETTER POPUP-->
 
 
-
+    
     <!--DEPENDENCIES-->
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
