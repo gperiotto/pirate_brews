@@ -1,0 +1,81 @@
+.contactPageTitle {
+    border-top: 1px solid #4e4e60;
+    font-family: 'Open Sans', sans-serif !important;
+    position: relative;
+    margin-top:30px;
+    color: #4e4e60;
+}
+.contactPageTitle h1 {
+    position: absolute;
+    top: -30px;
+    text-align:center;
+    width:100%;
+    padding:0;
+    margin:0px;
+}
+.contactPageTitle h1 span {
+    background:#eaeaea;
+    display: inline-block;
+    padding: 5px;
+}
+
+/*The style for the form*/
+
+#cName {
+    font-size:14pt;
+    height:25px;
+    width:200px;
+}
+
+
+#cEmail {
+    font-size:14pt;
+    height:25px;
+    width:410px;
+}
+
+#cSubject {
+    font-size:14pt;
+    height:25px;
+    width:410px;
+}
+
+#cMessage {
+    font-size:14pt;
+    height:50px;
+    width:410px;
+}
+
+#cInputButton {
+    font-size: 130%; 
+    height:55px; 
+    width:415px;
+    color: white;
+    background-color: #4e4e60;
+}
+
+#cInputButton:hover{
+    color: #eaeaea;
+}
+
+.contactForm {
+  position: fixed;
+  
+  top: 40%;
+  left: 15%;
+  margin-top: -50px;
+  margin-left: -100px;
+  overflow: hidden;
+}
+
+.contactForm label{
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+
+.input label {
+    font-size:18pt;
+    height:25px;
+    width:200px;
+}
+
