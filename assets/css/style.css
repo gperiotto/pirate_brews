@@ -86,8 +86,8 @@ a[data-icon=calendar] {
     margin-left: 60px !important;
     display: block !important;
     text-align: left;
-/*    font-weight: 600 !important;*/
-    font-size:30px;
+    /*    font-weight: 600 !important;*/
+    font-size: 30px;
 }
 
 [data-role=panel] img {
@@ -290,4 +290,76 @@ a[data-icon=calendar] {
     display: block;
     width: 100%;
     height: auto;
+}
+
+
+/***********MENU PAGE***********/
+
+#menu_page ul.tab {
+    padding left: 10px;
+    padding-right: 10px;
+}
+
+#menu_page ul.tab img {
+    width: 40px;
+    height: auto;
+}
+
+#menu_page ul.tab img:hover {
+    filter: grayscale(100%);
+}
+
+#menu_page ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ADADB4;
+}
+
+#menu_page ul.tab li {
+    float: left;
+}
+
+#menu_page ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+#menu_page ul.tab li a:hover {
+    background-color: #F9F9F9;
+}
+
+
+#menu_page ul.tab li a:focus,
+.active {
+    background-color: #F9F9F9;
+}
+
+#menu_page .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    font-size: 20px;
+}
+
+#menu_page table {
+    width: 100%;
+}
+
+#menu_page  td,
+#menu_page  th {
+    text-align: left;
+    padding: 8px;
+}
+
+#menu_page h4 {
+    text-decoration: underline;
+}
+
+#menu_page p {
+    text-align: center;
 }
