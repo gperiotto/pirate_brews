@@ -292,6 +292,121 @@ a[data-icon=calendar] {
     height: auto;
 }
 
+.home_SearchContent {
+    border-radius: 3px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0 0 5px #9d9d9d;
+    margin-bottom: 30px;
+}
+
+.home_searchHeading1,
+.home_searchHeading2{
+    display: inline-block;
+    width: 80px;
+    font-size: 12px;
+}
+
+.home_searchSort,
+.home_searchFilter {
+    padding-top: 5px;
+}
+
+.home_SearchContent h3 {
+    text-align: left !important;
+    display: inline-block;
+    padding-right: 20px;
+    padding-left: 10px;
+}
+
+.sort.ui-btn {
+    text-align: center !important;
+    margin: auto !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    display: inline;
+    width: auto !important;
+    background: #ffffff !important;
+    color: black!important;
+    font-weight: 300 !important;
+    font-size: 12px;
+    border: 2px solid #2a2a2a !important;
+}
+
+.home_searchFilter .sort.ui-btn:last-child{
+    margin: auto;
+    background: #ff907c !important;
+    border: 2px solid #2a2a2a !important;
+    color: white !important;
+}
+
+
+ul.list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#home_page ul li {
+    margin: auto;
+    text-decoration: none !important;
+    list-style: none;
+    font-size: 13px;
+    display: block;
+    padding: 10px;
+    box-shadow: inset 0 1px 0 #dddddd;
+}
+
+#home_page ul.list li a {
+    text-decoration: none !important;
+}
+
+#home_page .home_featureContainer {}
+
+#home_page .home_featureContainer p {
+    display: inline;
+    margin-right: 10px;
+}
+
+#home_page img.wifiIcon,
+#home_page img.parkingIcon,
+#home_page img.tvIcon {
+    /*    content:url("http://imgur.com/SZ8Cm.jpg"); */
+    width: 20px;
+    height: auto;
+}
+
+.home_DismissSearch.ui-btn {
+    text-align: center !important;
+    margin: auto !important;
+    border: 0 !important;
+    border-radius: 0 0 5px 5px !important;
+    background: #d83012 !important;
+    color: white !important;
+    font-weight: 100 !important;
+}
+
+#home_page .gridItem1,
+#home_page .gridItem2,
+#home_page .gridItem3 {
+    text-align: center;
+    display: block;
+}
+
+#home_page .gridItem1 p,
+#home_page .gridItem2 p,
+#home_page .gridItem3 p {
+    text-align: justify;
+}
+
+#home_page .gridItem1 img,
+#home_page .gridItem2 img,
+#home_page .gridItem3 img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    box-shadow: 0 0 10px #000;
+}
+
 
 /***********MENU PAGE***********/
 
@@ -334,9 +449,8 @@ a[data-icon=calendar] {
     background-color: #F9F9F9;
 }
 
-
 #menu_page ul.tab li a:focus,
-.active {
+#menu_page.active {
     background-color: #F9F9F9;
 }
 
@@ -350,8 +464,8 @@ a[data-icon=calendar] {
     width: 100%;
 }
 
-#menu_page  td,
-#menu_page  th {
+#menu_page td,
+#menu_page th {
     text-align: left;
     padding: 8px;
 }
