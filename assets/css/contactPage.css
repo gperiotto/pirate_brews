@@ -24,32 +24,31 @@
 #cName {
     font-size:14pt;
     height:25px;
-    width:200px;
+    width:100%;
 }
 
 
 #cEmail {
     font-size:14pt;
     height:25px;
-    width:410px;
+    width:100%;
 }
 
 #cSubject {
     font-size:14pt;
     height:25px;
-    width:410px;
+    width:100%;
 }
 
 #cMessage {
     font-size:14pt;
-    height:50px;
-    width:410px;
+    height:100px;
+    width:100%;
 }
 
 #cInputButton {
-    font-size: 130%; 
     height:55px; 
-    width:415px;
+    width:100%;
     color: white;
     background-color: #4e4e60;
 }
@@ -59,6 +58,7 @@
 }
 
 .contactForm {
+<<<<<<< HEAD
 /*  position: fixed;*/
   
 /*  top: 40%;*/
@@ -66,18 +66,13 @@
   left: 15%;
   margin-top: -50px;
   margin-left: -100px;
+=======
+  width:90%;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+>>>>>>> cebda9bad062a18923ef79d87ca08084483c979f
   overflow: hidden;
 */
-}
-
-.contactForm label{
-    display: block;
-    margin: 0px 0px 15px 0px;
-}
-
-.input label {
-    font-size:18pt;
-    height:25px;
-    width:200px;
 }
 
