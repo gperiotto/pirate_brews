@@ -59,13 +59,15 @@
 }
 
 .contactForm {
-  position: fixed;
+/*  position: fixed;*/
   
-  top: 40%;
+/*  top: 40%;*/
+/*
   left: 15%;
   margin-top: -50px;
   margin-left: -100px;
   overflow: hidden;
+*/
 }
 
 .contactForm label{
