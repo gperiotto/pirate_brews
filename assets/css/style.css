@@ -505,6 +505,46 @@ ul.list {
     padding-right: 15px;
 }
 
+/***********ABOUT US***********/
+
+.custom-navbar ul li a.ui-btn-active {
+	background-color: #eaeaea !important;
+	border: hidden !important;
+	box-shadow: none !important;
+	color: black !important;
+	border-color:transparent !important;
+	text-shadow:none !important;
+}
+
+.ui-tabs {
+	background-color: #eaeaea !important;
+}
+
+.custom-navbar ul li a {
+	color:white !important;
+	background-color:#848490 !important;
+	font-size:30px !important;
+	font-weight:normal !important;
+}
+
+#about img {
+	padding:20px;
+}
+
+#managers {
+	padding-bottom:50px;
+}
+
+#managers h4 {
+	text-align:center;
+}
+
+#managers img{
+	padding:10px;
+	margin: 0px auto;
+	display:block;
+}
+
 
 /***********MENU PAGE***********/
 
