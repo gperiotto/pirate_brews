@@ -527,6 +527,11 @@ ul.list {
 	font-weight:normal !important;
 }
 
+#about {
+	padding-bottom:50px;
+}
+
+
 #about img {
 	padding:20px;
 }
