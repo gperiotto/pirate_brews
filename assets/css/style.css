@@ -360,8 +360,6 @@ ul.list {
     text-decoration: none !important;
 }
 
-#home_page .home_featureContainer {}
-
 #home_page .home_featureContainer p {
     display: inline;
     margin-right: 10px;
@@ -405,6 +403,106 @@ ul.list {
     max-width: 550px;
     height: auto;
     box-shadow: 0 0 10px #000;
+}
+
+
+/***********PUB PAGE***********/
+#pub_page .pageTitle{
+    width: 100%;
+    height: 20px;
+    border-bottom:1px solid black;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#pub_page .pageTitle span{
+    position: relative;
+    top: -7px;
+}
+
+#pub_page .pub_topOptions{
+    text-align: center;
+    margin: auto;
+    border: solid #bababa 3px 3px;
+}
+
+#pub_page .pubSelectionList{
+    max-width: 300px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding-top:  10px;
+    text-align: left;
+    border-top:2px solid #bababa;
+}
+
+#pub_page .pubSelectionList a{
+    text-decoration: none;
+}
+
+#pub_page .pubs{
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 20px;
+/*    background: white;*/
+    border-radius: 3px;
+/*    max-width: 250px;*/
+    
+
+}
+
+#pub_page .pub_ImageContainer{
+    display: inline-block;;
+    max-width: 600px;
+}
+
+#pub_page .pubs .pub_ImageContainer img{
+
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    border: solid #676388 2px;
+    margin-bottom: 10px;
+
+}
+
+#pub_page .pub_detailsContainer{
+    max-width: 250px;
+}
+
+#pub_page .pubs .pub_Name,
+#pub_page .pubs .pub_Address,
+#pub_page .pubs .pub_Postcode,
+#pub_page .pubs .pub_City{
+    margin: 0;
+    margin-left: 15px;
+    text-align: left;
+}
+
+#pub_page .pub_featureContainer{
+    text-align: left;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+#pub_page .pub_featureContainer img{
+    width: 20px;
+    height: auto;
+}
+
+#pub_page .pub_featureContainer p{
+    display: inline;
+    margin-right: 10px;
+}
+
+#pub_page .pub_bookButton{
+    color: white;
+    background: #4e4e60;
+    border: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 

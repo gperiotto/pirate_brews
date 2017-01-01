@@ -95,7 +95,7 @@
 
                         <ul class="list">
                             <li data-id="1">
-                                <a href="#" class="link name">Old Cavendish</a>
+                                <a href="#pub_page" id="pubCavendish" class="link name">Old Cavendish</a>
                                 <p class="address">115 New Cavendish Street</p>
                                 <p class="postcode">W1W 6UW</p>
                                 <p class="city">London</p>
@@ -109,7 +109,7 @@
                                 </div>
                             </li>
                             <li data-id="2">
-                                <a href="#" class="link name">Marylebone</a>
+                                <a href="#pub_page" id="pubMarylebone" class="link name">Marylebone</a>
                                 <p class="address">35 Marylebone Road</p>
                                 <p class="postcode">NW1 5LS</p>
                                 <p class="city">London</p>
@@ -121,7 +121,7 @@
                                 </div>
                             </li>
                             <li data-id="3">
-                                <a href="#" class="link name">Little Titchfield</a>
+                                <a href="#pub_page" id="pubTichfield" class="link name">Little Titchfield</a>
                                 <p class="address">4-12 Little Titchfield Street</p>
                                 <p class="postcode">W1W 7BY</p>
                                 <p class="city">London</p>
@@ -131,7 +131,7 @@
                                 </div>
                             </li>
                             <li data-id="4">
-                                <a href="#" class="link name">The Prince Regent</a>
+                                <a href="#pub_page" id="pubRegent" class="link name">The Prince Regent</a>
                                 <p class="address">309 Regent Street</p>
                                 <p class="postcode">W1B 2HW</p>
                                 <p class="city">London</p>
@@ -213,6 +213,113 @@
     <!--HOME PAGE -->
 
 
+    <div data-role="page" class="ui-responsive-panel" id="pub_page">
+
+        <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+
+            <h1>
+                <a href="#home_page"><img src="assets/ico/small_logo.png"></a>
+            </h1>
+            <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
+            <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a>
+        </div>
+        <!--HEADER END -->
+
+        <div data-role="content">
+
+            <!--page Title-->
+            <div class="pageTitle">
+                <span style="font-size: 40px; background-color: #eaeaea; padding: 0 10px;">
+                    Our Pubs
+                </span>
+            </div>
+
+            <h2>Learn more about our pubs!</h2>
+            
+            <div class="pub_topOptions">
+                <div class="pubSelectionList">
+                    <a href="#" id="viewPub1" class="link name">
+                        Old Cavendish
+                        <br>
+                        <span>115 New Cavendish Street, W1W 6UW</span>
+                    </a>
+                    
+                </div>
+                <div class="pubSelectionList">
+                    <a href="#" id="viewPub2" class="link name">
+                        Marylebone
+                        <br>
+                        <span>35 Marylebone Road, NW1 5LS</span>
+                    </a>
+                    
+                </div>
+                <div class="pubSelectionList">
+                    <a href="#" id="viewPub3" class="link name">
+                        Little Titchfield 
+                        <br>
+                        <span>4-12 Little Titchfield Street, W1W 7BY</span>
+                    </a>
+                    
+                </div>
+                <div class="pubSelectionList">
+                    <a href="#" id="viewPub4" class="link name">
+                        The Prince Regent
+                        <br>
+                        <span>309 Regent Street, W1B 2HW</span>
+                    </a>
+                    
+                </div>
+            </div>
+            
+            <!--This div gets populated with pub details-->
+            <div class="pubs"></div>
+
+            <!--This div fixes footer overlaping content -->
+            <div class="stickyFooterFix"></div>
+
+        </div>
+        <!--CONTENT-->
+
+        <div data-role="footer" data-position="fixed">
+
+            <div class="footerContainer">
+                <div class="footerTaskbar1">
+                    <a href="#panel-fixed-page1">
+                        <img id="playGame" src="assets/ico/playGame.png">
+                        <p>Play!</p>
+                    </a>
+                </div>
+
+                <div class="footerTaskbar2">
+                    <div class="footerVerticalRuler"></div>
+                    <a href="#">
+                        <img src="assets/ico/facebook_Icon.png">
+                    </a>
+                    <a href="#">
+                        <img src="assets/ico/instagram_Icon.png">
+                    </a>
+                    <a href="#">
+                        <img src="assets/ico/twitter_Icon.png">
+                    </a>
+                    <div class="footerVerticalRuler"></div>
+                </div>
+
+                <div class="footerTaskbar3">
+                    <a href="#newsletterPopup" data-rel="popup" data-position-to="window">
+                        <img src="assets/ico/newsletter300px.png">
+                        <p>Newsletter</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <!--FOOTER-->
+
+    </div>
+    <!--PUB PAGE-->
+
+
+
 
     <div data-role="page" class="ui-responsive-panel" id="pageTEST">
 
@@ -275,6 +382,8 @@
 
     </div>
     <!--PAGE SAMPLE-->
+
+
 
 
 
@@ -718,246 +827,246 @@
     <!--MENU PAGE-->
 
 
-        <!--CONTACT PAGE BEGINING-->
-        <div data-role="page" class="ui-responsive-panel" id="contactPage">
+    <!--CONTACT PAGE BEGINING-->
+    <div data-role="page" class="ui-responsive-panel" id="contactPage">
 
-            <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+        <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
 
-                <h1>
+            <h1>
             <a href="#home_page"><img src="assets/ico/small_logo.png"></a>
         </h1>
-                <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
-                <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a>
+            <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
+            <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a>
+        </div>
+        <!--HEADER END -->
+
+        <div data-role="content">
+
+
+            <div class="contactPageTitle">
+                <h1><span>Contact Us</span></h1>
             </div>
-            <!--HEADER END -->
 
-            <div data-role="content">
+            <div class="contactForm">
+                <form action="JavaScript:doFormValidation()">
 
-
-                <div class="contactPageTitle">
-                    <h1><span>Contact Us</span></h1>
-                </div>
-
-                <div class="contactForm">
-                    <form action="JavaScript:doFormValidation()">
-
-                        <input type="text" placeholder="Name" id="cName" name="cName" value="" autofocus/>
+                    <input type="text" placeholder="Name" id="cName" name="cName" value="" autofocus/>
+                    <label><span>&nbsp;</span>
+                        <br>
+                        <input type="text" placeholder="Email" id="cEmail" name="cEmail" value="" />
                         <label><span>&nbsp;</span>
                             <br>
-                            <input type="text" placeholder="Email" id="cEmail" name="cEmail" value="" />
+                            <input type="text" placeholder="Subject" id="cSubject" name="cSubject" value="" />
                             <label><span>&nbsp;</span>
                                 <br>
-                                <input type="text" placeholder="Subject" id="cSubject" name="cSubject" value="" />
+                                <input type="text" placeholder="Message" id="cMessage" name="cMessage" value="" />
                                 <label><span>&nbsp;</span>
                                     <br>
-                                    <input type="text" placeholder="Message" id="cMessage" name="cMessage" value="" />
-                                    <label><span>&nbsp;</span>
-                                        <br>
-                                        <button type="submit" id="cInputButton" name="cInputButton">Submit</button>
+                                    <button type="submit" id="cInputButton" name="cInputButton">Submit</button>
 
-                    </form>
-                </div>
-
-
-                <!--This div fixes footer overlaping content -->
-                <div class="stickyFooterFix"></div>
-
-            </div>
-            <!--CONTENT-->
-
-            <div data-role="footer" data-position="fixed">
-
-                <div class="footerContainer">
-                    <div class="footerTaskbar1">
-                        <a href="#panel-fixed-page1">
-                            <img id="playGame" src="assets/ico/playGame.png">
-                            <p>Play!</p>
-                        </a>
-                    </div>
-
-                    <div class="footerTaskbar2">
-                        <div class="footerVerticalRuler"></div>
-                        <a href="#">
-                            <img src="assets/ico/facebook_Icon.png">
-                        </a>
-                        <a href="#">
-                            <img src="assets/ico/instagram_Icon.png">
-                        </a>
-                        <a href="#">
-                            <img src="assets/ico/twitter_Icon.png">
-                        </a>
-                        <div class="footerVerticalRuler"></div>
-                    </div>
-
-                    <div class="footerTaskbar3">
-                        <a href="#newsletterPopup" data-rel="popup" data-position-to="window">
-                            <img src="assets/ico/newsletter300px.png">
-                            <p>Newsletter</p>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <!--FOOTER-->
-
-        </div>
-        <!--CONTACT PAGE END-->
-
-        <!--****************************************BOOKING PAGE BEGINING*********************************************************************************************-->
-
-        <div data-role="page" id="bookingPage">
-
-            <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
-
-                <h1>
-            <a href="#home_page"><img src="assets/ico/small_logo.png"></a>
-        </h1>
-                <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
-                <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a>
-            </div>
-            <!--HEADER END -->
-
-            <div data-role="content">
-
-
-                <div class="contactPageTitle">
-                    <h1><span>Book Now</span></h1>
-                </div>
-
-                <div class="bookingPage">
-                    <form action="JavaScript:doBookingFormValidation()">
-
-                        <input type="text" placeholder="Name" id="bName" name="bName" value="" autofocus/>
-                        <label><span>&nbsp;</span>
-                            <br>
-                            <input type="text" placeholder="Email" id="bEmail" name="bEmail" value="" />
-                            <label><span>&nbsp;</span>
-                                <br>
-                                <select name="select-native-4" id="locationSelector">
-                                    <option>Location...</option>
-                                    <optgroup label="Group 1">
-                                        <option value="1">The 1st Option</option>
-                                        <option value="2">The 2nd Option</option>
-                                        <option value="3">The 3rd Option</option>
-                                        <option value="4">The 4th Option</option>
-                                    </optgroup>
-                                    <optgroup label="Group 2">
-                                        <option value="5">The 5th Option</option>
-                                        <option value="6">The 6th Option</option>
-                                        <option value="7">The 7th Option</option>
-                                    </optgroup>
-                                </select>
-                                <label><span>&nbsp;</span>
-                                    <br>
-                                    <input type="date" data-role="date">
-
-                                    <label><span>&nbsp;</span>
-                                        <br>
-                                        <button type="submit" id="cInputButton" name="cInputButton">Book</button>
-
-                    </form>
-                </div>
-
-
-
-                <!--This div fixes footer overlaping content -->
-                <div class="stickyFooterFix"></div>
-
-            </div>
-            <!--CONTENT-->
-
-            <div data-role="footer" data-position="fixed">
-
-                <div class="footerContainer">
-                    <div class="footerTaskbar1">
-                        <a href="#panel-fixed-page1">
-                            <img id="playGame" src="assets/ico/playGame.png">
-                            <p>Play!</p>
-                        </a>
-                    </div>
-
-                    <div class="footerTaskbar2">
-                        <div class="footerVerticalRuler"></div>
-                        <a href="#">
-                            <img src="assets/ico/facebook_Icon.png">
-                        </a>
-                        <a href="#">
-                            <img src="assets/ico/instagram_Icon.png">
-                        </a>
-                        <a href="#">
-                            <img src="assets/ico/twitter_Icon.png">
-                        </a>
-                        <div class="footerVerticalRuler"></div>
-                    </div>
-
-                    <div class="footerTaskbar3">
-                        <a href="#newsletterPopup" data-rel="popup" data-position-to="window">
-                            <img src="assets/ico/newsletter300px.png">
-                            <p>Newsletter</p>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-            <!--FOOTER-->
-
-        </div>
-
-        <!--****************************************BOOKING PAGE END*********************************************************************************************-->
-
-
-        <div data-role="panel" data-position-fixed="true" data-theme="b" id="navPanel">
-            <ul data-role="listview" data-theme="b" class="nav-search">
-                <li data-icon="false">
-
-                    <a href="#home_page" class="panelItemHome"><img src="assets/ico/small_logo.png">
-                        <p>Home</p>
-                    </a>
-                </li>
-                <hr>
-                <li data-icon="false"><a href="#pageTEST">About Us</a></li>
-                <hr>
-                <li data-icon="false"><a href="#panel-fixed-page2">Find Pub</a></li>
-                <hr>
-                <li data-icon="false"><a href="#bookingPage">Booking</a></li>
-                <hr>
-                <li data-icon="false"><a href="#menu_page">Menu</a></li>
-                <hr>
-                <li data-icon="false"><a href="#panel-fixed-page2">Play</a></li>
-                <hr>
-                <li data-icon="false"><a href="#contactPage">Contact Us</a></li>
-            </ul>
-        </div>
-        <!--NAV PANEL-->
-
-        <div data-role="popup" id="newsletterPopup" data-overlay-theme="b" data-dismissible="true">
-            <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-            <div data-role="header">
-                <h1>SUBSCRIBE TO NEWSLETTER</h1>
-            </div>
-
-            <div role="main" class="ui-content newsletterPopupMain">
-                <form id="newsletterForm">
-                    <input type="email" name="newsletterTextField" id="newsletterTextField" placeholder="Email Address" value="">
-                    <p class="newsletterTextFieldValidation">&nbsp;</p>
-                    <input class="newsletterButton" type="submit" value="Sign Up">
                 </form>
+            </div>
 
-                <p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
 
+            <!--This div fixes footer overlaping content -->
+            <div class="stickyFooterFix"></div>
+
+        </div>
+        <!--CONTENT-->
+
+        <div data-role="footer" data-position="fixed">
+
+            <div class="footerContainer">
+                <div class="footerTaskbar1">
+                    <a href="#panel-fixed-page1">
+                        <img id="playGame" src="assets/ico/playGame.png">
+                        <p>Play!</p>
+                    </a>
+                </div>
+
+                <div class="footerTaskbar2">
+                    <div class="footerVerticalRuler"></div>
+                    <a href="#">
+                        <img src="assets/ico/facebook_Icon.png">
+                    </a>
+                    <a href="#">
+                        <img src="assets/ico/instagram_Icon.png">
+                    </a>
+                    <a href="#">
+                        <img src="assets/ico/twitter_Icon.png">
+                    </a>
+                    <div class="footerVerticalRuler"></div>
+                </div>
+
+                <div class="footerTaskbar3">
+                    <a href="#newsletterPopup" data-rel="popup" data-position-to="window">
+                        <img src="assets/ico/newsletter300px.png">
+                        <p>Newsletter</p>
+                    </a>
+                </div>
             </div>
 
         </div>
-        <!--NEWSLETTER POPUP-->
+        <!--FOOTER-->
+
+    </div>
+    <!--CONTACT PAGE END-->
+
+    <!--****************************************BOOKING PAGE BEGINING*********************************************-->
+
+    <div data-role="page" id="bookingPage">
+
+        <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+
+            <h1>
+            <a href="#home_page"><img src="assets/ico/small_logo.png"></a>
+        </h1>
+            <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
+            <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a>
+        </div>
+        <!--HEADER END -->
+
+        <div data-role="content">
+
+
+            <div class="contactPageTitle">
+                <h1><span>Book Now</span></h1>
+            </div>
+
+            <div class="bookingPage">
+                <form action="JavaScript:doBookingFormValidation()">
+
+                    <input type="text" placeholder="Name" id="bName" name="bName" value="" autofocus/>
+                    <label><span>&nbsp;</span>
+                        <br>
+                        <input type="text" placeholder="Email" id="bEmail" name="bEmail" value="" />
+                        <label><span>&nbsp;</span>
+                            <br>
+                            <select name="select-native-4" id="locationSelector">
+                                <option>Location...</option>
+                                <optgroup label="Group 1">
+                                    <option value="1">The 1st Option</option>
+                                    <option value="2">The 2nd Option</option>
+                                    <option value="3">The 3rd Option</option>
+                                    <option value="4">The 4th Option</option>
+                                </optgroup>
+                                <optgroup label="Group 2">
+                                    <option value="5">The 5th Option</option>
+                                    <option value="6">The 6th Option</option>
+                                    <option value="7">The 7th Option</option>
+                                </optgroup>
+                            </select>
+                            <label><span>&nbsp;</span>
+                                <br>
+                                <input type="date" data-role="date">
+
+                                <label><span>&nbsp;</span>
+                                    <br>
+                                    <button type="submit" id="cInputButton" name="cInputButton">Book</button>
+
+                </form>
+            </div>
 
 
 
-        <!--DEPENDENCIES-->
-        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <script type="text/javascript" src="assets/js/myScript.js"></script>
-        <script src="assets/js/list.min.js"></script>
+            <!--This div fixes footer overlaping content -->
+            <div class="stickyFooterFix"></div>
+
+        </div>
+        <!--CONTENT-->
+
+        <div data-role="footer" data-position="fixed">
+
+            <div class="footerContainer">
+                <div class="footerTaskbar1">
+                    <a href="#panel-fixed-page1">
+                        <img id="playGame" src="assets/ico/playGame.png">
+                        <p>Play!</p>
+                    </a>
+                </div>
+
+                <div class="footerTaskbar2">
+                    <div class="footerVerticalRuler"></div>
+                    <a href="#">
+                        <img src="assets/ico/facebook_Icon.png">
+                    </a>
+                    <a href="#">
+                        <img src="assets/ico/instagram_Icon.png">
+                    </a>
+                    <a href="#">
+                        <img src="assets/ico/twitter_Icon.png">
+                    </a>
+                    <div class="footerVerticalRuler"></div>
+                </div>
+
+                <div class="footerTaskbar3">
+                    <a href="#newsletterPopup" data-rel="popup" data-position-to="window">
+                        <img src="assets/ico/newsletter300px.png">
+                        <p>Newsletter</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <!--FOOTER-->
+
+    </div>
+
+    <!--****************************************BOOKING PAGE END**************************************************-->
+
+
+    <div data-role="panel" data-position-fixed="true" data-theme="b" id="navPanel">
+        <ul data-role="listview" data-theme="b" class="nav-search">
+            <li data-icon="false">
+
+                <a href="#home_page" class="panelItemHome"><img src="assets/ico/small_logo.png">
+                    <p>Home</p>
+                </a>
+            </li>
+            <hr>
+            <li data-icon="false"><a href="#pageTEST">About Us</a></li>
+            <hr>
+            <li data-icon="false"><a href="#pub_page">Find Pub</a></li>
+            <hr>
+            <li data-icon="false"><a href="#bookingPage">Booking</a></li>
+            <hr>
+            <li data-icon="false"><a href="#menu_page">Menu</a></li>
+            <hr>
+            <li data-icon="false"><a href="#panel-fixed-page2">Play</a></li>
+            <hr>
+            <li data-icon="false"><a href="#contactPage">Contact Us</a></li>
+        </ul>
+    </div>
+    <!--NAV PANEL-->
+
+    <div data-role="popup" id="newsletterPopup" data-overlay-theme="b" data-dismissible="true">
+        <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+        <div data-role="header">
+            <h1>SUBSCRIBE TO NEWSLETTER</h1>
+        </div>
+
+        <div role="main" class="ui-content newsletterPopupMain">
+            <form id="newsletterForm">
+                <input type="email" name="newsletterTextField" id="newsletterTextField" placeholder="Email Address" value="">
+                <p class="newsletterTextFieldValidation">&nbsp;</p>
+                <input class="newsletterButton" type="submit" value="Sign Up">
+            </form>
+
+            <p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
+
+        </div>
+
+    </div>
+    <!--NEWSLETTER POPUP-->
+
+
+
+    <!--DEPENDENCIES-->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="assets/js/myScript.js"></script>
+    <script src="assets/js/list.min.js"></script>
 </body>
 
 </html>
