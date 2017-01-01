@@ -1,3 +1,36 @@
 .bookingPage {
     margin-top: 50px;
 }
+
+/*The style for the form*/
+
+#bName {
+    font-size:14pt;
+    height:25px;
+    width:100%;
+}
+
+
+#bEmail {
+    font-size:14pt;
+    height:25px;
+    width:100%;
+}
+
+#bInputButton {
+    color: white;
+    opacity: 0.8;
+}
+
+.contactForm {
+    margin-top: 50px;
+}
+
+.transparentButton {
+  opacity: 0.5;
+}
+
+
+.untransparentButton {
+    opacity: 1;
+}
