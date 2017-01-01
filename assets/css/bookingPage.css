@@ -26,6 +26,13 @@
     margin-top: 50px;
 }
 
+#bInputButton {
+    height:55px; 
+    width:100%;
+    color: white;
+    background-color: #4e4e60;
+}
+
 .transparentButton {
   opacity: 0.5;
 }
@@ -34,3 +41,4 @@
 .untransparentButton {
     opacity: 1;
 }
+
