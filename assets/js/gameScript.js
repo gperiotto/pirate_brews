@@ -20,7 +20,7 @@ gamejQuery(document).ready(function ($) {
 	////////////////////////////////////////////////////
 	//Game pave slide animation 
 	$(document).on('pagebeforeshow', '#signIn_page', function () {
-		$(document).on('click', '.gameButton', function () {
+		$(document).on('click', '#gameButton', function () {
 			$.mobile.navigate("#game_page", {
 				transition: "slide"
 			});
