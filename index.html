@@ -13,8 +13,9 @@
 	<link href="assets/css/bookingPage.css" rel="stylesheet" type="text/css">
 
 	<!--jquery UI-->
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+	
 
 
 	<!--jqueryMobile-->
@@ -1157,7 +1158,7 @@
 			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY&callback=initMap">
 			</script>
 -->
-   		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+   		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY"></script>
         
         <script type="text/javascript">
             // When the window has finished loading create our google map below
@@ -1168,8 +1169,8 @@
                 // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
                 var mapOptions = {
                     // How zoomed in you want the map to start at (always required)
-                    zoom: 11,
-					
+                    zoom: 14,
+					minZoom: 3,
 					disableDefaultUI: true,
 
                     // The latitude and longitude to center the map (always required)
