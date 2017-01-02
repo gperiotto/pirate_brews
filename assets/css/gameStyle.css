@@ -1,48 +1,288 @@
 @charset "utf-8";
-/* CSS Document */
 
-body{
+/* GAME CSS Document */
+
+body {
     font-family: 'Open Sans', sans-serif !important;
-    
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+    height: 100%;
 }
 
-[data-role=page]{
+
+/*whole page*/
+
+.ui-panel-wrapper {
+    /*    background: #eaeaea !important;*/
+    background: url(../img/gameBG.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+[data-role=page] {
     height: 100% !important;
     position: relative !important;
+    left: 0;
+    right: 0;
+    overflow: auto;
 }
 
-
-[data-role=header] img{
-    height: 30px;
+[data-role=header] img {
+    height: 35px;
     padding: 0;
+    margin: 0;
     border: 0 !important;
 }
 
-.ui-page .ui-header,
-.ui-page .ui-header h1,
-.ui-page .ui-footer{
-    background: #4e4e60 !important;
-     text-shadow:  none !important;
-    color: white !important;
-    font-weight: 00 !important;
-    
+.ui-page .ui-header h1 {
+    margin: 0px;
+    padding: 0px;
+    padding-top: 3px;
 }
 
-[data-role=footer]{
+a[data-icon=bars],
+a[data-icon=calendar] {
+    border: 0 !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+.ui-page .ui-header h1 a:nth-child(1) {
+    margin: 0;
+    display: block;
+    padding: 0;
+}
+
+
+/*TOP BANNER*/
+
+.ui-page .ui-header {
+    background: rgba(196, 62, 62, 0.65);
+}
+
+.ui-page .ui-footer {
+    background: #4e4e60 !important;
+    text-shadow: none !important;
+    color: white !important;
+    font-weight: 00 !important;
+    border: 0;
+    height: 42px;
+    overflow: visible;
+}
+
+
+/*Content */
+
+[data-role=page] [data-role=content] {
+    background: rgba(234, 234, 234, 0);
+}
+
+[data-role=panel] {
+    background: #32323c !important;
+    text-align: left;
+}
+
+[data-role=panel] li a {
+    margin: 0 !important;
+    padding-left: 5px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    font-size: 20px;
+    background: #32323c !important;
+    border: 0 !important;
+}
+
+[data-role=panel] .panelItemHome {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-block;
+}
+
+[data-role=panel] .panelItemHome p {
+    padding: 0 !important;
+    margin: 15px !important;
+    margin-left: 60px !important;
+    display: block !important;
+    text-align: left;
+    /*    font-weight: 600 !important;*/
+    font-size: 30px;
+}
+
+[data-role=panel] img {
+    display: block !important;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 50px;
+    z-index: 10;
+}
+
+[data-role=panel] ul hr {
+    margin: 0;
+    width: 50%;
+}
+
+[data-role=panel] ul hr:first-of-type {
+    width: 100%;
+    border: 3px solid #ffffff;
+    z-index: 10;
+}
+
+[data-role=footer] {
     bottom: 0;
     position: fixed!important;
     top: auto !important;
     width: 100%;
 }
 
-[data-role=content]{
+[data-role=footer] .footerContainer {
+    display: inline-block;
     margin: 0;
+    padding: 0;
+    height: 42px;
+    width: 100%;
     text-align: center;
 }
 
+[data-role=footer] .footerTaskbar1 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 38px;
+    width: 22%;
+}
 
-[data-role=content] h1{ 
-    font-family: 'Yellowtail', cursive;
-    font-size: 7vmax;
+[data-role=footer] .footerTaskbar2 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 42px;
+    width: 50%;
+}
+
+[data-role=footer] .footerTaskbar3 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    height: 38px;
+    width: 22%;
+}
+
+[data-role=footer] .footerTaskbar1 img {
+    position: relative;
+    display: inline;
+    width: 40px;
+    top: -10px;
+    z-index: 1;
+    /*    overflow: visible !important;*/
+}
+
+[data-role=footer] .footerTaskbar1 p {
+    font-size: 15px;
+    color: #ffffff;
+    text-shadow: 0 !important;
     font-weight: 100;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: block;
+    text-align: center;
+    top: -25px;
+    z-index: 2;
+}
+
+[data-role=footer] .footerTaskbar2 img {
+    margin-left: 5px;
+    margin-right: 5px;
+    position: relative;
+    display: inline;
+    width: 26px;
+    top: -27px;
+}
+
+[data-role=footer] div .footerVerticalRuler {
+    height: 35px;
+    position: relative;
+    top: 4px;
+    border-left: 1px solid #eaeaea;
+    border-right: 1px solid #eaeaea;
+}
+
+[data-role=footer] .footerTaskbar3 img {
+    width: 25px;
+    position: relative;
+    display: inline;
+    top: -15px;
+    z-index: 1;
+}
+
+[data-role=footer] .footerTaskbar3 p {
+    font-size: 14px;
+    color: #ffffff;
+    text-shadow: 0 !important;
+    font-weight: 100;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: block;
+    text-align: center;
+    top: -22px;
+    z-index: 2;
+}
+
+[data-role=footer] a {
+    text-decoration: none;
+}
+
+.stickyFooterFix {
+    padding: 0;
+    margin: 0;
+    height: 60px;
+}
+
+[data-role=popup] {
+    /*    max-width: 400px;*/
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
+
+[data-role=popup] [data-role=header] {
+    box-shadow: 0;
+    border: 0;
+    background: #1a0f0f;
+}
+
+[data-role=popup] [data-role=header] h1 {
+    margin: auto;
+    font-size: 16px;
+    box-shadow: 0;
+    font-weight: 100;
+}
+
+[data-role=popup] [role=main].newsletterPopupMain {
+    background: #4b1111;
+    font-weight: 100 !important;
+}
+
+
+/***************GAME SIGN IN**************/
+
+.formContainer {
+/*
+    margin: auto;
+    width: auto;
+    height: 600px;
+    background: url(../img/mapBG.png) no-repeat center;
+    background-size: contain;
+*/
+}
+
+.formContainer h1{
+    padding-top: 20%;
+    text-align: center;
 }

@@ -18,6 +18,10 @@ body {
     overflow: auto;
 }
 
+.ui-panel-wrapper{
+    background: #eaeaea !important;
+}
+
 [data-role=header] img {
     height: 35px;
     padding: 0;
