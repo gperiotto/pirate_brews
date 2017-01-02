@@ -28,13 +28,19 @@ gamejQuery(document).ready(function ($) {
 	});
 	////////////////////////////////////////////////////
 
+	//highlight game tabs
 	$("#gameFavPopup").popup({
 		afteropen: function (event, ui) {
 			$("#game_page [data-role=footer] .footerTaskbar1 p").css("color", "#f03820");
-			
-//			$("#game_page [data-role=footer] .footerTaskbar1 p").text(" ");
+
+			//			$("#game_page [data-role=footer] .footerTaskbar1 p").text(" ");
 		}
 	});
+
+	////////////////////////////////////////////////////
+
+	
+
 
 
 

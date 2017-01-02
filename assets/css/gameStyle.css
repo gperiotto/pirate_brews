@@ -65,8 +65,13 @@
 
 /*Content */
 
+
 #game_page[data-role=page] [data-role=content] {
+	padding: 0;
+	
 	background: rgba(255, 255, 255, 0);
+	height: 600px !important;
+	width: 100%;
 }
 
 #game_page [data-role=footer] {
@@ -148,6 +153,15 @@
 	padding: 0;
 	margin: 0;
 	height: 60px;
+}
+
+
+
+#map {
+	padding: 0 !important;
+	margin: 0 !important;
+	height: 100%;
+	width: 100%;
 }
 
 

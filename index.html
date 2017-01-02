@@ -13,8 +13,8 @@
 	<link href="assets/css/bookingPage.css" rel="stylesheet" type="text/css">
 
 	<!--jquery UI-->
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
 	<!--jqueryMobile-->
@@ -94,7 +94,7 @@
 								<img class="tvIcon" alt="Clear" src="assets/ico/cancel.png">
 							</button>
 						</div>
-                        
+
 						<ul class="list">
 							<li data-id="1">
 								<a href="#pub_page" id="pubCavendish" class="link name">Old Cavendish</a>
@@ -868,66 +868,62 @@
 			<div class="contactPageTitle">
 				<h1><span>Contact Us</span></h1>
 			</div>
-            <br>
-            <br>
+			<br>
+			<br>
 
 			<div class="contactForm">
-                <form >
+				<form>
 
-                    <input type="text" placeholder="Name" id="cName"  autofocus/>
-                    <label><span>&nbsp;</span>
-                        <br>
-                        <input type="text" placeholder="Email" id="cEmail"  />
-                        <label><span>&nbsp;</span>
-                            <br>
-                            <input type="text" placeholder="Subject" id="cSubject"   />
-                            <label><span>&nbsp;</span>
-                                <br>
-                                <input type="text" placeholder="Message" id="cMessage"   />
-                                <label><span>&nbsp;</span>
-                                    <br>
-                                    <button type="submit" id="cSubmit" >Submit</button>
-                                    
-                                    
-   							
-                                                                      
-                           
-                <script>
-				$(document).ready(function(){
-				$("#cSubmit").click(function(){
-					var name = $("#cName").val();
-					var email = $("#cEmail").val();
-					var subject = $("#cSubject").val();
-					var message= $("#cMessage").val();
-				// Returns successful data submission message when the entered information is stored in database.
-					var dataString = 'name1='+ name + '&email1='+ email + '&subject1='+ subject + '&message1='+ message;
-					if(name==''||email==''||subject==''||message=='')
-					{
-						alert("Please Fill All Fields");
-					}
-					else
-					{
-						// AJAX Code To Submit Form.
-						$.ajax({
-						type: "POST",
-						url: "submit.php",
-						data: dataString,
-						cache: false,
-						success: function(result){
-							alert("Message sent!");
-						window.location.href = "#home_page";							
-					     			}
-									});
-									
-									}
-					return false;
-					});
-									
-					});		
-				
-				</script> 
-                
-              </form> 
+					<input type="text" placeholder="Name" id="cName" autofocus/>
+					<label><span>&nbsp;</span>
+						<br>
+						<input type="text" placeholder="Email" id="cEmail" />
+						<label><span>&nbsp;</span>
+							<br>
+							<input type="text" placeholder="Subject" id="cSubject" />
+							<label><span>&nbsp;</span>
+								<br>
+								<input type="text" placeholder="Message" id="cMessage" />
+								<label><span>&nbsp;</span>
+									<br>
+									<button type="submit" id="cSubmit">Submit</button>
+
+
+
+
+
+									<script>
+										$(document).ready(function () {
+											$("#cSubmit").click(function () {
+												var name = $("#cName").val();
+												var email = $("#cEmail").val();
+												var subject = $("#cSubject").val();
+												var message = $("#cMessage").val();
+												// Returns successful data submission message when the entered information is stored in database.
+												var dataString = 'name1=' + name + '&email1=' + email + '&subject1=' + subject + '&message1=' + message;
+												if (name == '' || email == '' || subject == '' || message == '') {
+													alert("Please Fill All Fields");
+												} else {
+													// AJAX Code To Submit Form.
+													$.ajax({
+														type: "POST",
+														url: "submit.php",
+														data: dataString,
+														cache: false,
+														success: function (result) {
+															alert("Message sent!");
+															window.location.href = "#home_page";
+														}
+													});
+
+												}
+												return false;
+											});
+
+										});
+									</script>
+
+				</form>
 			</div>
 
 
@@ -997,88 +993,84 @@
 			</div>
 
 			<div class="bookingPage">
-				                <form>
-                    <input type="text" placeholder="Name" id="bName" name="bName" autofocus/>
-                    <label><span>&nbsp;</span>
-                        <br>
-                        <input type="text" placeholder="Email" id="bEmail" name="bEmail" />
-                        <label><span>&nbsp;</span>
-                            <br>
-                            <select name="select-native-4" id="bLocationSelector">
-                                <option>Location...</option>                                
-                                    <option value="1">Old Cavendish</option>
-                                    <option value="2">Marylebone</option>
-                                    <option value="3">Little Titchfield</option>
-                                    <option value="4">The Prince Regent</option>
-                                   
-                               
-                            <label><span>&nbsp;</span>
-                                <br>
-                                <br>
-                              
-                               <input type="date" data-role="date" id ="bdate">
+				<form>
+					<input type="text" placeholder="Name" id="bName" name="bName" autofocus/>
+					<label><span>&nbsp;</span>
+						<br>
+						<input type="text" placeholder="Email" id="bEmail" name="bEmail" />
+						<label><span>&nbsp;</span>
+							<br>
+							<select name="select-native-4" id="bLocationSelector">
+								<option>Location...</option>
+								<option value="1">Old Cavendish</option>
+								<option value="2">Marylebone</option>
+								<option value="3">Little Titchfield</option>
+								<option value="4">The Prince Regent</option>
 
-                                <label><span>&nbsp;</span> 
-                                    <br>
-                                                                 
-                                  <button type="submit" id="bSubmit2" name="cInputButton">Book</button>
-                                    <br>
-                                    <br>
-                                	<br>
-                                    
-                    
-                    
-                    
-                    <script>
-                $(document).ready(function(){
-				$("#bSubmit2").click(function(){
-					var name = $("#bName").val();
-					var email = $("#bEmail").val();
-					
-					var e = document.getElementById("bLocationSelector");
-					var location = e.options[e.selectedIndex].text;
-					var date = document.getElementById("bdate").value;
-					
-					console.log(date);
-					console.log(email);
-					console.log(location);
 
-				// Returns successful data submission message when the entered information is stored in database.
-					var dataString = 'name1='+ name + '&email1='+ email + '&location1='+ location + '&date1='+ date;
-					console.log(dataString);
-					if(name==''||email==''||location=='')
-					{
-						alert("Please Fill All Fields");
-					}
-					else
-					{
-						// AJAX Code To Submit Form.
-						$.ajax({
-						type: "POST",
-						url: "submit2.php",
-						data: dataString,
-						cache: false,
-						success: function(result){
-							alert(result); // print result from query in alert comes up with a must string or something 
-							
-						// go second booking page	
-						//window.location.href = "#comfirm_page"; // call on game
-										     			},
-						error : function() {
-    					alert("Error please try again.");
-						}
-									});
-									
-									}
-					return false;
-					});
-									
-					});	
-                    
-                    </script> 
+								<label><span>&nbsp;</span>
+									<br>
+									<br>
+
+									<input type="date" data-role="date" id="bdate">
+
+									<label><span>&nbsp;</span>
+										<br>
+
+										<button type="submit" id="bSubmit2" name="cInputButton">Book</button>
+										<br>
+										<br>
+										<br>
+
+
+
+
+										<script>
+											$(document).ready(function () {
+												$("#bSubmit2").click(function () {
+													var name = $("#bName").val();
+													var email = $("#bEmail").val();
+
+													var e = document.getElementById("bLocationSelector");
+													var location = e.options[e.selectedIndex].text;
+													var date = document.getElementById("bdate").value;
+
+													console.log(date);
+													console.log(email);
+													console.log(location);
+
+													// Returns successful data submission message when the entered information is stored in database.
+													var dataString = 'name1=' + name + '&email1=' + email + '&location1=' + location + '&date1=' + date;
+													console.log(dataString);
+													if (name == '' || email == '' || location == '') {
+														alert("Please Fill All Fields");
+													} else {
+														// AJAX Code To Submit Form.
+														$.ajax({
+															type: "POST",
+															url: "submit2.php",
+															data: dataString,
+															cache: false,
+															success: function (result) {
+																alert(result); // print result from query in alert comes up with a must string or something 
+
+																// go second booking page	
+																//window.location.href = "#comfirm_page"; // call on game
+															},
+															error: function () {
+																alert("Error please try again.");
+															}
+														});
+
+													}
+													return false;
+												});
+
+											});
+										</script>
 				</form>
 
-		
+
 
 
 			</div>
@@ -1146,19 +1138,63 @@
 		<div data-role="content">
 
 
-			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
-			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
-			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
-			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
-			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
-			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
-			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
-			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
+			<div id="map"></div>
+<!--
+			<script>
+			  function initMap() {
+				var uluru = {lat: -25.363, lng: 131.044};
+				var map = new google.maps.Map(document.getElementById('map'), {
+				  zoom: 3,
+				  center: uluru
+				});
+				var marker = new google.maps.Marker({
+				  position: uluru,
+				  map: map
+				});
+			  }
+			</script>
+			
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY&callback=initMap">
+			</script>
+-->
+   		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+        
+        <script type="text/javascript">
+            // When the window has finished loading create our google map below
+            google.maps.event.addDomListener(window, 'load', init);
+        
+            function init() {
+                // Basic options for a simple Google Map
+                // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                var mapOptions = {
+                    // How zoomed in you want the map to start at (always required)
+                    zoom: 11,
+					
+					disableDefaultUI: true,
 
+                    // The latitude and longitude to center the map (always required)
+                    center: new google.maps.LatLng(40.6700, -73.9400), // New York
 
+                    // How you would like to style the map. 
+                    // This is where you would paste any style found on Snazzy Maps.
+                    styles: [{"featureType":"all","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"all","elementType":"labels","stylers":[{"visibility":"off"},{"saturation":"-100"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40},{"visibility":"off"}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"off"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"landscape","elementType":"geometry.fill","stylers":[{"color":"#4d6059"}]},{"featureType":"landscape","elementType":"geometry.stroke","stylers":[{"color":"#4d6059"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"color":"#4d6059"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"lightness":21}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#4d6059"}]},{"featureType":"poi","elementType":"geometry.stroke","stylers":[{"color":"#4d6059"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#7f8d89"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#7f8d89"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#7f8d89"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#7f8d89"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#7f8d89"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"color":"#7f8d89"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#7f8d89"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"color":"#7f8d89"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#2b3638"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#2b3638"},{"lightness":17}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#24282b"}]},{"featureType":"water","elementType":"geometry.stroke","stylers":[{"color":"#24282b"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels.text","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels.icon","stylers":[{"visibility":"off"}]}]
+                };
 
-			<!--This div fixes footer overlaping content -->
-			<!--			<div class="stickyFooterFix"></div>-->
+                // Get the HTML DOM element that will contain your map 
+                // We are using a div with id="map" seen below in the <body>
+                var mapElement = document.getElementById('map');
+
+                // Create the Google Map using our element and options defined above
+                var map = new google.maps.Map(mapElement, mapOptions);
+
+                // Let's also add a marker while we're at it
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(40.6700, -73.9400),
+                    map: map,
+                    title: 'Snazzy!'
+                });
+            }
+        </script>
 
 		</div>
 		<!--CONTENT-->
@@ -1181,7 +1217,7 @@
 						</a>
 					</div>
 				</div>
-				
+
 				<div class="footerTaskbar3">
 					<div class="footerVRuler">
 						<a href="#gameRulesPopup" data-rel="popup" data-position-to="window">
@@ -1358,8 +1394,8 @@
 
 	</div>
 	<!--GAME RULES POPUP-->
-					
-					
+
+
 	<div data-role="popup" id="quitGamePopup" data-overlay-theme="b" data-dismissible="true">
 		<a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 		<div data-role="header">
@@ -1375,7 +1411,7 @@
 	</div>
 	<!--QUIT GAME POPUP-->
 
-	
+
 	<div data-role="popup" id="gameFavPopup" data-overlay-theme="b" data-dismissible="true">
 		<a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 		<div data-role="header">
@@ -1391,7 +1427,7 @@
 
 	</div>
 	<!--GAME FAV POPUP-->
-	
+
 
 	<!--DEPENDENCIES-->
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
