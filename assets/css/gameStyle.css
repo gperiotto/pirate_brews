@@ -2,18 +2,9 @@
 
 /* GAME CSS Document */
 
-body {
-    font-family: 'Open Sans', sans-serif !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    overflow: hidden;
-    height: 100%;
-}
-
 
 /*whole page*/
-
-.ui-panel-wrapper {
+#signIn_page .ui-panel-wrapper {
     /*    background: #eaeaea !important;*/
     background: url(../img/gameBG.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -22,7 +13,7 @@ body {
     background-size: cover;
 }
 
-[data-role=page] {
+#signIn_page[data-role=page] {
     height: 100% !important;
     position: relative !important;
     left: 0;
@@ -30,27 +21,27 @@ body {
     overflow: auto;
 }
 
-[data-role=header] img {
+#signIn_page [data-role=header] img {
     height: 35px;
     padding: 0;
     margin: 0;
     border: 0 !important;
 }
 
-.ui-page .ui-header h1 {
+#signIn_page.ui-page .ui-header h1 {
     margin: 0px;
     padding: 0px;
     padding-top: 3px;
 }
 
-a[data-icon=bars],
-a[data-icon=calendar] {
+#signIn_page a[data-icon=bars],
+#signIn_page a[data-icon=calendar] {
     border: 0 !important;
     box-shadow: none !important;
     background-color: transparent !important;
 }
 
-.ui-page .ui-header h1 a:nth-child(1) {
+#signIn_page.ui-page .ui-header h1 a:nth-child(1) {
     margin: 0;
     display: block;
     padding: 0;
@@ -59,11 +50,11 @@ a[data-icon=calendar] {
 
 /*TOP BANNER*/
 
-.ui-page .ui-header {
+#signIn_page.ui-page .ui-header {
     background: rgba(196, 62, 62, 0.65);
 }
 
-.ui-page .ui-footer {
+#signIn_page.ui-page .ui-footer {
     background: #4e4e60 !important;
     text-shadow: none !important;
     color: white !important;
@@ -76,8 +67,8 @@ a[data-icon=calendar] {
 
 /*Content */
 
-[data-role=page] [data-role=content] {
-    background: rgba(234, 234, 234, 0);
+#signIn_page[data-role=page] [data-role=content] {
+    background: rgba(255, 255, 255, 0);
 }
 
 [data-role=panel] {

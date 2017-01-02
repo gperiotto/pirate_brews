@@ -7,8 +7,8 @@ gamejQuery(document).ready(function ($) {
     //Instantiate global newsletterPopup
     $("#newsletterPopup").enhanceWithin().popup();
 
-    //Instantiate global menuPanel
-    $("#navPanel").panel().enhanceWithin();
+    //Instantiate GAME menuPanel
+    $("#gameNavPanel").panel().enhanceWithin();
 
 
 

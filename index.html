@@ -8,6 +8,7 @@
 
 	<!--css-->
 	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/gameStyle.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/contactPage.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/bookingPage.css" rel="stylesheet" type="text/css">
 
@@ -1054,18 +1055,18 @@
 			<h1>
             <a href="#home_page"><img src="assets/ico/small_logo.png"></a>
         </h1>
-			<a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
+			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
 			<a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a>
 		</div>
 		<!--HEADER END -->
 		<div data-role="content">
 
-			
+
 			<div>
-			Sign in
+				Sign in
 			</div>
-			
-			
+
+
 			<!--This div fixes footer overlaping content -->
 			<div class="stickyFooterFix"></div>
 
@@ -1136,6 +1137,32 @@
 	</div>
 	<!--NAV PANEL-->
 
+
+
+	<div data-role="panel" data-position-fixed="true" data-theme="b" id="gameNavPanel">
+		<ul data-role="listview" data-theme="b" class="nav-search">
+			<li data-icon="false">
+
+				<a href="#home_page" class="panelItemHome"><img src="assets/ico/small_logo.png">
+					<p>Home</p>
+				</a>
+			</li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+		</ul>
+	</div>
+	<!--GAME NAV PANEL-->
+
 	<div data-role="popup" id="newsletterPopup" data-overlay-theme="b" data-dismissible="true">
 		<a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 		<div data-role="header">
@@ -1163,6 +1190,7 @@
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script src="assets/js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="assets/js/myScript.js"></script>
+	<script type="text/javascript" src="assets/js/gameScript.js"></script>
 	<script src="assets/js/list.min.js"></script>
 </body>
 
