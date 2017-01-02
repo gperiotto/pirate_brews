@@ -182,7 +182,7 @@
 
 			<div class="footerContainer">
 				<div class="footerTaskbar1">
-					<a href="#panel-fixed-page1">
+					<a href="#signIn_page">
 						<img id="playGame" src="assets/ico/playGame.png">
 						<p>Play!</p>
 					</a>
@@ -233,8 +233,9 @@
 
 			<!--page Title-->
 			<div class="pageTitle">
-				<span style="font-size: 40px; background-color: #eaeaea; padding: 0 10px;"> Our Pubs
-</span>
+				<span style="font-size: 40px; background-color: #eaeaea; padding: 0 10px;">
+					Our Pubs
+				</span>
 			</div>
 
 			<h2>Learn more about our pubs!</h2>
@@ -287,7 +288,7 @@
 
 			<div class="footerContainer">
 				<div class="footerTaskbar1">
-					<a href="#panel-fixed-page1">
+					<a href="#signIn_page">
 						<img id="playGame" src="assets/ico/playGame.png">
 						<p>Play!</p>
 					</a>
@@ -372,7 +373,7 @@
 
 			<div class="footerContainer">
 				<div class="footerTaskbar1">
-					<a href="#panel-fixed-page1">
+					<a href="#signIn_page">
 						<img id="playGame" src="assets/ico/playGame.png">
 						<p>Play!</p>
 					</a>
@@ -813,7 +814,7 @@
 
 			<div class="footerContainer">
 				<div class="footerTaskbar1">
-					<a href="#panel-fixed-page1">
+					<a href="#signIn_page">
 						<img id="playGame" src="assets/ico/playGame.png">
 						<p>Play!</p>
 					</a>
@@ -899,7 +900,7 @@
 
 			<div class="footerContainer">
 				<div class="footerTaskbar1">
-					<a href="#panel-fixed-page1">
+					<a href="#signIn_page">
 						<img id="playGame" src="assets/ico/playGame.png">
 						<p>Play!</p>
 					</a>
@@ -1009,7 +1010,7 @@
 
 			<div class="footerContainer">
 				<div class="footerTaskbar1">
-					<a href="#panel-fixed-page1">
+					<a href="#signIn_page">
 						<img id="playGame" src="assets/ico/playGame.png">
 						<p>Play!</p>
 					</a>
@@ -1046,10 +1047,9 @@
 
 
 
-	<!--************_GAME PAGES BELLOW_************-->
-
 	<div data-role="page" class="ui-responsive-panel" id="signIn_page">
 
+<!--
 		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
 
 			<h1>
@@ -1058,49 +1058,49 @@
 			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
 			<a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a>
 		</div>
+-->
 		<!--HEADER END -->
+		
 		<div data-role="content">
 
 
-			<div>
-				Sign in
+			<div class="signInContainer">
+				<div class="innerContent">
+					<img class="gameFormLogo" src="assets/ico/text_logo.png">
+					<h3>Email</h3>
+					<h3>Password</h3>
+					<button class="gameButton">Sign in!</button>
+					<button class="signUpButton">Sign Up!</button>
+				</div>
+				
 			</div>
 
 
 			<!--This div fixes footer overlaping content -->
-			<div class="stickyFooterFix"></div>
+<!--			<div class="stickyFooterFix"></div>-->
 
 		</div>
 		<!--CONTENT-->
 
-		<div data-role="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false">
 
 			<div class="footerContainer">
 				<div class="footerTaskbar1">
-					<a href="#panel-fixed-page1">
-						<img id="playGame" src="assets/ico/playGame.png">
-						<p>Play!</p>
+					<a href="#home_page">
+						<img id="back" src="assets/ico/backArrow.png">
+						<p>Back</p>
 					</a>
 				</div>
 
 				<div class="footerTaskbar2">
 					<div class="footerVerticalRuler"></div>
-					<a href="#">
-						<img src="assets/ico/facebook_Icon.png">
-					</a>
-					<a href="#">
-						<img src="assets/ico/instagram_Icon.png">
-					</a>
-					<a href="#">
-						<img src="assets/ico/twitter_Icon.png">
-					</a>
 					<div class="footerVerticalRuler"></div>
 				</div>
 
 				<div class="footerTaskbar3">
-					<a href="#newsletterPopup" data-rel="popup" data-position-to="window">
-						<img src="assets/ico/newsletter300px.png">
-						<p>Newsletter</p>
+					<a href="#gameRulesPopup" data-rel="popup" data-position-to="window">
+						<img src="assets/ico/rules.png">
+						<p>Rules</p>
 					</a>
 				</div>
 			</div>
@@ -1109,7 +1109,7 @@
 		<!--FOOTER-->
 
 	</div>
-	<!--PAGE SAMPLE-->
+	<!--GAME SIGN IN PAGE-->
 
 
 
@@ -1183,6 +1183,21 @@
 	</div>
 	<!--NEWSLETTER POPUP-->
 
+	<div data-role="popup" id="gameRulesPopup" data-overlay-theme="b" data-dismissible="true">
+		<a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>gameRulesPopup</h1>
+		</div>
+
+		<div role="main" class="ui-content newsletterPopupMain">
+			
+
+			<p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
+
+		</div>
+
+	</div>
+	<!--GAME RULES POPUP-->				
 
 
 	<!--DEPENDENCIES-->

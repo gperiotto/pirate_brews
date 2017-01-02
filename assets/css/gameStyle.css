@@ -4,248 +4,280 @@
 
 
 /*whole page*/
+
 #signIn_page .ui-panel-wrapper {
-    /*    background: #eaeaea !important;*/
-    background: url(../img/gameBG.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+	/*    background: #eaeaea !important;*/
+	background: url(../img/gameBG.jpg) no-repeat center center fixed ;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 #signIn_page[data-role=page] {
-    height: 100% !important;
-    position: relative !important;
-    left: 0;
-    right: 0;
-    overflow: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+	height: 100% !important;
+	position: relative !important;
+	left: 0;
+	right: 0;
+	overflow: auto;
 }
 
 #signIn_page [data-role=header] img {
-    height: 35px;
-    padding: 0;
-    margin: 0;
-    border: 0 !important;
+	height: 35px;
+	padding: 0;
+	margin: 0;
+	border: 0 !important;
 }
 
 #signIn_page.ui-page .ui-header h1 {
-    margin: 0px;
-    padding: 0px;
-    padding-top: 3px;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 3px;
 }
 
 #signIn_page a[data-icon=bars],
 #signIn_page a[data-icon=calendar] {
-    border: 0 !important;
-    box-shadow: none !important;
-    background-color: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	background-color: transparent !important;
 }
 
 #signIn_page.ui-page .ui-header h1 a:nth-child(1) {
-    margin: 0;
-    display: block;
-    padding: 0;
+	margin: 0;
+	display: block;
+	padding: 0;
 }
 
 
 /*TOP BANNER*/
 #signIn_page.ui-page .ui-header {
-    background: rgba(196, 62, 62, 0.65);
+	background: rgba(196, 62, 62, 0.65);
 }
 
 #signIn_page.ui-page .ui-footer {
-    background: #4e4e60 !important;
-    text-shadow: none !important;
-    color: white !important;
-    font-weight: 00 !important;
-    border: 0;
-    height: 42px;
-    overflow: visible;
+	background: #4e4e60 !important;
+	text-shadow: none !important;
+	color: white !important;
+	font-weight: 00 !important;
+	border: 0;
+	height: 42px;
+	overflow: visible;
 }
 
 
 /*Content */
 #signIn_page[data-role=page] [data-role=content] {
-    background: rgba(255, 255, 255, 0);
+	background: rgba(255, 255, 255, 0);
 }
 
 #signIn_page [data-role=footer] {
-    bottom: 0;
-    position: fixed!important;
-    top: auto !important;
-    width: 100%;
+	bottom: 0;
+	position: fixed!important;
+	top: auto !important;
+	width: 100%;
 }
 
 #signIn_page [data-role=footer] .footerContainer {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    height: 42px;
-    width: 100%;
-    text-align: center;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	height: 42px;
+	width: 100%;
+	text-align: center;
 }
 
- #signIn_page[data-role=footer] .footerTaskbar1 {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    height: 38px;
-    width: 22%;
+#signIn_page [data-role=footer] .footerTaskbar1 {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	height: 43px;
+	width: 22%;
 }
 
 #signIn_page [data-role=footer] .footerTaskbar2 {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    height: 42px;
-    width: 50%;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	height: 42px;
+	width: 50%;
 }
 
 #signIn_page [data-role=footer] .footerTaskbar3 {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    height: 38px;
-    width: 22%;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	height: 40px;
+	width: 22%;
 }
 
-[data-role=footer] .footerTaskbar1 img {
-    position: relative;
-    display: inline;
-    width: 40px;
-    top: -10px;
-    z-index: 1;
-    /*    overflow: visible !important;*/
+#signIn_page [data-role=footer] .footerTaskbar1 img {
+	width: 25px;
+	position: relative;
+	display: inline;
+	top: 0px;
+	z-index: 1;
 }
 
-[data-role=footer] .footerTaskbar1 p {
-    font-size: 15px;
-    color: #ffffff;
-    text-shadow: 0 !important;
-    font-weight: 100;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    display: block;
-    text-align: center;
-    top: -25px;
-    z-index: 2;
+#signIn_page [data-role=footer] .footerTaskbar1 p {
+	font-size: 15px;
+	color: #ffffff;
+	text-shadow: 0 !important;
+	font-weight: 100;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	display: block;
+	text-align: center;
+	top: -5px;
+	z-index: 2;
 }
 
-[data-role=footer] .footerTaskbar2 img {
-    margin-left: 5px;
-    margin-right: 5px;
-    position: relative;
-    display: inline;
-    width: 26px;
-    top: -27px;
+#signIn_page [data-role=footer] .footerTaskbar2 img {
+	margin-left: 5px;
+	margin-right: 5px;
+	position: relative;
+	display: inline;
+	width: 26px;
+	top: -27px;
 }
 
-[data-role=footer] div .footerVerticalRuler {
-    height: 35px;
-    position: relative;
-    top: 4px;
-    border-left: 1px solid #eaeaea;
-    border-right: 1px solid #eaeaea;
+#signIn_page [data-role=footer] div .footerVerticalRuler {
+	height: 35px;
+	position: relative;
+	top: 0px;
+	border-left: 1px solid #eaeaea;
+	border-right: 1px solid #eaeaea;
 }
 
-[data-role=footer] .footerTaskbar3 img {
-    width: 25px;
-    position: relative;
-    display: inline;
-    top: -15px;
-    z-index: 1;
+#signIn_page [data-role=footer] .footerTaskbar3 img {
+	width: 25px;
+	position: relative;
+	display: inline;
+	top: -0px;
+	z-index: 1;
 }
 
-[data-role=footer] .footerTaskbar3 p {
-    font-size: 14px;
-    color: #ffffff;
-    text-shadow: 0 !important;
-    font-weight: 100;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    display: block;
-    text-align: center;
-    top: -22px;
-    z-index: 2;
+#signIn_page [data-role=footer] .footerTaskbar3 p {
+	font-size: 14px;
+	color: #ffffff;
+	text-shadow: 0 !important;
+	font-weight: 100;
+	padding: 0;
+	margin: 0;
+	position: relative;
+	display: block;
+	text-align: center;
+	top: -5px;
+	bottom: 0;
+	z-index: 2;
 }
 
-[data-role=footer] a {
-    text-decoration: none;
+#signIn_page [data-role=footer] a {
+	text-decoration: none;
 }
 
-.stickyFooterFix {
-    padding: 0;
-    margin: 0;
-    height: 60px;
+#signIn_page.stickyFooterFix {
+	padding: 0;
+	margin: 0;
+	height: 60px;
 }
+
 
 /***************GAME NAV**************/
 
 #gameNavPanel[data-role=panel] {
-    background: #32323c !important;
-    text-align: left;
+	background: #32323c !important;
+	text-align: left;
 }
 
 #gameNavPanel[data-role=panel] li a {
-    margin: 0 !important;
-    padding-left: 5px;
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
-    font-size: 20px;
-    background: #32323c !important;
-    border: 0 !important;
+	margin: 0 !important;
+	padding-left: 5px;
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+	font-size: 20px;
+	background: #32323c !important;
+	border: 0 !important;
 }
 
 #gameNavPanel[data-role=panel] .panelItemHome {
-    padding: 0 !important;
-    margin: 0 !important;
-    display: inline-block;
+	padding: 0 !important;
+	margin: 0 !important;
+	display: inline-block;
 }
 
 #gameNavPanel[data-role=panel] .panelItemHome p {
-    padding: 0 !important;
-    margin: 15px !important;
-    margin-left: 60px !important;
-    display: block !important;
-    text-align: left;
-    /*    font-weight: 600 !important;*/
-    font-size: 30px;
+	padding: 0 !important;
+	margin: 15px !important;
+	margin-left: 60px !important;
+	display: block !important;
+	text-align: left;
+	/*    font-weight: 600 !important;*/
+	font-size: 30px;
 }
 
 #gameNavPanel[data-role=panel] img {
-    display: block !important;
-    margin-top: 10px;
-    margin-left: 5px;
-    width: 50px;
-    z-index: 10;
+	display: block !important;
+	margin-top: 10px;
+	margin-left: 5px;
+	width: 50px;
+	z-index: 10;
 }
 
 #gameNavPanel[data-role=panel] ul hr {
-    margin: 0;
-    width: 50%;
+	margin: 0;
+	width: 50%;
 }
 
 #gameNavPanel[data-role=panel] ul hr:first-of-type {
-    width: 100%;
-    border: 3px solid #ffffff;
-    z-index: 10;
+	width: 100%;
+	border: 3px solid #ffffff;
+	z-index: 10;
 }
+
 
 /***************GAME SIGN IN**************/
 
-.formContainer {
-/*
-    margin: auto;
-    width: auto;
-    height: 600px;
-    background: url(../img/mapBG.png) no-repeat center;
-    background-size: contain;
-*/
+.signInContainer {
+	margin: auto;
+	width: auto;
+	height: 500px;
+	background: url(../img/mapBG.png) no-repeat center;
+	background-size: contain;
+/*	opacity: 0.8;*/
 }
 
-.formContainer h1{
-    padding-top: 20%;
-    text-align: center;
+.signInContainer img{
+	
+}
+
+/*ADJUST THIS TO MOVE ELEMENTS UP AND DOWN*/
+
+.innerContent {
+	text-align: center;
+	position: relative;
+	top: 10%;
+}
+
+.gameFormLogo {
+	margin: auto;
+	display: block;
+	width: 80%;
+}
+
+.gameButton,
+.signUpButton{
+	padding: 0 !important;
+	margin: 0 !important;
+	margin: auto!important;
+	margin-top: 20px !important;
+	width: 100px !important;
+	height: 30px;
+	border: 0!important;
+	border-radius: 0!important;
+	background: #4e4e60 !important;
+	color: white!important;
+	text-shadow: 0 0px 0 #000 !important;
 }

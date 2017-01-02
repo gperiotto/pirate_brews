@@ -18,6 +18,15 @@ body {
     overflow: auto;
 }
 
+#home_page .ui-panel-wrapper,
+#pub_page .ui-panel-wrapper,
+#about_page .ui-panel-wrapper,
+#menu_page .ui-panel-wrapper,
+#contactPage .ui-panel-wrapper,
+#bookingPage .ui-panel-wrapper{
+	background: #eaeaea !important;
+}
+
 [data-role=header] img {
     height: 35px;
     padding: 0;
