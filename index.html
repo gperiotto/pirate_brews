@@ -13,8 +13,8 @@
 	<link href="assets/css/bookingPage.css" rel="stylesheet" type="text/css">
 
 	<!--jquery UI-->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
 	<!--jqueryMobile-->
@@ -94,7 +94,7 @@
 								<img class="tvIcon" alt="Clear" src="assets/ico/cancel.png">
 							</button>
 						</div>
-
+                        
 						<ul class="list">
 							<li data-id="1">
 								<a href="#pub_page" id="pubCavendish" class="link name">Old Cavendish</a>
@@ -868,25 +868,66 @@
 			<div class="contactPageTitle">
 				<h1><span>Contact Us</span></h1>
 			</div>
+            <br>
+            <br>
 
 			<div class="contactForm">
-				<form action="JavaScript:doFormValidation()">
+                <form >
 
-					<input type="text" placeholder="Name" id="cName" name="cName" value="" autofocus/>
-					<label><span>&nbsp;</span>
-						<br>
-						<input type="text" placeholder="Email" id="cEmail" name="cEmail" value="" />
-						<label><span>&nbsp;</span>
-							<br>
-							<input type="text" placeholder="Subject" id="cSubject" name="cSubject" value="" />
-							<label><span>&nbsp;</span>
-								<br>
-								<input type="text" placeholder="Message" id="cMessage" name="cMessage" value="" />
-								<label><span>&nbsp;</span>
-									<br>
-									<button type="submit" id="cInputButton" name="cInputButton">Submit</button>
-
-				</form>
+                    <input type="text" placeholder="Name" id="cName"  autofocus/>
+                    <label><span>&nbsp;</span>
+                        <br>
+                        <input type="text" placeholder="Email" id="cEmail"  />
+                        <label><span>&nbsp;</span>
+                            <br>
+                            <input type="text" placeholder="Subject" id="cSubject"   />
+                            <label><span>&nbsp;</span>
+                                <br>
+                                <input type="text" placeholder="Message" id="cMessage"   />
+                                <label><span>&nbsp;</span>
+                                    <br>
+                                    <button type="submit" id="cSubmit" >Submit</button>
+                                    
+                                    
+   							
+                                                                      
+                           
+                <script>
+				$(document).ready(function(){
+				$("#cSubmit").click(function(){
+					var name = $("#cName").val();
+					var email = $("#cEmail").val();
+					var subject = $("#cSubject").val();
+					var message= $("#cMessage").val();
+				// Returns successful data submission message when the entered information is stored in database.
+					var dataString = 'name1='+ name + '&email1='+ email + '&subject1='+ subject + '&message1='+ message;
+					if(name==''||email==''||subject==''||message=='')
+					{
+						alert("Please Fill All Fields");
+					}
+					else
+					{
+						// AJAX Code To Submit Form.
+						$.ajax({
+						type: "POST",
+						url: "submit.php",
+						data: dataString,
+						cache: false,
+						success: function(result){
+							alert("Message sent!");
+						window.location.href = "#home_page";							
+					     			}
+									});
+									
+									}
+					return false;
+					});
+									
+					});		
+				
+				</script> 
+                
+              </form> 
 			</div>
 
 
@@ -956,44 +997,88 @@
 			</div>
 
 			<div class="bookingPage">
-				<form action="JavaScript:doThisShit()">
+				                <form>
+                    <input type="text" placeholder="Name" id="bName" name="bName" autofocus/>
+                    <label><span>&nbsp;</span>
+                        <br>
+                        <input type="text" placeholder="Email" id="bEmail" name="bEmail" />
+                        <label><span>&nbsp;</span>
+                            <br>
+                            <select name="select-native-4" id="bLocationSelector">
+                                <option>Location...</option>                                
+                                    <option value="1">Old Cavendish</option>
+                                    <option value="2">Marylebone</option>
+                                    <option value="3">Little Titchfield</option>
+                                    <option value="4">The Prince Regent</option>
+                                   
+                               
+                            <label><span>&nbsp;</span>
+                                <br>
+                                <br>
+                              
+                               <input type="date" data-role="date" id ="bdate">
 
-					<input onclick="changeopacity()" type="text" placeholder="Name" id="bName" name="bName" value="" autofocus/>
-					<br>
-					<input type="text" placeholder="Email" id="bEmail" name="bEmail" value="" />
-					<br>
-					<select name="select-native-4" id="locationSelector">
-						<option>Location...</option>
-						<optgroup label="London">
-							<option value="1">The 1st Option</option>
-							<option value="2">The 2nd Option</option>
-							<option value="3">The 3rd Option</option>
-							<option value="4">The 4th Option</option>
-						</optgroup>
-					</select>
-					<br>
-					<input type="date" data-role="date">
-					<br>
-					<select name="select-native-4" id="timesAvaliable">
-						<option>Time...</option>
-						<!--it will be populated with data from the database-->
-						<option value="1">The 1st Option</option>
-						<option value="2">The 2nd Option</option>
-						<option value="3">The 3rd Option</option>
-						<option value="4">The 4th Option</option>
-					</select>
-					<br>
-					<div id="transparentButton" class="transparentButton">
-						<button type="submit" id="bInputButton" name="bInputButton">Book</button>
-					</div>
+                                <label><span>&nbsp;</span> 
+                                    <br>
+                                                                 
+                                  <button type="submit" id="bSubmit2" name="cInputButton">Book</button>
+                                    <br>
+                                    <br>
+                                	<br>
+                                    
+                    
+                    
+                    
+                    <script>
+                $(document).ready(function(){
+				$("#bSubmit2").click(function(){
+					var name = $("#bName").val();
+					var email = $("#bEmail").val();
+					
+					var e = document.getElementById("bLocationSelector");
+					var location = e.options[e.selectedIndex].text;
+					var date = document.getElementById("bdate").value;
+					
+					console.log(date);
+					console.log(email);
+					console.log(location);
+
+				// Returns successful data submission message when the entered information is stored in database.
+					var dataString = 'name1='+ name + '&email1='+ email + '&location1='+ location + '&date1='+ date;
+					console.log(dataString);
+					if(name==''||email==''||location=='')
+					{
+						alert("Please Fill All Fields");
+					}
+					else
+					{
+						// AJAX Code To Submit Form.
+						$.ajax({
+						type: "POST",
+						url: "submit2.php",
+						data: dataString,
+						cache: false,
+						success: function(result){
+							alert(result); // print result from query in alert comes up with a must string or something 
+							
+						// go second booking page	
+						//window.location.href = "#comfirm_page"; // call on game
+										     			},
+						error : function() {
+    					alert("Error please try again.");
+						}
+									});
+									
+									}
+					return false;
+					});
+									
+					});	
+                    
+                    </script> 
 				</form>
 
-				<script>
-					function changeopacity() {
-						console.log("yap");
-						document.getElementById("transparentButton").className = "untransparentButton";
-					};
-				</script>
+		
 
 
 			</div>
