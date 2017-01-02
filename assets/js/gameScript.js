@@ -27,6 +27,17 @@ gamejQuery(document).ready(function ($) {
 		});
 	});
 	////////////////////////////////////////////////////
+	
+	////////////////////////////////////////////////////
+	//sign up to game
+	$(document).on('pagebeforeshow', '#signUp_page', function () {
+		$(document).on('click', '#gameButton', function () {
+			$.mobile.navigate("#game_page", {
+				transition: "slide"
+			});
+		});
+	});
+	////////////////////////////////////////////////////
 
 	//highlight game tabs
 	$("#gameFavPopup").popup({
