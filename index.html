@@ -1046,10 +1046,85 @@
 	<!--****************************************BOOKING PAGE END**************************************************-->
 
 
+	<div data-role="page" class="ui-responsive-panel" id="game_page">
+
+		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+
+			<h1>
+            <a href=""><img src="assets/ico/small_logo.png"></a>
+        </h1>
+			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
+			<a href="#quitGamePopup" data-icon="home" data-iconpos="notext" data-rel="popup" data-position-to="window">Home</a>
+		</div>
+		<!--HEADER END -->
+
+		<div data-role="content">
+
+
+			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
+			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
+			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
+			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
+			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
+			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
+			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
+			<div>GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME GAME </div>
+
+
+
+			<!--This div fixes footer overlaping content -->
+			<!--			<div class="stickyFooterFix"></div>-->
+
+		</div>
+		<!--CONTENT-->
+
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#gameFavPopup" data-rel="popup" data-position-to="window">
+						<img id="" src="assets/ico/star.png">
+						<p>Favourites</p>
+					</a>
+				</div>
+
+				<div class="footerTaskbar2">
+					<div class="footerVRuler1">
+						<a href="#gameRulesPopup" data-rel="popup" data-position-to="window">
+							<img id="" src="assets/ico/bag.png">
+							<p>Shop</p>
+						</a>
+					</div>
+				</div>
+				
+				<div class="footerTaskbar3">
+					<div class="footerVRuler">
+						<a href="#gameRulesPopup" data-rel="popup" data-position-to="window">
+							<img id="" src="assets/ico/map.png">
+							<p>Hints</p>
+						</a>
+					</div>
+				</div>
+
+				<div class="footerTaskbar4">
+					<a href="#gameRulesPopup" data-rel="popup" data-position-to="window">
+						<img src="assets/ico/achievement.png">
+						<p>Achievement</p>
+					</a>
+				</div>
+			</div>
+
+		</div>
+		<!--FOOTER-->
+
+	</div>
+	<!--MAIN GAME PAGE-->
+
+
 
 	<div data-role="page" class="ui-responsive-panel" id="signIn_page">
 
-<!--
+		<!--
 		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
 
 			<h1>
@@ -1060,7 +1135,7 @@
 		</div>
 -->
 		<!--HEADER END -->
-		
+
 		<div data-role="content">
 
 
@@ -1072,12 +1147,12 @@
 					<button class="gameButton">Sign in!</button>
 					<button class="signUpButton">Sign Up!</button>
 				</div>
-				
+
 			</div>
 
 
 			<!--This div fixes footer overlaping content -->
-<!--			<div class="stickyFooterFix"></div>-->
+			<!--			<div class="stickyFooterFix"></div>-->
 
 		</div>
 		<!--CONTENT-->
@@ -1190,15 +1265,48 @@
 		</div>
 
 		<div role="main" class="ui-content newsletterPopupMain">
-			
+
 
 			<p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
 
 		</div>
 
 	</div>
-	<!--GAME RULES POPUP-->				
+	<!--GAME RULES POPUP-->
+					
+					
+	<div data-role="popup" id="quitGamePopup" data-overlay-theme="b" data-dismissible="true">
+		<a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>Quit the game?</h1>
+		</div>
 
+		<div role="main" class="ui-content newsletterPopupMain">
+			<p>QUIT?</p>
+			<a href="#home_page">Yes</a>
+			<a href="#" data-rel="back">No</a>
+		</div>
+
+	</div>
+	<!--QUIT GAME POPUP-->
+
+	
+	<div data-role="popup" id="gameFavPopup" data-overlay-theme="b" data-dismissible="true">
+		<a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>FAVOURITES</h1>
+		</div>
+
+		<div role="main" class="ui-content newsletterPopupMain">
+
+
+			<p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
+
+		</div>
+
+	</div>
+	<!--GAME FAV POPUP-->
+	
 
 	<!--DEPENDENCIES-->
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
