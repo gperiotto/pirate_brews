@@ -49,7 +49,6 @@
 
 
 /*TOP BANNER*/
-
 #signIn_page.ui-page .ui-header {
     background: rgba(196, 62, 62, 0.65);
 }
@@ -66,69 +65,18 @@
 
 
 /*Content */
-
 #signIn_page[data-role=page] [data-role=content] {
     background: rgba(255, 255, 255, 0);
 }
 
-[data-role=panel] {
-    background: #32323c !important;
-    text-align: left;
-}
-
-[data-role=panel] li a {
-    margin: 0 !important;
-    padding-left: 5px;
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
-    font-size: 20px;
-    background: #32323c !important;
-    border: 0 !important;
-}
-
-[data-role=panel] .panelItemHome {
-    padding: 0 !important;
-    margin: 0 !important;
-    display: inline-block;
-}
-
-[data-role=panel] .panelItemHome p {
-    padding: 0 !important;
-    margin: 15px !important;
-    margin-left: 60px !important;
-    display: block !important;
-    text-align: left;
-    /*    font-weight: 600 !important;*/
-    font-size: 30px;
-}
-
-[data-role=panel] img {
-    display: block !important;
-    margin-top: 10px;
-    margin-left: 5px;
-    width: 50px;
-    z-index: 10;
-}
-
-[data-role=panel] ul hr {
-    margin: 0;
-    width: 50%;
-}
-
-[data-role=panel] ul hr:first-of-type {
-    width: 100%;
-    border: 3px solid #ffffff;
-    z-index: 10;
-}
-
-[data-role=footer] {
+#signIn_page [data-role=footer] {
     bottom: 0;
     position: fixed!important;
     top: auto !important;
     width: 100%;
 }
 
-[data-role=footer] .footerContainer {
+#signIn_page [data-role=footer] .footerContainer {
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -137,7 +85,7 @@
     text-align: center;
 }
 
-[data-role=footer] .footerTaskbar1 {
+ #signIn_page[data-role=footer] .footerTaskbar1 {
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -145,7 +93,7 @@
     width: 22%;
 }
 
-[data-role=footer] .footerTaskbar2 {
+#signIn_page [data-role=footer] .footerTaskbar2 {
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -153,7 +101,7 @@
     width: 50%;
 }
 
-[data-role=footer] .footerTaskbar3 {
+#signIn_page [data-role=footer] .footerTaskbar3 {
     display: inline-block;
     margin: 0;
     padding: 0;
@@ -233,33 +181,57 @@
     height: 60px;
 }
 
-[data-role=popup] {
-    /*    max-width: 400px;*/
-    margin: 0;
-    padding: 0;
-    text-align: center;
+/***************GAME NAV**************/
+
+#gameNavPanel[data-role=panel] {
+    background: #32323c !important;
+    text-align: left;
+}
+
+#gameNavPanel[data-role=panel] li a {
+    margin: 0 !important;
+    padding-left: 5px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    font-size: 20px;
+    background: #32323c !important;
     border: 0 !important;
-    border-radius: 0 !important;
 }
 
-[data-role=popup] [data-role=header] {
-    box-shadow: 0;
-    border: 0;
-    background: #1a0f0f;
+#gameNavPanel[data-role=panel] .panelItemHome {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline-block;
 }
 
-[data-role=popup] [data-role=header] h1 {
-    margin: auto;
-    font-size: 16px;
-    box-shadow: 0;
-    font-weight: 100;
+#gameNavPanel[data-role=panel] .panelItemHome p {
+    padding: 0 !important;
+    margin: 15px !important;
+    margin-left: 60px !important;
+    display: block !important;
+    text-align: left;
+    /*    font-weight: 600 !important;*/
+    font-size: 30px;
 }
 
-[data-role=popup] [role=main].newsletterPopupMain {
-    background: #4b1111;
-    font-weight: 100 !important;
+#gameNavPanel[data-role=panel] img {
+    display: block !important;
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 50px;
+    z-index: 10;
 }
 
+#gameNavPanel[data-role=panel] ul hr {
+    margin: 0;
+    width: 50%;
+}
+
+#gameNavPanel[data-role=panel] ul hr:first-of-type {
+    width: 100%;
+    border: 3px solid #ffffff;
+    z-index: 10;
+}
 
 /***************GAME SIGN IN**************/
 
