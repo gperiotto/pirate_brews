@@ -5,8 +5,13 @@
 
 /***************GAME SIGN IN**************/
 
+/*PAGE PANEL WRAPPER*/
 #game_page .ui-panel-wrapper {
 	background: rgb(12, 56, 50) !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	height: 100% !important;
+	width: auto!important;
 }
 
 #game_page[data-role=page] {
@@ -70,7 +75,7 @@
 	padding: 0;
 	
 	background: rgba(255, 255, 255, 0);
-	height: 600px !important;
+	height: 100% !important;
 	width: 100%;
 }
 
@@ -156,12 +161,16 @@
 }
 
 
-
 #map {
 	padding: 0 !important;
 	margin: 0 !important;
-	height: 100%;
-	width: 100%;
+	height: 100%!important;
+	width: 100%!important;
+}
+
+.gmnoprint div,gm-style-cc{
+ 	background: rgba(255, 13, 13, 0)!important;
+	color: aliceblue;
 }
 
 
