@@ -6,6 +6,8 @@ gamejQuery(document).ready(function ($) {
 
 	//Instantiate global newsletterPopup
 	$("#gameRulesPopup").enhanceWithin().popup();
+	
+	$("#gameTermsPopup").enhanceWithin().popup();
 
 	$("#quitGamePopup").enhanceWithin().popup();
 
