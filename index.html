@@ -1,541 +1,610 @@
 <!doctype html>
 <html lang="en-GB">
+
 <head>
-<title>Pirate Brews</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pirate Brews</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--css-->
-<link href="assets/css/style.css" rel="stylesheet" type="text/css">
-<link href="assets/css/gameStyle.css" rel="stylesheet" type="text/css">
-<link href="assets/css/contactPage.css" rel="stylesheet" type="text/css">
-<link href="assets/css/bookingPage.css" rel="stylesheet" type="text/css">
+	<!--css-->
+	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/gameStyle.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/contactPage.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bookingPage.css" rel="stylesheet" type="text/css">
 
-<!--jquery UI-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
+	<!--jquery UI-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
 
-<!--jqueryMobile-->
-<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<!--jqueryMobile-->
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 
-<!--Google fonts-->
-<link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<!--Google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-<!--Carousel Pluggin-->
-<link rel="stylesheet" href="assets/css/owl.carousel.css">
-<link rel="stylesheet" href="assets/css/owl.theme.css">
+	<!--Carousel Pluggin-->
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="assets/css/owl.theme.css">
 
-<!--html5 and css support for old IE-->
-<!--[if lt IE 9]>
+	<!--html5 and css support for old IE-->
+	<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-<!--jqueryFunctionality-->
+	<!--jqueryFunctionality-->
 
 </head>
 
 <body>
-<div data-role="page" class="ui-responsive-panel" id="home_page">
-  <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
-    <h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
-    <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
-  <!--HEADER END -->
-  
-  <div data-role="content">
-    <div id="homePageCarousel" class="owl-carousel owl-theme">
-      <div class="item"><img src="assets/img/bar-401546_1280.jpg"></div>
-      <div class="item"><img src="assets/img/bar-872161_1280.jpg"></div>
-      <div class="item"><img src="assets/img/bar-923632_1280.jpg"></div>
-    </div>
-    <div>
-      <div id="users">
-        <input class="search" placeholder="Search our Pubs" id="home_SearchBar" />
-        <div class="home_SearchContent">
-          <div class="home_searchSort">
-            <div class="home_searchHeading1">
-              <h3>Sort:</h3>
-            </div>
-            <button class="sort" data-sort="name">Name</button>
-            <button class="sort" data-sort="postcode">Post Code</button>
-          </div>
-          <div class="home_searchFilter">
-            <div class="home_searchHeading2">
-              <h3>Filter:</h3>
-            </div>
-            <button class="filter-3 sort"> <img class="wifiIcon" alt="Wifi" src="assets/ico/wi-fi.png"> </button>
-            <button class="filter-2 sort"> <img class="parkingIcon" alt="Parking" src="assets/ico/parked-car.png"> </button>
-            <button class="filter-4 sort"> <img class="tvIcon" alt="TV" src="assets/ico/television.png"> </button>
-            <button class="filter-1 sort"> <img class="tvIcon" alt="Clear" src="assets/ico/cancel.png"> </button>
-          </div>
-          <ul class="list">
-            <li data-id="1"> <a href="#pub_page" id="pubCavendish" class="link name">Old Cavendish</a>
-              <p class="address">115 New Cavendish Street</p>
-              <p class="postcode">W1W 6UW</p>
-              <p class="city">London</p>
-              <div class="home_featureContainer"> <img class="wifiIcon" src="assets/ico/wi-fi.png">
-                <p class="feature1">Wifi</p>
-                <img class="parkingIcon" src="assets/ico/parked-car.png">
-                <p class="feature2">Parking</p>
-                <img class="tvIcon" src="assets/ico/television.png">
-                <p class="feature3">Live TV</p>
-              </div>
-            </li>
-            <li data-id="2"> <a href="#pub_page" id="pubMarylebone" class="link name">Marylebone</a>
-              <p class="address">35 Marylebone Road</p>
-              <p class="postcode">NW1 5LS</p>
-              <p class="city">London</p>
-              <div class="home_featureContainer"> <img class="wifiIcon" src="assets/ico/wi-fi.png">
-                <p class="feature1">Wifi</p>
-                <img class="tvIcon" src="assets/ico/television.png">
-                <p class="feature3">Live TV</p>
-              </div>
-            </li>
-            <li data-id="3"> <a href="#pub_page" id="pubTichfield" class="link name">Little Titchfield</a>
-              <p class="address">4-12 Little Titchfield Street</p>
-              <p class="postcode">W1W 7BY</p>
-              <p class="city">London</p>
-              <div class="home_featureContainer"> <img class="parkingIcon" src="assets/ico/parked-car.png">
-                <p class="feature2">Parking</p>
-              </div>
-            </li>
-            <li data-id="4"> <a href="#pub_page" id="pubRegent" class="link name">The Prince Regent</a>
-              <p class="address">309 Regent Street</p>
-              <p class="postcode">W1B 2HW</p>
-              <p class="city">London</p>
-              <div class="home_featureContainer"> <img class="tvIcon" src="assets/ico/television.png">
-                <p class="feature3">Live TV</p>
-              </div>
-            </li>
-          </ul>
-          <button class="close home_DismissSearch">Close</button>
-        </div>
-      </div>
-    </div>
-    <div class="gridItem1"> <img src="assets/img/small_img1.jpg">
-      <p>All hands ahoy matey we be selling brews since 1688, Pirate Brews is one of London's finest themed pubs, with over 100 bottled beers from around the world, and of course our world famous Pirate Brew Rum drink. The food menu is packed with flavours that are sure to shiver ye timbers.</p>
-    </div>
-    <div class="gridItem2"> <img src="assets/img/small_img2.jpg">
-      <p>Walk the plank and dive into a uniquely themed pub, revered for its eclectic range of pirate themed ales and its quality pirate themed pub food, which are served, as they should be, with a generous measure of famous Landlubber’s hospitality. Rediscover your inner pirate with pubs themed around the famous Golden Age of Piracy.</p>
-    </div>
-    <div class="gridItem3"> <img src="assets/img/small_img3.jpg">
-      <p>Fresh, seasonal ingredients are used on the Pirate Brews on menu to create traditional tastes of the Seas. To start, there are Slow-Cooked Beef, Amber Ale & Mushroom Pie that is Encased in shortcrust pastry with a puff pastry lid, served with mashed potato, seasonal greens and honey-roasted carrots. Fresh seafood mains include Sustainably Line-Caught Cod Fillets, Wholetail Scampi, there are vegetarian delicacies like Glazed Shallot Tart Tatin that is Topped with honeyed goat’s cheese pearls and Braeburn apple salad. The beer selection at Pirate Brews is famous, with everything from pale ales to porters served on tap. The 100+ bottled selection is regularly updated, and for wine lovers there are over 50 New and Old World vintages served.</p>
-      <p>Pirate Brews, founded by Privateer Handsome Jack, Faced with the black spot from some of his ruthless rival pirate Jamaal Beard Jones, Jack decided the pirates life ain't for he as he had to much to live for. Thus he changed his name to Sir Handsome Jack and sold his ship. Using all the riches he had claimed from his pirating days Jack and his crew opened the first Pirate Brews in hopes to find a more peaceful life and to give pirate folk alike a place they can call home. Unfortunately for Jack his pirating days caught up to him and a mere year later of opening the pub Jack was killed by a bounty hunter named Jango Beard The Fett. Luckily one of his crewmate Scallywag took up the challenge to carry on Jack's legacy.</p>
-    </div>
-    
-    <!--This div fixes footer overlaping content -->
-    <div class="stickyFooterFix"></div>
-  </div>
-  <!--CONTENT-->
-  
-  <div data-role="footer" data-position="fixed">
-    <div class="footerContainer">
-      <div class="footerTaskbar1"> <a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
-        <p>Play!</p>
-        </a> </div>
-      <div class="footerTaskbar2">
-        <div class="footerVerticalRuler"></div>
-        <a href="#"> <img src="assets/ico/facebook_Icon.png"> </a> <a href="#"> <img src="assets/ico/instagram_Icon.png"> </a> <a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
-        <div class="footerVerticalRuler"></div>
-      </div>
-      <div class="footerTaskbar3"> <a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
-        <p>Newsletter</p>
-        </a> </div>
-    </div>
-  </div>
-  <!--FOOTER--> 
-  
-</div>
-<!--HOME PAGE -->
+	<div data-role="page" class="ui-responsive-panel" id="home_page">
+		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+			<h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
+			<a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
+		<!--HEADER END -->
 
-<div data-role="page" class="ui-responsive-panel" id="pub_page">
-  <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
-    <h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
-    <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
-  <!--HEADER END -->
-  
-  <div data-role="content"> 
-    
-    <!--page Title-->
-    <div class="pageTitle"> <span style="font-size: 40px; background-color: #eaeaea; padding: 0 10px;"> Our Pubs </span> </div>
-    <h2>Learn more about our pubs!</h2>
-    <div class="pub_topOptions">
-      <div class="pubSelectionList"> <a href="#" id="viewPub1" class="link name"> Old Cavendish <br>
+		<div data-role="content">
+			<div id="homePageCarousel" class="owl-carousel owl-theme">
+				<div class="item"><img src="assets/img/bar-401546_1280.jpg"></div>
+				<div class="item"><img src="assets/img/bar-872161_1280.jpg"></div>
+				<div class="item"><img src="assets/img/bar-923632_1280.jpg"></div>
+			</div>
+			<div>
+				<div id="users">
+					<input class="search" placeholder="Search our Pubs" id="home_SearchBar" />
+					<div class="home_SearchContent">
+						<div class="home_searchSort">
+							<div class="home_searchHeading1">
+								<h3>Sort:</h3>
+							</div>
+							<button class="sort" data-sort="name">Name</button>
+							<button class="sort" data-sort="postcode">Post Code</button>
+						</div>
+						<div class="home_searchFilter">
+							<div class="home_searchHeading2">
+								<h3>Filter:</h3>
+							</div>
+							<button class="filter-3 sort"> <img class="wifiIcon" alt="Wifi" src="assets/ico/wi-fi.png"> </button>
+							<button class="filter-2 sort"> <img class="parkingIcon" alt="Parking" src="assets/ico/parked-car.png"> </button>
+							<button class="filter-4 sort"> <img class="tvIcon" alt="TV" src="assets/ico/television.png"> </button>
+							<button class="filter-1 sort"> <img class="tvIcon" alt="Clear" src="assets/ico/cancel.png"> </button>
+						</div>
+						<ul class="list">
+							<li data-id="1"> <a href="#pub_page" id="pubCavendish" class="link name">Old Cavendish</a>
+								<p class="address">115 New Cavendish Street</p>
+								<p class="postcode">W1W 6UW</p>
+								<p class="city">London</p>
+								<div class="home_featureContainer"> <img class="wifiIcon" src="assets/ico/wi-fi.png">
+									<p class="feature1">Wifi</p>
+									<img class="parkingIcon" src="assets/ico/parked-car.png">
+									<p class="feature2">Parking</p>
+									<img class="tvIcon" src="assets/ico/television.png">
+									<p class="feature3">Live TV</p>
+								</div>
+							</li>
+							<li data-id="2"> <a href="#pub_page" id="pubMarylebone" class="link name">Marylebone</a>
+								<p class="address">35 Marylebone Road</p>
+								<p class="postcode">NW1 5LS</p>
+								<p class="city">London</p>
+								<div class="home_featureContainer"> <img class="wifiIcon" src="assets/ico/wi-fi.png">
+									<p class="feature1">Wifi</p>
+									<img class="tvIcon" src="assets/ico/television.png">
+									<p class="feature3">Live TV</p>
+								</div>
+							</li>
+							<li data-id="3"> <a href="#pub_page" id="pubTichfield" class="link name">Little Titchfield</a>
+								<p class="address">4-12 Little Titchfield Street</p>
+								<p class="postcode">W1W 7BY</p>
+								<p class="city">London</p>
+								<div class="home_featureContainer"> <img class="parkingIcon" src="assets/ico/parked-car.png">
+									<p class="feature2">Parking</p>
+								</div>
+							</li>
+							<li data-id="4"> <a href="#pub_page" id="pubRegent" class="link name">The Prince Regent</a>
+								<p class="address">309 Regent Street</p>
+								<p class="postcode">W1B 2HW</p>
+								<p class="city">London</p>
+								<div class="home_featureContainer"> <img class="tvIcon" src="assets/ico/television.png">
+									<p class="feature3">Live TV</p>
+								</div>
+							</li>
+						</ul>
+						<button class="close home_DismissSearch">Close</button>
+					</div>
+				</div>
+			</div>
+			<div class="gridItem1"> <img src="assets/img/small_img1.jpg">
+				<p>All hands ahoy matey we be selling brews since 1688, Pirate Brews is one of London's finest themed pubs, with over 100 bottled beers from around the world, and of course our world famous Pirate Brew Rum drink. The food menu is packed with flavours that are sure to shiver ye timbers.</p>
+			</div>
+			<div class="gridItem2"> <img src="assets/img/small_img2.jpg">
+				<p>Walk the plank and dive into a uniquely themed pub, revered for its eclectic range of pirate themed ales and its quality pirate themed pub food, which are served, as they should be, with a generous measure of famous Landlubber’s hospitality. Rediscover your inner pirate with pubs themed around the famous Golden Age of Piracy.</p>
+			</div>
+			<div class="gridItem3"> <img src="assets/img/small_img3.jpg">
+				<p>Fresh, seasonal ingredients are used on the Pirate Brews on menu to create traditional tastes of the Seas. To start, there are Slow-Cooked Beef, Amber Ale & Mushroom Pie that is Encased in shortcrust pastry with a puff pastry lid, served with mashed potato, seasonal greens and honey-roasted carrots. Fresh seafood mains include Sustainably Line-Caught Cod Fillets, Wholetail Scampi, there are vegetarian delicacies like Glazed Shallot Tart Tatin that is Topped with honeyed goat’s cheese pearls and Braeburn apple salad. The beer selection at Pirate Brews is famous, with everything from pale ales to porters served on tap. The 100+ bottled selection is regularly updated, and for wine lovers there are over 50 New and Old World vintages served.</p>
+				<p>Pirate Brews, founded by Privateer Handsome Jack, Faced with the black spot from some of his ruthless rival pirate Jamaal Beard Jones, Jack decided the pirates life ain't for he as he had to much to live for. Thus he changed his name to Sir Handsome Jack and sold his ship. Using all the riches he had claimed from his pirating days Jack and his crew opened the first Pirate Brews in hopes to find a more peaceful life and to give pirate folk alike a place they can call home. Unfortunately for Jack his pirating days caught up to him and a mere year later of opening the pub Jack was killed by a bounty hunter named Jango Beard The Fett. Luckily one of his crewmate Scallywag took up the challenge to carry on Jack's legacy.</p>
+			</div>
+
+			<!--This div fixes footer overlaping content -->
+			<div class="stickyFooterFix"></div>
+		</div>
+		<!--CONTENT-->
+
+		<div data-role="footer" data-position="fixed">
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
+						<p>Play!</p>
+					</a>
+				</div>
+				<div class="footerTaskbar2">
+					<div class="footerVerticalRuler"></div>
+					<a href="#"> <img src="assets/ico/facebook_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/instagram_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
+					<div class="footerVerticalRuler"></div>
+				</div>
+				<div class="footerTaskbar3">
+					<a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
+						<p>Newsletter</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--FOOTER-->
+
+	</div>
+	<!--HOME PAGE -->
+
+	<div data-role="page" class="ui-responsive-panel" id="pub_page">
+		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+			<h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
+			<a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
+		<!--HEADER END -->
+
+		<div data-role="content">
+
+			<!--page Title-->
+			<div class="pageTitle"> <span style="font-size: 40px; background-color: #eaeaea; padding: 0 10px;"> Our Pubs </span> </div>
+			<h2>Learn more about our pubs!</h2>
+			<div class="pub_topOptions">
+				<div class="pubSelectionList"> <a href="#" id="viewPub1" class="link name"> Old Cavendish <br>
         <span>115 New Cavendish Street, W1W 6UW</span> </a> </div>
-      <div class="pubSelectionList"> <a href="#" id="viewPub2" class="link name"> Marylebone <br>
+				<div class="pubSelectionList"> <a href="#" id="viewPub2" class="link name"> Marylebone <br>
         <span>35 Marylebone Road, NW1 5LS</span> </a> </div>
-      <div class="pubSelectionList"> <a href="#" id="viewPub3" class="link name"> Little Titchfield <br>
+				<div class="pubSelectionList"> <a href="#" id="viewPub3" class="link name"> Little Titchfield <br>
         <span>4-12 Little Titchfield Street, W1W 7BY</span> </a> </div>
-      <div class="pubSelectionList"> <a href="#" id="viewPub4" class="link name"> The Prince Regent <br>
+				<div class="pubSelectionList"> <a href="#" id="viewPub4" class="link name"> The Prince Regent <br>
         <span>309 Regent Street, W1B 2HW</span> </a> </div>
-    </div>
-    
-    <!--This div gets populated with pub details-->
-    <div class="pubs"></div>
-    
-    <!--This div fixes footer overlaping content -->
-    <div class="stickyFooterFix"></div>
-  </div>
-  <!--CONTENT-->
-  
-  <div data-role="footer" data-position="fixed">
-    <div class="footerContainer">
-      <div class="footerTaskbar1"> <a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
-        <p>Play!</p>
-        </a> </div>
-      <div class="footerTaskbar2">
-        <div class="footerVerticalRuler"></div>
-        <a href="#"> <img src="assets/ico/facebook_Icon.png"> </a> <a href="#"> <img src="assets/ico/instagram_Icon.png"> </a> <a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
-        <div class="footerVerticalRuler"></div>
-      </div>
-      <div class="footerTaskbar3"> <a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
-        <p>Newsletter</p>
-        </a> </div>
-    </div>
-  </div>
-  <!--FOOTER--> 
-  
-</div>
-<!--PUB PAGE-->
+			</div>
 
-<div data-role="page" class="ui-responsive-panel" id="about_page">
-  <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
-    <h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
-    <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
-  <!--HEADER END -->
-  <div data-role="content">
-    <div data-role="tabs">
-      <div data-role="navbar" class="custom-navbar">
-        <ul>
-          <li><a href="#about" class="ui-btn-active ui-state-persist">About Us</a></li>
-          <li><a href="#managers">Managers</a></li>
-        </ul>
-      </div>
-      <div id="about">
-        <p>Arrg matey we be selling brews since 1688, Pirate Brews is one of London's finest pubs, with over 100 bottled beers from around the world, and of course our world famous Pirate Brew Rum drink. The food menu is packed with flavours that are sure to shiver your timbers.</p>
-        <img src="assets/img/dublin-375419_1280.jpg" width="60%" height="30%" alt="" longdesc="assets/img/dublin-375419_1280.jpg" align="right">
-        <p> Fresh, seasonal ingredients are used on the Pirate Brews on menu to create traditional tastes of the Seas. To start, there are Slow-Cooked Beef, Amber Ale & Mushroom Pie that is Encased in shortcrust pastry with a puff pastry lid, served with mashed potato, seasonal greens and honey-roasted carrots. Fresh seafood mains include Sustainably Line-Caught Cod Fillets, Wholetail Scampi, there are vegetarian delicacies like Glazed Shallot Tart Tatin that is Topped with honeyed goat’s cheese pearls and Braeburn apple salad.</p>
-        <p>The beer selection at Pirate Brews is famous, with everything from pale ales to porters served on tap. The 100+ bottled selection is regularly updated, and for wine lovers there are over 50 New and Old World vintages served.</p>
-      </div>
-      <div id="managers">
-        <h4> Here are some of the fantastic people that run our company.</h4>
-        <img src="assets/img/matt-bloom-circle.png" width="30%" height="20%" alt="" longdesc="assets/img/matt-bloom-circle.png" align="middle">
-        <p>This is Jeff a hard working kind hearted individual who oversees the Old Cavendish branch and everything it does. He strives for excellence and will not tolerate imperfection. Be assured the branch is in good hands. </p>
-        <img src="assets/img/download.png" width="30%" height="20%" alt="" longdesc="assets/img/download.png">
-        <p> This is Emily a highly motivated professional with a vast experience in all the facets of F&B and luxury hospitality. Extremely customer focused with an innate leadership attitude. An excellent choice for our most popular branch Marylebone. A younger individual for a more young and trendy vision will assure customers will have a thrilling time.</p>
-        <img src="assets/img/Robert-Circle-Profile-Pic.png" width="30%" height="20%" alt="" longdesc="assets/img/Robert-Circle-Profile-Pic.png">
-        <p> This is Benjamin, with over 20 years of experience, he is motivated senior manager delivering solutions across the hospitality industry. In charge of the Little Titchfield branch, one of our smaller pubs, customers can come and enjoy a nice and cozy experience lead by one of our most dedicated managers.</p>
-        <img src="assets/img/tumblr_static_profile-circle.png" width="30%" height="20%" alt="" longdesc="assets/img/tumblr_static_profile-circle.png">
-        <p> This is Abraham, An Insightful and results-driven professional having rich experience in hospitality management, with hands-on experience in handling food, beverages, operations, vendor relations, profit and loss management and guest relation operation. Manger at our The Prince Regent branch. Customers can enjoy a rich experience led by one of our most passionate managers.</p>
-      </div>
-    </div>
-    
-    <!--This div fixes footer overlaping content -->
-    <div class="stickyFooterFix"></div>
-  </div>
-  <!--CONTENT-->
-  
-  <div data-role="footer" data-position="fixed">
-    <div class="footerContainer">
-      <div class="footerTaskbar1"> <a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
-        <p>Play!</p>
-        </a> </div>
-      <div class="footerTaskbar2">
-        <div class="footerVerticalRuler"></div>
-        <a href="#"> <img src="assets/ico/facebook_Icon.png"> </a> <a href="#"> <img src="assets/ico/instagram_Icon.png"> </a> <a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
-        <div class="footerVerticalRuler"></div>
-      </div>
-      <div class="footerTaskbar3"> <a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
-        <p>Newsletter</p>
-        </a> </div>
-    </div>
-  </div>
-  <!--FOOTER--> 
-  
-</div>
-<!--ABOUT PAGE-->
+			<!--This div gets populated with pub details-->
+			<div class="pubs"></div>
 
-<div data-role="page" class="ui-responsive-panel" id="menu_page">
-  <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
-    <h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
-    <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
-  <!--HEADER END -->
-  
-  <div data-role="content">
-    <div>
-      <ul class="tab">
-        <li> <a href="javascript:void(0)" class="tablinks" onclick="openMenu(event, 'Drinks')" id="defaultOpen"><img id="pint" src="assets/ico/pint.png"></a> </li>
-        <li> <a href="javascript:void(0)" class="tablinks" onclick="openMenu(event, 'Main')"><img id="fast-food" src="assets/ico/fast-food.png"></a> </li>
-        <li> <a href="javascript:void(0)" class="tablinks" onclick="openMenu(event, 'Dessert')"><img id="ice-cream" src="assets/ico/ice-cream.png"></a> </li>
-      </ul>
-      <div id="Drinks" class="tabcontent"> <br />
-        <p> Our wines are sourced from the best wine growing regions throughout the globe. We serve our wine in measurements of 175ml and by the Bottle. </p>
-        <table>
-          <tr>
-            <th> <h4>White Wines</h4>
-            </th>
-            <th>170ml</th>
-            <th>Bottle</th>
-          </tr>
-          <tr>
-            <td>Catarrato, Italy </td>
-            <td>£7.50</td>
-            <td>£37.00</td>
-          </tr>
-          <tr>
-            <td>Sauvignon Blanc, Spain</td>
-            <td>£10.75</td>
-            <td>£50.00</td>
-          </tr>
-          <tr>
-            <td>Chardonnay, Spain</td>
-            <td>£9.50</td>
-            <td>£45.00</td>
-          </tr>
-          <tr>
-            <td>Pinot Gris, France</td>
-            <td>£5.75</td>
-            <td>£30.00</td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th> <h4>Red Wine</h4>
-            </th>
-            <th>170ml</th>
-            <th>Bottle</th>
-          </tr>
-          <tr>
-            <td>Bordeaux Superieur, Italy </td>
-            <td>£8.50</td>
-            <td>£47.00</td>
-          </tr>
-          <tr>
-            <td>Pinot Nero Mezcan,Italy</td>
-            <td>£12.75</td>
-            <td>£60.00</td>
-          </tr>
-          <tr>
-            <td>Château Cissac, Spain</td>
-            <td>£9.50</td>
-            <td>£45.00</td>
-          </tr>
-          <tr>
-            <td>Malbec, Cahors</td>
-            <td>£6.75</td>
-            <td>£37.00</td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th> <h4>Beers on Tap</h4>
-            </th>
-            <th>Half</th>
-            <th>Pint</th>
-          </tr>
-          <tr>
-            <td>Perpetual IPA </td>
-            <td>£3.50</td>
-            <td>£7.00</td>
-          </tr>
-          <tr>
-            <td>Troegenator Double Bock</td>
-            <td>£4.50</td>
-            <td>£9.00</td>
-          </tr>
-          <tr>
-            <td>HopBack Amber Ale</td>
-            <td>£2.50</td>
-            <td>£5.00</td>
-          </tr>
-          <tr>
-            <td>DreamWeaver Wheat</td>
-            <td>£4.55</td>
-            <td>£9.10</td>
-          </tr>
-        </table>
-        </table>
-        <table>
-          <tr>
-            <th> <h4>Soft Drinks</h4>
-            </th>
-            <th>Small</th>
-            <th>Large</th>
-          </tr>
-          <tr>
-            <td>Appletiser </td>
-            <td>-</td>
-            <td>£5.40</td>
-          </tr>
-          <tr>
-            <td>Fruit Juice</td>
-            <td>£3.50</td>
-            <td>£7.00</td>
-          </tr>
-          <tr>
-            <td>Sparking/Still water</td>
-            <td>-</td>
-            <td>£6.40</td>
-          </tr>
-          <tr>
-            <td>Coke/Diet Coke</td>
-            <td>£3.55</td>
-            <td>£7.10</td>
-          </tr>
-        </table>
-        <br />
-        <br />
-      </div>
-      <div id="Main" class="tabcontent"> <br />
-        <p> If you have a food allergy or intolerance, please let us know before ordering. Full allergen information for food and drink is available, upon request. .
-        
-        <p>
-        
-        <table>
-          <tr>
-            <th> <h4>Fish</h4>
-            </th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td><h5>SUSTAINABLY LINE-CAUGHT COD FILLET</h5>
-              <div id=food>Hand-battered in our own Nicholson’s Pale Ale and served with triple-cooked chips, samphire tartare sauce and minted mushy peas. </div></td>
-            <td>£23.40</td>
-          </tr>
-          <tr>
-            <td><h5>WHOLETAIL SCAMPI</h5>
-              <div id=food>Served with triple-cooked chips and samphire tartare sauce. </div></td>
-            <td>£27.20</td>
-          </tr>
-          <tr>
-            <td><h5>GRILLED SEA BASS</h5>
-              <div id=food>Served on crushed baby potatoes and fennel relish, with tarragon-infused hollandaise sauce. </div></td>
-            <td>£22.50</td>
-          </tr>
-          <tr>
-            <td><h5>SMOKED SALMON FISHCAKES</h5>
-              <div id=food>Served with preserved lemon aioli and your choice of triple-cooked chips or salad. </div></td>
-            <td>£25.75</td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th> <h4>Meat</h4>
-            </th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td><h5>SLOW-COOKED BEEF, AMBER ALE & MUSHROOM PIE</h5>
-              <div id=food>Encased in shortcrust pastry with a puff pastry lid, served with mashed potato, seasonal greens and honey-roasted carrots. </div></td>
-            <td>£21.40</td>
-          </tr>
-          <tr>
-            <td><h5>GLOUCESTER OLD SPOT SAUSAGES</h5>
-              <div id=food>Served on a bed of mashed potato and topped with hand-battered onion rings and gravy. Vegetarian option also available. </div></td>
-            <td>£28.25</td>
-          </tr>
-          <tr>
-            <td><h5>NICHOLSON’S HUNTER’S CHICKEN</h5>
-              <div id=food>Grilled chicken breast topped with smoked back bacon, BBQ sauce and mature Cheddar, served with triple-cooked chips and an heirloom tomato salad. </div></td>
-            <td>£27.40</td>
-          </tr>
-          <tr>
-            <td><h5>10oz RIB-EYE STEAK</h5>
-              <div id=food>Aged for 21 days, served with flat mushroom, beef tomato and triple-cooked chips </div></td>
-            <td>£45.00</td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th> <h4>Pasta</h4>
-            </th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td><h5>MACARONI CHEESE (V)</h5>
-              <div id=food>Macaroni pasta in a rich cheese sauce topped with mature Cheddar, served with garlic bread. </div></td>
-            <td>£20.40</td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th> <h4>Veggie</h4>
-            </th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td><h5>BROWN RICE, QUINOA & LEMON SALAD (V)</h5>
-              <div id=food>Combined with heirloom tomatoes and mixed baby leaves and dressed with English herb oil. </div></td>
-            <td>£23.40</td>
-          </tr>
-          <tr>
-            <td><h5>GLAZED SHALLOT TART TATIN (V)</h5>
-              <div id=food>Topped with honeyed goat’s cheese pearls and Braeburn apple salad. </div></td>
-            <td>£20.60</td>
-          </tr>
-        </table>
-        <table>
-          <tr>
-            <th> <h4>Sides</h4>
-            </th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td>Marinated olives (V) </td>
-            <td>£7.40</td>
-          </tr>
-          <tr>
-            <td>Bread with oil and butter (V)</td>
-            <td>£5.75</td>
-          </tr>
-          <tr>
-            <td>Dauphinoise potatoes (V)
-              </h5></td>
-            <td>£3.40</td>
-          </tr>
-          <tr>
-            <td>Triple-cooked chips (V) </td>
-            <td>£3.00</td>
-          </tr>
-        </table>
-        <br />
-        <br />
-      </div>
-      <div id="Dessert" class="tabcontent"> <br />
-        <p>Nothing beats good food shared with good friends. We're serving many of your old favourites – and a few new ones.</p>
-        <table>
-          <tr>
-            <th> <h4>Desserts</h4>
-            </th>
-            <th>Price</th>
-          </tr>
-          <tr>
-            <td><h5>TRIO OF DESSERTS (V)</h5>
-              <div id=food>Rich and luxurious brownie, salted caramel profiteroles and lemon tart, served with vanilla pod ice cream. </div></td>
-            <td>£10.40</td>
-          </tr>
-          <tr>
-            <td><h5>BELGIAN CHOCOLATE BROWNIE (V)</h5>
-              <div id=food>Rich and luxurious brownie, served warm with vanilla pod ice cream. </div></td>
-            <td>£8.25</td>
-          </tr>
-          <tr>
-            <td><h5>STICKY TOFFEE PUDDING (V)</h5>
-              <div id=food>Served with vanilla pod ice cream.</div></td>
-            <td>£7.40</td>
-          </tr>
-          <tr>
-            <td><h5>RHUBARB, PLUM & CHERRIES CRUMBLE (V)</h5>
-              <div id=food>Served with rich, creamy custard or vanilla pod ice cream.</div></td>
-            <td>£15.00</td>
-          </tr>
-        </table>
-        <br />
-        <br />
-      </div>
-    </div>
-    <script>
+			<!--This div fixes footer overlaping content -->
+			<div class="stickyFooterFix"></div>
+		</div>
+		<!--CONTENT-->
+
+		<div data-role="footer" data-position="fixed">
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
+						<p>Play!</p>
+					</a>
+				</div>
+				<div class="footerTaskbar2">
+					<div class="footerVerticalRuler"></div>
+					<a href="#"> <img src="assets/ico/facebook_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/instagram_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
+					<div class="footerVerticalRuler"></div>
+				</div>
+				<div class="footerTaskbar3">
+					<a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
+						<p>Newsletter</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--FOOTER-->
+
+	</div>
+	<!--PUB PAGE-->
+
+	<div data-role="page" class="ui-responsive-panel" id="about_page">
+		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+			<h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
+			<a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
+		<!--HEADER END -->
+		<div data-role="content">
+			<div data-role="tabs">
+				<div data-role="navbar" class="custom-navbar">
+					<ul>
+						<li><a href="#about" class="ui-btn-active ui-state-persist">About Us</a></li>
+						<li><a href="#managers">Managers</a></li>
+					</ul>
+				</div>
+				<div id="about">
+					<p>Arrg matey we be selling brews since 1688, Pirate Brews is one of London's finest pubs, with over 100 bottled beers from around the world, and of course our world famous Pirate Brew Rum drink. The food menu is packed with flavours that are sure to shiver your timbers.</p>
+					<img src="assets/img/dublin-375419_1280.jpg" width="60%" height="30%" alt="" longdesc="assets/img/dublin-375419_1280.jpg" align="right">
+					<p> Fresh, seasonal ingredients are used on the Pirate Brews on menu to create traditional tastes of the Seas. To start, there are Slow-Cooked Beef, Amber Ale & Mushroom Pie that is Encased in shortcrust pastry with a puff pastry lid, served with mashed potato, seasonal greens and honey-roasted carrots. Fresh seafood mains include Sustainably Line-Caught Cod Fillets, Wholetail Scampi, there are vegetarian delicacies like Glazed Shallot Tart Tatin that is Topped with honeyed goat’s cheese pearls and Braeburn apple salad.</p>
+					<p>The beer selection at Pirate Brews is famous, with everything from pale ales to porters served on tap. The 100+ bottled selection is regularly updated, and for wine lovers there are over 50 New and Old World vintages served.</p>
+				</div>
+				<div id="managers">
+					<h4> Here are some of the fantastic people that run our company.</h4>
+					<img src="assets/img/matt-bloom-circle.png" width="30%" height="20%" alt="" longdesc="assets/img/matt-bloom-circle.png" align="middle">
+					<p>This is Jeff a hard working kind hearted individual who oversees the Old Cavendish branch and everything it does. He strives for excellence and will not tolerate imperfection. Be assured the branch is in good hands. </p>
+					<img src="assets/img/download.png" width="30%" height="20%" alt="" longdesc="assets/img/download.png">
+					<p> This is Emily a highly motivated professional with a vast experience in all the facets of F&B and luxury hospitality. Extremely customer focused with an innate leadership attitude. An excellent choice for our most popular branch Marylebone. A younger individual for a more young and trendy vision will assure customers will have a thrilling time.</p>
+					<img src="assets/img/Robert-Circle-Profile-Pic.png" width="30%" height="20%" alt="" longdesc="assets/img/Robert-Circle-Profile-Pic.png">
+					<p> This is Benjamin, with over 20 years of experience, he is motivated senior manager delivering solutions across the hospitality industry. In charge of the Little Titchfield branch, one of our smaller pubs, customers can come and enjoy a nice and cozy experience lead by one of our most dedicated managers.</p>
+					<img src="assets/img/tumblr_static_profile-circle.png" width="30%" height="20%" alt="" longdesc="assets/img/tumblr_static_profile-circle.png">
+					<p> This is Abraham, An Insightful and results-driven professional having rich experience in hospitality management, with hands-on experience in handling food, beverages, operations, vendor relations, profit and loss management and guest relation operation. Manger at our The Prince Regent branch. Customers can enjoy a rich experience led by one of our most passionate managers.</p>
+				</div>
+			</div>
+
+			<!--This div fixes footer overlaping content -->
+			<div class="stickyFooterFix"></div>
+		</div>
+		<!--CONTENT-->
+
+		<div data-role="footer" data-position="fixed">
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
+						<p>Play!</p>
+					</a>
+				</div>
+				<div class="footerTaskbar2">
+					<div class="footerVerticalRuler"></div>
+					<a href="#"> <img src="assets/ico/facebook_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/instagram_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
+					<div class="footerVerticalRuler"></div>
+				</div>
+				<div class="footerTaskbar3">
+					<a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
+						<p>Newsletter</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--FOOTER-->
+
+	</div>
+	<!--ABOUT PAGE-->
+
+	<div data-role="page" class="ui-responsive-panel" id="menu_page">
+		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+			<h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
+			<a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
+		<!--HEADER END -->
+
+		<div data-role="content">
+			<div>
+				<ul class="tab">
+					<li>
+						<a href="javascript:void(0)" class="tablinks" onclick="openMenu(event, 'Drinks')" id="defaultOpen"><img id="pint" src="assets/ico/pint.png"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="tablinks" onclick="openMenu(event, 'Main')"><img id="fast-food" src="assets/ico/fast-food.png"></a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" class="tablinks" onclick="openMenu(event, 'Dessert')"><img id="ice-cream" src="assets/ico/ice-cream.png"></a>
+					</li>
+				</ul>
+				<div id="Drinks" class="tabcontent">
+					<br />
+					<p> Our wines are sourced from the best wine growing regions throughout the globe. We serve our wine in measurements of 175ml and by the Bottle. </p>
+					<table>
+						<tr>
+							<th>
+								<h4>White Wines</h4>
+							</th>
+							<th>170ml</th>
+							<th>Bottle</th>
+						</tr>
+						<tr>
+							<td>Catarrato, Italy </td>
+							<td>£7.50</td>
+							<td>£37.00</td>
+						</tr>
+						<tr>
+							<td>Sauvignon Blanc, Spain</td>
+							<td>£10.75</td>
+							<td>£50.00</td>
+						</tr>
+						<tr>
+							<td>Chardonnay, Spain</td>
+							<td>£9.50</td>
+							<td>£45.00</td>
+						</tr>
+						<tr>
+							<td>Pinot Gris, France</td>
+							<td>£5.75</td>
+							<td>£30.00</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<th>
+								<h4>Red Wine</h4>
+							</th>
+							<th>170ml</th>
+							<th>Bottle</th>
+						</tr>
+						<tr>
+							<td>Bordeaux Superieur, Italy </td>
+							<td>£8.50</td>
+							<td>£47.00</td>
+						</tr>
+						<tr>
+							<td>Pinot Nero Mezcan,Italy</td>
+							<td>£12.75</td>
+							<td>£60.00</td>
+						</tr>
+						<tr>
+							<td>Château Cissac, Spain</td>
+							<td>£9.50</td>
+							<td>£45.00</td>
+						</tr>
+						<tr>
+							<td>Malbec, Cahors</td>
+							<td>£6.75</td>
+							<td>£37.00</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<th>
+								<h4>Beers on Tap</h4>
+							</th>
+							<th>Half</th>
+							<th>Pint</th>
+						</tr>
+						<tr>
+							<td>Perpetual IPA </td>
+							<td>£3.50</td>
+							<td>£7.00</td>
+						</tr>
+						<tr>
+							<td>Troegenator Double Bock</td>
+							<td>£4.50</td>
+							<td>£9.00</td>
+						</tr>
+						<tr>
+							<td>HopBack Amber Ale</td>
+							<td>£2.50</td>
+							<td>£5.00</td>
+						</tr>
+						<tr>
+							<td>DreamWeaver Wheat</td>
+							<td>£4.55</td>
+							<td>£9.10</td>
+						</tr>
+					</table>
+					</table>
+					<table>
+						<tr>
+							<th>
+								<h4>Soft Drinks</h4>
+							</th>
+							<th>Small</th>
+							<th>Large</th>
+						</tr>
+						<tr>
+							<td>Appletiser </td>
+							<td>-</td>
+							<td>£5.40</td>
+						</tr>
+						<tr>
+							<td>Fruit Juice</td>
+							<td>£3.50</td>
+							<td>£7.00</td>
+						</tr>
+						<tr>
+							<td>Sparking/Still water</td>
+							<td>-</td>
+							<td>£6.40</td>
+						</tr>
+						<tr>
+							<td>Coke/Diet Coke</td>
+							<td>£3.55</td>
+							<td>£7.10</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</div>
+				<div id="Main" class="tabcontent">
+					<br />
+					<p> If you have a food allergy or intolerance, please let us know before ordering. Full allergen information for food and drink is available, upon request. .
+
+						<p>
+
+							<table>
+								<tr>
+									<th>
+										<h4>Fish</h4>
+									</th>
+									<th>Price</th>
+								</tr>
+								<tr>
+									<td>
+										<h5>SUSTAINABLY LINE-CAUGHT COD FILLET</h5>
+										<div id=food>Hand-battered in our own Nicholson’s Pale Ale and served with triple-cooked chips, samphire tartare sauce and minted mushy peas. </div>
+									</td>
+									<td>£23.40</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>WHOLETAIL SCAMPI</h5>
+										<div id=food>Served with triple-cooked chips and samphire tartare sauce. </div>
+									</td>
+									<td>£27.20</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>GRILLED SEA BASS</h5>
+										<div id=food>Served on crushed baby potatoes and fennel relish, with tarragon-infused hollandaise sauce. </div>
+									</td>
+									<td>£22.50</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>SMOKED SALMON FISHCAKES</h5>
+										<div id=food>Served with preserved lemon aioli and your choice of triple-cooked chips or salad. </div>
+									</td>
+									<td>£25.75</td>
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<th>
+										<h4>Meat</h4>
+									</th>
+									<th>Price</th>
+								</tr>
+								<tr>
+									<td>
+										<h5>SLOW-COOKED BEEF, AMBER ALE & MUSHROOM PIE</h5>
+										<div id=food>Encased in shortcrust pastry with a puff pastry lid, served with mashed potato, seasonal greens and honey-roasted carrots. </div>
+									</td>
+									<td>£21.40</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>GLOUCESTER OLD SPOT SAUSAGES</h5>
+										<div id=food>Served on a bed of mashed potato and topped with hand-battered onion rings and gravy. Vegetarian option also available. </div>
+									</td>
+									<td>£28.25</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>NICHOLSON’S HUNTER’S CHICKEN</h5>
+										<div id=food>Grilled chicken breast topped with smoked back bacon, BBQ sauce and mature Cheddar, served with triple-cooked chips and an heirloom tomato salad. </div>
+									</td>
+									<td>£27.40</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>10oz RIB-EYE STEAK</h5>
+										<div id=food>Aged for 21 days, served with flat mushroom, beef tomato and triple-cooked chips </div>
+									</td>
+									<td>£45.00</td>
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<th>
+										<h4>Pasta</h4>
+									</th>
+									<th>Price</th>
+								</tr>
+								<tr>
+									<td>
+										<h5>MACARONI CHEESE (V)</h5>
+										<div id=food>Macaroni pasta in a rich cheese sauce topped with mature Cheddar, served with garlic bread. </div>
+									</td>
+									<td>£20.40</td>
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<th>
+										<h4>Veggie</h4>
+									</th>
+									<th>Price</th>
+								</tr>
+								<tr>
+									<td>
+										<h5>BROWN RICE, QUINOA & LEMON SALAD (V)</h5>
+										<div id=food>Combined with heirloom tomatoes and mixed baby leaves and dressed with English herb oil. </div>
+									</td>
+									<td>£23.40</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>GLAZED SHALLOT TART TATIN (V)</h5>
+										<div id=food>Topped with honeyed goat’s cheese pearls and Braeburn apple salad. </div>
+									</td>
+									<td>£20.60</td>
+								</tr>
+							</table>
+							<table>
+								<tr>
+									<th>
+										<h4>Sides</h4>
+									</th>
+									<th>Price</th>
+								</tr>
+								<tr>
+									<td>Marinated olives (V) </td>
+									<td>£7.40</td>
+								</tr>
+								<tr>
+									<td>Bread with oil and butter (V)</td>
+									<td>£5.75</td>
+								</tr>
+								<tr>
+									<td>Dauphinoise potatoes (V)
+										</h5>
+									</td>
+									<td>£3.40</td>
+								</tr>
+								<tr>
+									<td>Triple-cooked chips (V) </td>
+									<td>£3.00</td>
+								</tr>
+							</table>
+							<br />
+							<br />
+				</div>
+				<div id="Dessert" class="tabcontent">
+					<br />
+					<p>Nothing beats good food shared with good friends. We're serving many of your old favourites – and a few new ones.</p>
+					<table>
+						<tr>
+							<th>
+								<h4>Desserts</h4>
+							</th>
+							<th>Price</th>
+						</tr>
+						<tr>
+							<td>
+								<h5>TRIO OF DESSERTS (V)</h5>
+								<div id=food>Rich and luxurious brownie, salted caramel profiteroles and lemon tart, served with vanilla pod ice cream. </div>
+							</td>
+							<td>£10.40</td>
+						</tr>
+						<tr>
+							<td>
+								<h5>BELGIAN CHOCOLATE BROWNIE (V)</h5>
+								<div id=food>Rich and luxurious brownie, served warm with vanilla pod ice cream. </div>
+							</td>
+							<td>£8.25</td>
+						</tr>
+						<tr>
+							<td>
+								<h5>STICKY TOFFEE PUDDING (V)</h5>
+								<div id=food>Served with vanilla pod ice cream.</div>
+							</td>
+							<td>£7.40</td>
+						</tr>
+						<tr>
+							<td>
+								<h5>RHUBARB, PLUM & CHERRIES CRUMBLE (V)</h5>
+								<div id=food>Served with rich, creamy custard or vanilla pod ice cream.</div>
+							</td>
+							<td>£15.00</td>
+						</tr>
+					</table>
+					<br />
+					<br />
+				</div>
+			</div>
+			<script>
 				function openMenu(evt, title) {
 					var i, tabcontent, tablinks;
 					tabcontent = document.getElementsByClassName("tabcontent");
@@ -554,62 +623,72 @@
 				}
 
 				document.getElementById('defaultOpen').click();
-			</script> 
-    
-    <!--This div fixes footer overlaping content -->
-    <div class="stickyFooterFix"></div>
-  </div>
-  <!--CONTENT-->
-  
-  <div data-role="footer" data-position="fixed">
-    <div class="footerContainer">
-      <div class="footerTaskbar1"> <a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
-        <p>Play!</p>
-        </a> </div>
-      <div class="footerTaskbar2">
-        <div class="footerVerticalRuler"></div>
-        <a href="#"> <img src="assets/ico/facebook_Icon.png"> </a> <a href="#"> <img src="assets/ico/instagram_Icon.png"> </a> <a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
-        <div class="footerVerticalRuler"></div>
-      </div>
-      <div class="footerTaskbar3"> <a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
-        <p>Newsletter</p>
-        </a> </div>
-    </div>
-  </div>
-  <!--FOOTER--> 
-  
-</div>
-<!--MENU PAGE--> 
+			</script>
 
-<!--CONTACT PAGE BEGINING-->
-<div data-role="page" class="ui-responsive-panel" id="contactPage">
-  <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
-    <h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
-    <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
-  <!--HEADER END -->
-  
-  <div data-role="content">
-    <div class="contactPageTitle">
-      <h1><span>Contact Us</span></h1>
-    </div>
-    <br>
-    <br>
-    <div class="contactForm">
-      <form>
-        <input type="text" placeholder="Name" id="cName" autofocus/>
-        <label>
-        <span>&nbsp;</span> <br>
-        <input type="text" placeholder="Email" id="cEmail" />
-        <label>
-        <span>&nbsp;</span> <br>
-        <input type="text" placeholder="Subject" id="cSubject" />
-        <label>
-        <span>&nbsp;</span> <br>
-        <input type="text" placeholder="Message" id="cMessage" />
-        <label>
-        <span>&nbsp;</span> <br>
-        <button type="submit" id="cSubmit">Submit</button>
-        <script>
+			<!--This div fixes footer overlaping content -->
+			<div class="stickyFooterFix"></div>
+		</div>
+		<!--CONTENT-->
+
+		<div data-role="footer" data-position="fixed">
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
+						<p>Play!</p>
+					</a>
+				</div>
+				<div class="footerTaskbar2">
+					<div class="footerVerticalRuler"></div>
+					<a href="#"> <img src="assets/ico/facebook_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/instagram_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
+					<div class="footerVerticalRuler"></div>
+				</div>
+				<div class="footerTaskbar3">
+					<a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
+						<p>Newsletter</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--FOOTER-->
+
+	</div>
+	<!--MENU PAGE-->
+
+	<!--CONTACT PAGE BEGINING-->
+	<div data-role="page" class="ui-responsive-panel" id="contactPage">
+		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+			<h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
+			<a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
+		<!--HEADER END -->
+
+		<div data-role="content">
+			<div class="contactPageTitle">
+				<h1><span>Contact Us</span></h1>
+			</div>
+			<br>
+			<br>
+			<div class="contactForm">
+				<form>
+					<input type="text" placeholder="Name" id="cName" autofocus/>
+					<label>
+						<span>&nbsp;</span>
+						<br>
+						<input type="text" placeholder="Email" id="cEmail" />
+						<label>
+							<span>&nbsp;</span>
+							<br>
+							<input type="text" placeholder="Subject" id="cSubject" />
+							<label>
+								<span>&nbsp;</span>
+								<br>
+								<input type="text" placeholder="Message" id="cMessage" />
+								<label>
+									<span>&nbsp;</span>
+									<br>
+									<button type="submit" id="cSubmit">Submit</button>
+									<script>
 										$(document).ready(function () {
 											$("#cSubmit").click(function () {
 												var name = $("#cName").val();
@@ -639,73 +718,83 @@
 
 										});
 									</script>
-      </form>
-    </div>
-    
-    <!--This div fixes footer overlaping content -->
-    <div class="stickyFooterFix"></div>
-  </div>
-  <!--CONTENT-->
-  
-  <div data-role="footer" data-position="fixed">
-    <div class="footerContainer">
-      <div class="footerTaskbar1"> <a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
-        <p>Play!</p>
-        </a> </div>
-      <div class="footerTaskbar2">
-        <div class="footerVerticalRuler"></div>
-        <a href="#"> <img src="assets/ico/facebook_Icon.png"> </a> <a href="#"> <img src="assets/ico/instagram_Icon.png"> </a> <a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
-        <div class="footerVerticalRuler"></div>
-      </div>
-      <div class="footerTaskbar3"> <a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
-        <p>Newsletter</p>
-        </a> </div>
-    </div>
-  </div>
-  <!--FOOTER--> 
-  
-</div>
-<!--CONTACT PAGE END--> 
+				</form>
+			</div>
 
-<!--****************************************BOOKING PAGE BEGINING*********************************************-->
+			<!--This div fixes footer overlaping content -->
+			<div class="stickyFooterFix"></div>
+		</div>
+		<!--CONTENT-->
 
-<div data-role="page" id="bookingPage">
-  <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
-    <h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
-    <a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
-  <!--HEADER END -->
-  
-  <div data-role="content">
-    <div class="contactPageTitle">
-      <h1><span>Book Now</span></h1>
-    </div>
-    <div class="bookingPage">
-      <form>
-        <input type="text" placeholder="Name" id="bName" name="bName" autofocus/>
-        <label>
-        <span>&nbsp;</span> <br>
-        <input type="text" placeholder="Email" id="bEmail" name="bEmail" />
-        <label>
-        <span>&nbsp;</span> <br>
-        <select name="select-native-4" id="bLocationSelector">
-        <option>Location...</option>
-        <option value="1">Old Cavendish</option>
-        <option value="2">Marylebone</option>
-        <option value="3">Little Titchfield</option>
-        <option value="4">The Prince Regent</option>
-        <label>
-        <span>&nbsp;</span> <br>
-        <br>
-        <input type="date" data-role="date" id="bdate">
-        <label>
-        <span>&nbsp;</span> <br>
-        <button type="submit" id="bSubmit2" name="cInputButton">
-        Book
-        </button>
-        <br>
-        <br>
-        <br>
-        <script>
+		<div data-role="footer" data-position="fixed">
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
+						<p>Play!</p>
+					</a>
+				</div>
+				<div class="footerTaskbar2">
+					<div class="footerVerticalRuler"></div>
+					<a href="#"> <img src="assets/ico/facebook_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/instagram_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
+					<div class="footerVerticalRuler"></div>
+				</div>
+				<div class="footerTaskbar3">
+					<a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
+						<p>Newsletter</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--FOOTER-->
+
+	</div>
+	<!--CONTACT PAGE END-->
+
+	<!--****************************************BOOKING PAGE BEGINING*********************************************-->
+
+	<div data-role="page" id="bookingPage">
+		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+			<h1> <a href="#home_page"><img src="assets/ico/small_logo.png"></a> </h1>
+			<a href="#navPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a> </div>
+		<!--HEADER END -->
+
+		<div data-role="content">
+			<div class="contactPageTitle">
+				<h1><span>Book Now</span></h1>
+			</div>
+			<div class="bookingPage">
+				<form>
+					<input type="text" placeholder="Name" id="bName" name="bName" autofocus/>
+					<label>
+						<span>&nbsp;</span>
+						<br>
+						<input type="text" placeholder="Email" id="bEmail" name="bEmail" />
+						<label>
+							<span>&nbsp;</span>
+							<br>
+							<select name="select-native-4" id="bLocationSelector">
+								<option>Location...</option>
+								<option value="1">Old Cavendish</option>
+								<option value="2">Marylebone</option>
+								<option value="3">Little Titchfield</option>
+								<option value="4">The Prince Regent</option>
+								<label>
+									<span>&nbsp;</span>
+									<br>
+									<br>
+									<input type="date" data-role="date" id="bdate">
+									<label>
+										<span>&nbsp;</span>
+										<br>
+										<button type="submit" id="bSubmit2" name="cInputButton">
+											Book
+										</button>
+										<br>
+										<br>
+										<br>
+										<script>
 											$(document).ready(function () {
 												$("#bSubmit2").click(function () {
 													var name = $("#bName").val();
@@ -748,44 +837,50 @@
 
 											});
 										</script>
-      </form>
-    </div>
-    
-    <!--This div fixes footer overlaping content -->
-    <div class="stickyFooterFix"></div>
-  </div>
-  <!--CONTENT-->
-  
-  <div data-role="footer" data-position="fixed">
-    <div class="footerContainer">
-      <div class="footerTaskbar1"> <a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
-        <p>Play!</p>
-        </a> </div>
-      <div class="footerTaskbar2">
-        <div class="footerVerticalRuler"></div>
-        <a href="#"> <img src="assets/ico/facebook_Icon.png"> </a> <a href="#"> <img src="assets/ico/instagram_Icon.png"> </a> <a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
-        <div class="footerVerticalRuler"></div>
-      </div>
-      <div class="footerTaskbar3"> <a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
-        <p>Newsletter</p>
-        </a> </div>
-    </div>
-  </div>
-  <!--FOOTER--> 
-  
-</div>
+				</form>
+			</div>
 
-<!--****************************************BOOKING PAGE END**************************************************-->
+			<!--This div fixes footer overlaping content -->
+			<div class="stickyFooterFix"></div>
+		</div>
+		<!--CONTENT-->
 
-<div data-role="page" class="ui-responsive-panel" id="game_page">
-  <div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
-    <h1> <a href=""><img src="assets/ico/small_logo.png"></a> </h1>
-    <a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#quitGamePopup" data-icon="home" data-iconpos="notext" data-rel="popup" data-position-to="window">Home</a> </div>
-  <!--HEADER END -->
-  
-  <div data-role="content">
-    <div id="map"></div>
-    <!--
+		<div data-role="footer" data-position="fixed">
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#signIn_page"> <img id="playGame" src="assets/ico/playGame.png">
+						<p>Play!</p>
+					</a>
+				</div>
+				<div class="footerTaskbar2">
+					<div class="footerVerticalRuler"></div>
+					<a href="#"> <img src="assets/ico/facebook_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/instagram_Icon.png"> </a>
+					<a href="#"> <img src="assets/ico/twitter_Icon.png"> </a>
+					<div class="footerVerticalRuler"></div>
+				</div>
+				<div class="footerTaskbar3">
+					<a href="#newsletterPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/newsletter300px.png">
+						<p>Newsletter</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--FOOTER-->
+
+	</div>
+
+	<!--****************************************BOOKING PAGE END**************************************************-->
+
+	<div data-role="page" class="ui-responsive-panel" id="game_page">
+		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
+			<h1> <a href=""><img src="assets/ico/small_logo.png"></a> </h1>
+			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#quitGamePopup" data-icon="home" data-iconpos="notext" data-rel="popup" data-position-to="window">Home</a> </div>
+		<!--HEADER END -->
+
+		<div data-role="content">
+			<div id="map"></div>
+			<!--
 			<script>
 			  function initMap() {
 				var uluru = {lat: -25.363, lng: 131.044};
@@ -802,44 +897,50 @@
 			
 			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY&callback=initMap">
 			</script>
---> 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY"></script> 
-    <script type="text/javascript">
-            
-            
-        </script> 
-  </div>
-  <!--CONTENT-->
-  
-  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-    <div class="footerContainer">
-      <div class="footerTaskbar1"> <a href="#gameFavPopup" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/star.png">
-        <p>Favourites</p>
-        </a> </div>
-      <div class="footerTaskbar2">
-        <div class="footerVRuler1"> <a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/bag.png">
-          <p>Shop</p>
-          </a> </div>
-      </div>
-      <div class="footerTaskbar3">
-        <div class="footerVRuler"> <a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/map.png">
-          <p>Hints</p>
-          </a> </div>
-      </div>
-      <div class="footerTaskbar4"> <a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/achievement.png">
-        <p>Achievement</p>
-        </a> </div>
-    </div>
-  </div>
-  <!--FOOTER--> 
-  
-</div>
-<!--MAIN GAME PAGE-->
+-->
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY"></script>
+			<script type="text/javascript">
+			</script>
+		</div>
+		<!--CONTENT-->
 
-<!--Game Sign In Page-->
-<div data-role="page" class="ui-responsive-panel" id="signIn_page"> 
-  
-  <!--
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#gameFavPopup" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/star.png">
+						<p>Favourites</p>
+					</a>
+				</div>
+				<div class="footerTaskbar2">
+					<div class="footerVRuler1">
+						<a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/bag.png">
+							<p>Shop</p>
+						</a>
+					</div>
+				</div>
+				<div class="footerTaskbar3">
+					<div class="footerVRuler">
+						<a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/map.png">
+							<p>Hints</p>
+						</a>
+					</div>
+				</div>
+				<div class="footerTaskbar4">
+					<a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/achievement.png">
+						<p>Achievement</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--FOOTER-->
+
+	</div>
+	<!--MAIN GAME PAGE-->
+
+	<!--Game Sign In Page-->
+	<div data-role="page" class="ui-responsive-panel" id="signIn_page">
+
+		<!--
 		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
 
 			<h1>
@@ -848,195 +949,208 @@
 			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a>
 			<a href="#bookingPage" data-icon="calendar" data-iconpos="notext">Book</a>
 		</div>
---> 
-  <!--HEADER END -->
-  
-  <div data-role="content">
-    <div class="signInContainer">
-      <div class="innerContent"> <img class="gameFormLogo" src="assets/ico/text_logo.png">
-        <form method="post" action="demoform.asp">
-          <label for="email" class="ui-hidden-accessible">Email</label>
-          <input type="email" name="email" id="email" data-clear-btn="true" placeholder="Enter Your Email...">
-          <label for="password" class="ui-hidden-accessible">Password</label>
-          <input type="password" name="password" id="password" data-clear-btn="true" placeholder="Enter Your Password...">
-        </form>
-        <a href="#gameButton" class="ui-btn" id="gameButton">Sign In!</a> 
-        <a href="#signUp_page" class="ui-btn" id="signUpButton">Sign Up!</a> </div>
-    </div>
-    
-    <!--This div fixes footer overlaping content --> 
-    <!--			<div class="stickyFooterFix"></div>--> 
-    
-  </div>
-  <!--CONTENT-->
-  
-  <div data-role="footer" data-position="fixed" data-tap-toggle="false">
-    <div class="footerContainer">
-      <div class="footerTaskbar1"> <a href="#home_page"> <img id="back" src="assets/ico/backArrow.png">
-        <p>Back</p>
-        </a> </div>
-      <div class="footerTaskbar2">
-        <div class="footerVerticalRuler"></div>
-        <div class="footerVerticalRuler"></div>
-      </div>
-      <div class="footerTaskbar3"> <a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/rules.png">
-        <p>Rules</p>
-        </a> </div>
-    </div>
-  </div>
-  <!--FOOTER--> 
-  
-</div>
-<!--/Game Sign In Page--> 
+-->
+		<!--HEADER END -->
 
-<!-- Game Sign Up Page-->
-<div data-role="page" class="ui-responsive-panel" id="signUp_page">
-  <div data-role="content"> 
-    
-    <!--CONTENT-->
-    <div class="signUpContainer">
-      <div class="innerContent"> <img class="gameFormLogo" src="assets/ico/text_logo.png">
-        <div class="center">
-          <form method="post" action="demoform.asp">
-            <div class="ui-field-contain">
-              <label for="fname" class="ui-hidden-accessible">First Name</label>
-              <input type="text" name="fname" id="fname" data-clear-btn="true" placeholder="Enter Your First Name...">
-              <label for="sname" class="ui-hidden-accessible">Surname</label>
-              <input type="text" name="sname" id="sname" data-clear-btn="true" placeholder="Enter Your Last Name...">
-              <label for="email" class="ui-hidden-accessible">Email</label>
-              <input type="email" name="email" id="email" data-clear-btn="true" placeholder="Enter Your Email...">
-              <label for="password" class="ui-hidden-accessible">Password</label>
-              <input type="password" name="password" id="password" data-clear-btn="true" placeholder="Enter A Password...">
-              <label for="nname" class="ui-hidden-accessible">Nickname</label>
-              <input type="text" name="nname" id="nname" data-clear-btn="true" placeholder="Enter A Nickname...">
-              <fieldset data-role="controlgroup">
-                <label for="terms">Terms and Conditions</label>
-                <input type="checkbox" name="terms" id="terms" value="terms">
-                <label for="news">Weekly Newsletter</label>
-                <input type="checkbox" checked name="news" id="news" value="news">
-              </fieldset>
-            </div>
-          </form>
-          <a href="#gameButton" class="ui-btn" id="gameButton">Sign Up!</a> </div>
-      </div>
-    </div>
-  </div>
-  <!--/CONTENT-->
-  
-  <div data-role="footer" data-position="fixed" data-tap-toggle="false"> 
-    <!--FOOTER-->
-    <div class="footerContainer">
-      <div class="footerTaskbar1"> <a href="#signIn_page"> <img id="back" src="assets/ico/backArrow.png">
-        <p>Back</p>
-        </a> </div>
-      <div class="footerTaskbar2">
-        <div class="footerVerticalRuler"></div>
-        <div class="footerVerticalRuler"></div>
-      </div>
-      <div class="footerTaskbar3"> <a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/terms.png">
-        <p>T&C</p>
-        </a> </div>
-    </div>
-  </div>
-  <!--/FOOTER--> 
-  
-</div>
+		<div data-role="content">
+			<div class="signInContainer">
+				<div class="innerContent"> <img class="gameFormLogo" src="assets/ico/text_logo.png">
+					<form method="post" action="demoform.asp">
+						<label for="email" class="ui-hidden-accessible">Email</label>
+						<input type="email" name="email" id="email" data-clear-btn="true" placeholder="Enter Your Email...">
+						<label for="password" class="ui-hidden-accessible">Password</label>
+						<input type="password" name="password" id="password" data-clear-btn="true" placeholder="Enter Your Password...">
+					</form>
+					<a href="#gameButton" class="ui-btn" id="gameButton">Sign In!</a>
+					<a href="#signUp_page" class="ui-btn" id="signUpButton">Sign Up!</a> </div>
+			</div>
 
-<!--/Game Sign Up Page-->
+			<!--This div fixes footer overlaping content -->
+			<!--			<div class="stickyFooterFix"></div>-->
 
-<div data-role="panel" data-position-fixed="true" data-theme="b" id="navPanel">
-  <ul data-role="listview" data-theme="b" class="nav-search">
-    <li data-icon="false"> <a href="#home_page" class="panelItemHome"><img src="assets/ico/small_logo.png">
-      <p>Home</p>
-      </a> </li>
-    <hr>
-    <li data-icon="false"><a href="#about_page">About Us</a></li>
-    <hr>
-    <li data-icon="false"><a href="#pub_page">Find Pub</a></li>
-    <hr>
-    <li data-icon="false"><a href="#bookingPage">Booking</a></li>
-    <hr>
-    <li data-icon="false"><a href="#menu_page">Menu</a></li>
-    <hr>
-    <li data-icon="false"><a href="#signIn_page">Play</a></li>
-    <hr>
-    <li data-icon="false"><a href="#contactPage">Contact Us</a></li>
-  </ul>
-</div>
-<!--NAV PANEL-->
+		</div>
+		<!--CONTENT-->
 
-<div data-role="panel" data-position-fixed="true" data-theme="b" id="gameNavPanel">
-  <ul data-role="listview" data-theme="b" class="nav-search">
-    <li data-icon="false"> <a href="#home_page" class="panelItemHome"><img src="assets/ico/small_logo.png">
-      <p>Home</p>
-      </a> </li>
-    <hr>
-    <li data-icon="false"><a href="#">game</a></li>
-    <hr>
-    <li data-icon="false"><a href="#">game</a></li>
-    <hr>
-    <li data-icon="false"><a href="#">game</a></li>
-    <hr>
-    <li data-icon="false"><a href="#">game</a></li>
-    <hr>
-    <li data-icon="false"><a href="#">game</a></li>
-    <hr>
-    <li data-icon="false"><a href="#">game</a></li>
-  </ul>
-</div>
-<!--GAME NAV PANEL-->
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#home_page"> <img id="back" src="assets/ico/backArrow.png">
+						<p>Back</p>
+					</a>
+				</div>
+				<div class="footerTaskbar2">
+					<div class="footerVerticalRuler"></div>
+					<div class="footerVerticalRuler"></div>
+				</div>
+				<div class="footerTaskbar3">
+					<a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/rules.png">
+						<p>Rules</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--FOOTER-->
 
-<div data-role="popup" id="newsletterPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-  <div data-role="header">
-    <h1>SUBSCRIBE TO NEWSLETTER</h1>
-  </div>
-  <div role="main" class="ui-content newsletterPopupMain">
-    <form id="newsletterForm">
-      <input type="email" name="newsletterTextField" id="newsletterTextField" placeholder="Email Address" value="">
-      <p class="newsletterTextFieldValidation">&nbsp;</p>
-      <input class="newsletterButton" type="submit" value="Sign Up">
-    </form>
-    <p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
-  </div>
-</div>
-<!--NEWSLETTER POPUP-->
+	</div>
+	<!--/Game Sign In Page-->
 
-<div data-role="popup" id="gameRulesPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-  <div data-role="header">
-    <h1>gameRulesPopup</h1>
-  </div>
-  <div role="main" class="ui-content newsletterPopupMain">
-    <p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
-  </div>
-</div>
-<!--GAME RULES POPUP-->
+	<!-- Game Sign Up Page-->
+	<div data-role="page" class="ui-responsive-panel" id="signUp_page">
+		<div data-role="content">
 
-<div data-role="popup" id="quitGamePopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-  <div data-role="header">
-    <h1>Quit the game?</h1>
-  </div>
-  <div role="main" class="ui-content newsletterPopupMain">
-    <p>QUIT?</p>
-    <a href="#home_page">Yes</a> <a href="#" data-rel="back">No</a> </div>
-</div>
-<!--QUIT GAME POPUP-->
+			<!--CONTENT-->
+			<div class="signUpContainer">
+				<div class="innerContent"> <img class="gameFormLogo" src="assets/ico/text_logo.png">
+					<div class="center">
+						<form method="post" action="demoform.asp">
+							<div class="ui-field-contain">
+								<label for="fname" class="ui-hidden-accessible">First Name</label>
+								<input type="text" name="fname" id="fname" data-clear-btn="true" placeholder="Enter Your First Name...">
+								<label for="sname" class="ui-hidden-accessible">Surname</label>
+								<input type="text" name="sname" id="sname" data-clear-btn="true" placeholder="Enter Your Last Name...">
+								<label for="email" class="ui-hidden-accessible">Email</label>
+								<input type="email" name="email" id="email" data-clear-btn="true" placeholder="Enter Your Email...">
+								<label for="password" class="ui-hidden-accessible">Password</label>
+								<input type="password" name="password" id="password" data-clear-btn="true" placeholder="Enter A Password...">
+								<label for="nname" class="ui-hidden-accessible">Nickname</label>
+								<input type="text" name="nname" id="nname" data-clear-btn="true" placeholder="Enter A Nickname...">
+								<fieldset data-role="controlgroup">
+									<label for="terms">Terms and Conditions</label>
+									<input type="checkbox" name="terms" id="terms" value="terms">
+									<label for="news">Weekly Newsletter</label>
+									<input type="checkbox" checked name="news" id="news" value="news">
+								</fieldset>
+							</div>
+						</form>
+						<a href="#gameButton" class="ui-btn" id="gameButton">Sign Up!</a> </div>
+				</div>
+			</div>
+		</div>
+		<!--/CONTENT-->
 
-<div data-role="popup" id="gameFavPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
-  <div data-role="header">
-    <h1>FAVOURITES</h1>
-  </div>
-  <div role="main" class="ui-content newsletterPopupMain">
-    <p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
-  </div>
-</div>
-<!--GAME FAV POPUP--> 
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+			<!--FOOTER-->
+			<div class="footerContainer">
+				<div class="footerTaskbar1">
+					<a href="#signIn_page"> <img id="back" src="assets/ico/backArrow.png">
+						<p>Back</p>
+					</a>
+				</div>
+				<div class="footerTaskbar2">
+					<div class="footerVerticalRuler"></div>
+					<div class="footerVerticalRuler"></div>
+				</div>
+				<div class="footerTaskbar3">
+					<a href="#gameRulesPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/terms.png">
+						<p>T&C</p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!--/FOOTER-->
 
-<!--DEPENDENCIES--> 
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
-<script src="assets/js/owl.carousel.min.js"></script> 
-<script type="text/javascript" src="assets/js/myScript.js"></script> 
-<script type="text/javascript" src="assets/js/gameScript.js"></script> 
-<script src="assets/js/list.min.js"></script>
+	</div>
+
+	<!--/Game Sign Up Page-->
+
+	<div data-role="panel" data-position-fixed="true" data-theme="b" id="navPanel">
+		<ul data-role="listview" data-theme="b" class="nav-search">
+			<li data-icon="false">
+				<a href="#home_page" class="panelItemHome"><img src="assets/ico/small_logo.png">
+					<p>Home</p>
+				</a>
+			</li>
+			<hr>
+			<li data-icon="false"><a href="#about_page">About Us</a></li>
+			<hr>
+			<li data-icon="false"><a href="#pub_page">Find Pub</a></li>
+			<hr>
+			<li data-icon="false"><a href="#bookingPage">Booking</a></li>
+			<hr>
+			<li data-icon="false"><a href="#menu_page">Menu</a></li>
+			<hr>
+			<li data-icon="false"><a href="#signIn_page">Play</a></li>
+			<hr>
+			<li data-icon="false"><a href="#contactPage">Contact Us</a></li>
+		</ul>
+	</div>
+	<!--NAV PANEL-->
+
+	<div data-role="panel" data-position-fixed="true" data-theme="b" id="gameNavPanel">
+		<ul data-role="listview" data-theme="b" class="nav-search">
+			<li data-icon="false">
+				<a href="#home_page" class="panelItemHome"><img src="assets/ico/small_logo.png">
+					<p>Home</p>
+				</a>
+			</li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+			<hr>
+			<li data-icon="false"><a href="#">game</a></li>
+		</ul>
+	</div>
+	<!--GAME NAV PANEL-->
+
+	<div data-role="popup" id="newsletterPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>SUBSCRIBE TO NEWSLETTER</h1>
+		</div>
+		<div role="main" class="ui-content newsletterPopupMain">
+			<form id="newsletterForm">
+				<input type="email" name="newsletterTextField" id="newsletterTextField" placeholder="Email Address" value="">
+				<p class="newsletterTextFieldValidation">&nbsp;</p>
+				<input class="newsletterButton" type="submit" value="Sign Up">
+			</form>
+			<p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
+		</div>
+	</div>
+	<!--NEWSLETTER POPUP-->
+
+	<div data-role="popup" id="gameRulesPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>gameRulesPopup</h1>
+		</div>
+		<div role="main" class="ui-content newsletterPopupMain">
+			<p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
+		</div>
+	</div>
+	<!--GAME RULES POPUP-->
+
+	<div data-role="popup" id="quitGamePopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>Quit the game?</h1>
+		</div>
+		<div role="main" class="ui-content newsletterPopupMain">
+			<p>QUIT?</p>
+			<a href="#home_page">Yes</a> <a href="#" data-rel="back">No</a> </div>
+	</div>
+	<!--QUIT GAME POPUP-->
+
+	<div data-role="popup" id="gameFavPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>FAVOURITES</h1>
+		</div>
+		<div role="main" class="ui-content newsletterPopupMain">
+			<p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
+		</div>
+	</div>
+	<!--GAME FAV POPUP-->
+
+	<!--DEPENDENCIES-->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="assets/js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="assets/js/myScript.js"></script>
+	<script type="text/javascript" src="assets/js/gameScript.js"></script>
+	<script src="assets/js/list.min.js"></script>
 </body>
+
 </html>
