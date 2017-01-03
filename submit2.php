@@ -23,9 +23,13 @@ $date2=$_POST['date1'];
 
 
 
-$query = mysql_query("select * from time_slots where date =".$date2.""); // get all slots for day 5,5,5,5,5,5 something like that
-$exeprodSQL=mysql_query($query) or die(mysql_error());
-$thearrayprod=mysql_fetch_array($exeprodSQL);
+$query = mysql_query("SELECT time FROM booking "); 
+$data = array();
+while ($row = mysql_fetch_array($query)) {
+    $data[] = $row;
+}
+
+echo json_encode($data);
 
 
 //Insert query 

@@ -821,10 +821,8 @@
 															data: dataString,
 															cache: false,
 															success: function (result) {
-																alert(result); // print result from query in alert comes up with a must string or something 
-
-																// go second booking page	
-																//window.location.href = "#comfirm_page"; // call on game
+																	var array = JSON.parse("[" + result + "]");
+																	console.log(array);
 															},
 															error: function () {
 																alert("Error please try again.");
