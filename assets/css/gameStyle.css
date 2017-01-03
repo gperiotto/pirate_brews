@@ -7,6 +7,10 @@
 
 #game_page .ui-panel-wrapper {
 	background: rgb(12, 56, 50) !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	height: 100% !important;
+	width: auto!important;
 }
 
 #game_page[data-role=page] {
@@ -67,6 +71,9 @@
 
 #game_page[data-role=page] [data-role=content] {
 	background: rgba(255, 255, 255, 0);
+	padding: 0;
+	height: 100% !important;
+	width: 100%;
 }
 
 #game_page [data-role=footer] {
@@ -150,6 +157,17 @@
 	height: 60px;
 }
 
+#map {
+	padding: 0 !important;
+	margin: 0 !important;
+	height: 100%!important;
+	width: 100%!important;
+}
+
+.gmnoprint div,gm-style-cc{
+ 	background: rgba(255, 13, 13, 0)!important;
+	color: aliceblue;
+}
 
 /***************GAME SIGN IN**************/
 
