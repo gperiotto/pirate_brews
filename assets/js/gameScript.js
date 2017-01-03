@@ -16,9 +16,9 @@ gamejQuery(document).ready(function ($) {
 	//Instantiate GAME menuPanel
 	$("#gameNavPanel").panel().enhanceWithin();
 
-
-
-
+	$('#gameTermsPopup').css('overflow-y', 'visable').css('overflow-x', 'hidden');
+	
+	////////////////////////////////////////////////////
 	////////////////////////////////////////////////////
 	//Game pave slide animation 
 	$(document).on('pagebeforeshow', '#signIn_page', function () {

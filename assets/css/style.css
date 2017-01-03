@@ -231,7 +231,8 @@ a[data-icon=calendar] {
 }
 
 [data-role=popup] {
-    max-width: 400px;
+    max-width: 370px;
+	max-height:550px;
     margin: 0;
     padding: 0;
     text-align: center;
