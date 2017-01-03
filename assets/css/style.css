@@ -3,6 +3,7 @@
 /*********************GLOBAL*********************/
 
 body {
+	max-width: 1024px!important;
     font-family: 'Open Sans', sans-serif !important;
     padding: 0 !important;
     margin: 0 !important;
