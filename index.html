@@ -669,57 +669,48 @@
 			<div class="contactPageTitle">
 				<h1><span>Contact Us</span></h1>
 			</div>
-			<br>
-			<br>
 			<div class="contactForm">
 				<form>
-					<input type="text" placeholder="Name" id="cName" autofocus/>
-					<label>
-						<span>&nbsp;</span>
-						<br>
-						<input type="text" placeholder="Email" id="cEmail" />
-						<label>
-							<span>&nbsp;</span>
-							<br>
-							<input type="text" placeholder="Subject" id="cSubject" />
-							<label>
-								<span>&nbsp;</span>
-								<br>
-								<input type="text" placeholder="Message" id="cMessage" />
-								<label>
-									<span>&nbsp;</span>
-									<br>
-									<button type="submit" id="cSubmit">Submit</button>
-									<script>
-										$(document).ready(function () {
-											$("#cSubmit").click(function () {
-												var name = $("#cName").val();
-												var email = $("#cEmail").val();
-												var subject = $("#cSubject").val();
-												var message = $("#cMessage").val();
-												// Returns successful data submission message when the entered information is stored in database.
-												var dataString = 'name1=' + name + '&email1=' + email + '&subject1=' + subject + '&message1=' + message;
-												if (name == '' || email == '' || subject == '' || message == '') {
-													alert("Please Fill All Fields");
-												} else {
-													// AJAX Code To Submit Form.
-													$.ajax({
-														type: "POST",
-														url: "submit.php",
-														data: dataString,
-														cache: false,
-														success: function (result) {
-															alert("Message sent!");
-															window.location.href = "#home_page";
-														}
-													});
+					<!--name-->
+					<input type="text" placeholder="Name" id="cName" autofocus/><br>
+					<!--email-->
+					<input type="text" placeholder="Email" id="cEmail" /><br>
+					<!--subject-->
+					<input type="text" placeholder="Subject" id="cSubject" /><br>
+					<!--message-->
+					<input type="text" placeholder="Message" id="cMessage" /><br>
+					<!--submit button-->
+					<button type="submit" id="cSubmit">Submit</button>
+					<script>
+					$(document).ready(function () {
+						$("#cSubmit").click(function () {
+							var name = $("#cName").val();
+							var email = $("#cEmail").val();
+							var subject = $("#cSubject").val();
+							var message = $("#cMessage").val();
+							// Returns successful data submission message when the entered information is stored in database.
+							var dataString = 'name1=' + name + '&email1=' + email + '&subject1=' + subject + '&message1=' + message;
+							if (name == '' || email == '' || subject == '' || message == '') {
+								alert("Please Fill All Fields");
+							} else {
+								// AJAX Code To Submit Form.
+								$.ajax({
+									type: "POST",
+									url: "submit.php",
+									data: dataString,
+									cache: false,
+									success: function (result) {
+										alert("Message sent!");
+										window.location.href = "#home_page";
+									}
+								});
 
-												}
-												return false;
-											});
+							}
+							return false;
+						});
 
-										});
-									</script>
+					});
+					</script>
 				</form>
 			</div>
 
@@ -1149,11 +1140,24 @@
 	<!--NEWSLETTER POPUP-->
 <div data-role="popup" id="gameRulesPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 	<div data-role="header">
-			<h1>gameRulesPopup</h1>
+			<h1>Rules & Instructions</h1>
 		</div>
 		<div role="main" class="ui-content newsletterPopupMain">
-			<p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
-		</div>
+		  <strong id="docs-internal-guid-6e4a7017-6a9e-f97b-2d86-3dd3a2d32595">
+			<p dir="ltr">To Start playing Pirate Brews™ game first start by creating a account with us. This will allow your progress on the game to be saved in our database and allow you to keep your data persistent the more you play.</p>
+			<p dir="ltr">The main aim of the game is to find a section of a treasure map at any pub and then travel to a near point of interest that is featured on that section of map to gain a promotion.<br>
+			  The goal of this game is to collect all the treasure maps section to create a one full treasure map to gain the larger promotion. </p>
+			<p dir="ltr">There is a leveling system in this game, the more you play the more XP you will gain and thus the higher levels you will achieve.</p>
+			<p dir="ltr"><strong>There are 4 menus in our game:</strong></p>
+			<p dir="ltr"><strong>Favorites:</strong> These are the Pubs and Point of Interest that you have favourited. This is also the place where your promotion code that you have unlocked will displayed.</p>
+			<p dir="ltr"><strong>Shop:</strong> Here you can purchase additional items that will enhance your gaming experience.</p>
+			<p dir="ltr"><strong>Hints:</strong> Here you can see the current treasure map piece that you have and the Point of Interest you need to go to next to get a chance of getting a promotion code.</p>
+			<p dir="ltr"><strong>Achievements:</strong> Here you can track your progress and show all the achievements you have achieved while playing the game.</p>
+			<p dir="ltr"><strong>There are a few more menus in our game that are inside the top left menu:</strong></p>
+			<p dir="ltr"><strong>Rules &amp; Instructions:</strong> The menu you are currently looking at</p>
+			<p dir="ltr"><strong>Settings:</strong> Here you can adjust certain settings of the game. You can also view the terms of service of the game</p>
+		<p dir="ltr">If you would like to exit the game press the home button the top right side, this will take you back to the main page of the app.</p></strong>
+         </div>
 	</div>
 	<!--GAME RULES POPUP-->
     
