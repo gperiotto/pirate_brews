@@ -12,6 +12,8 @@
 	<link href="assets/css/contactPage.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/bookingPage.css" rel="stylesheet" type="text/css">
 
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY"></script>
+
 	<!--jquery UI-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
@@ -710,8 +712,6 @@
 															alert("Message sent!");
 															window.location.href = "#home_page";
 														}
-														
-													
 													});
 
 												}
@@ -767,105 +767,106 @@
 				<h1><span>Book Now</span></h1>
 			</div>
 			<div class="bookingPage">
-					
-					<input type="text" placeholder="Name" id="bName" name="bName" autofocus/>
-					<label>
-						<span>&nbsp;</span>
-						<br></label>
-					<input type="text" placeholder="Email" id="bEmail" name="bEmail" />
-					<label>
-						<span>&nbsp;</span>
-						<br></label>
+					<!--name-->
+					<input type="text" placeholder="Name" id="bName" name="bName" autofocus/><br>
+					<!--email-->
+					<input type="text" placeholder="Email" id="bEmail" name="bEmail" /><br>
+					<!--location-->
 					<select name="select-native-4" id="bLocationSelector">
-								<option>Location...</option>
-								<option value="1">Old Cavendish</option>
-								<option value="2">Marylebone</option>
-								<option value="3">Little Titchfield</option>
-								<option value="4">The Prince Regent</option> 
-                    </select>
-					<label>
-						<span>&nbsp;</span>
-						<br>
-						<br></label>
-					<input type="date" data-role="date" id="bdate">
-					<label>
-					<span>&nbsp;</span>
-					<br></label>
-					
+						<option>Location...</option>
+						<option value="1">Old Cavendish</option>
+						<option value="2">Marylebone</option>
+						<option value="3">Little Titchfield</option>
+						<option value="4">The Prince Regent</option> 
+                    </select><br>
+					<!--date-->
+					<input onblur="submitDetails()" type="date" data-role="date" id="bdate"><br>
+					<!--time-->
+					<select  id="surah_selection"> 
+								<option id="1">Select Time</option>      
+					</select><br>
+					<!--submit button-->
+                    <button onclick="submitBooking()" id="bSubmit2" name="cInputButton"> Submit </button>
                     
-                    <button onclick="submit()" id="bSubmit2" name="cInputButton"> Find Time </button>
-                    <div id="time">   </div> <br><br>
-                    <div id="time1">   </div>
-                        
-                    
-                    
-                    <script>
-					
-					
-					function submit() {
+                	<script>
+						var myTimeArray;
+						var aparitions = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 						
-					//////////////////////////////////////////////////////////////////////////									
-					/*var name = $("#bName").val();
-					var email = $("#bEmail").val();
-					var e = document.getElementById("bLocationSelector");
-					var location = e.options[e.selectedIndex].text;
-					var date = document.getElementById("bdate").value;
+						function timePopulate() {
+							let count=-1;
+								try{
+									console.log(aparitions);
+									for(let i=0; i<aparitions.length; i++) {
+										if(aparitions[i] == 0) {
+											if (count >20) break;
+											var str="<option id='"+(++count)+"'>"+i+"</option>"
+											$("#surah_selection").append(str);
+										}
+									}
+								}catch (ex){
 
-					console.log(date);
-					console.log(email);
-					console.log(location);
-					// Returns successful data submission message when the entered information is stored in database.
-					var dataString = 'name1=' + name + '&email1=' + email + '&location1=' + location + '&date1=' + date;
-					console.log(dataString);
-					if (name == '' || email == '' || location == '' || date == '') {
-							alert("Please Fill All Fields");
-							} else {
-					$.ajax({
-					type: "POST",
-					url: "submit2.php",
-					data: dataString,
-					cache: false,
-					success: function (result) {
-							alert("checking for times"); 
-												},
-					error: function () {
-							alert("Error please try again.");
-												}
-												});
+								}
+							}
 
-							}return false; */	
-					////////////////////////////////////////////////////////////////////////////////////////
-						
-    				// GET RECORDS FROM THE DATABASE
-					var date = document.getElementById("bdate").value;
-					var dataString ='&date1=' + date;
-									
-					$.ajax({
-							type: "POST",
-							url: "submit2.php",
-							data: dataString,
-							success: function(data){
-							alert('done');
-							//console.log(json);
-							//$("#time").html(data);
-							//var obj = $.parseJSON(data);
-							// v = data.time1;
-							//console.log(v);
-							//$("#time").html(v);
-							
+						function submitBooking() {
+							alert("now we can take care uf updateing !");
+						}
+
+						function submitDetails() {
+								var name = $("#bName").val();
+								var email = $("#bEmail").val();
+
+								var e = document.getElementById("bLocationSelector");
+								var location = e.options[e.selectedIndex].text;
+								var date = document.getElementById("bdate").value;
+
+								// console.log(date);
+								// console.log(email);
+								// console.log(location);
+
+								// Returns successful data submission message when the entered information is stored in database.
+								var dataString = 'location1=' + location + '&date1=' + date;
+								console.log(dataString);
+								if (date == '' || location == '') {
+									alert("Please Fill teh details");
+								} else {
+									// AJAX Code To Submit Form.
+									$.ajax({
+										type: "POST",
+										url: "submit2.php",
+										data: dataString,
+										cache: false,
+										dataType: "json",
+										success: function (result) {
+											for(let i=0;i<=result.length - 1;i++) {
+												myTimeArray+= " " + result[i]['time'];
+											}
+											intArray = myTimeArray.split(" ").map(Number).filter(Boolean);
+											myTimeArray = intArray; //array with all the times booked
+
+											console.log(myTimeArray); 
+
+											for(let i=0; i<myTimeArray.length; i++) {
+												try {
+													if(aparitions[myTimeArray[i]]<16){
+														aparitions[myTimeArray[i]]++;
+													}
+												}catch (ex){
 													
-							var t = data[10]; // if you can get the correct for the asso array that would be great -- i am super close not suer what i am missing 
-												// this at the moment prints out the 10th index in my array - it for some reason wont work with arrays. Please do the booking my way. 
-							console.log(t);						
-							}
-							
-																				
-							});
-							
-					
-																
-																
-							}
+												}
+											}
+											console.log(aparitions);
+											timePopulate();
+										},
+										error: function () {
+											alert("Error please try again.");
+										}
+									});
+
+								}
+								document.getElementById("surah_selection").click();
+						}
+							// console.log(myTimeArray);
 					</script>
                     
 				<!--</form>-->
@@ -906,36 +907,12 @@
 	<div data-role="page" class="ui-responsive-panel" id="game_page">
 		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
 			<h1> <a href=""><img src="assets/ico/small_logo.png"></a> </h1>
-			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#quitGamePopup" data-icon="home" data-iconpos="notext" data-rel="popup" data-position-to="window">Home</a> </div>
+			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#quitGamePopup" data-icon="home" data-iconpos="notext" data-rel="popup" data-position-to="window">Home</a> 
+		</div>
 		<!--HEADER END -->
 
-		<div data-role="content">
-			<div id="map"></div>
-			
-			<script>
-			  function initMap() {
-				var uluru = {lat: -25.363, lng: 131.044};
-				map = new google.maps.Map(document.getElementById('map'), {
-				  zoom: 3,
-				  center: uluru
-				});
-				var marker = new google.maps.Marker({
-				  position: uluru,
-				  map: map
-				});
-			  }
-			</script>
-			
-			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY&callback=initMap">
-				$( '#game_page' ).ready(function() {
-//			google.maps.event.addDomListener(window, 'load', init);
-			google.maps.event.trigger(map,'resize');
-		});
-			</script>
-
-
-<!--			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY"></script>-->
-	
+		<div data-role="content" id="game_ContentPage">
+			<div id="map" style="height:100%"></div>
 		</div>
 		<!--CONTENT-->
 
@@ -1040,79 +1017,24 @@
 						<form method="post" action="demoform.asp">
 							<div class="ui-field-contain">
 								<label for="fname" class="ui-hidden-accessible">First Name</label>
-								
-                                <input type="text" name="fname" id="fname" data-clear-btn="true" placeholder="Enter Your First Name...">
-								
-                                <label for="sname" class="ui-hidden-accessible">Surname</label>
-								
-                                <input type="text" name="sname" id="sname" data-clear-btn="true" placeholder="Enter Your Last Name...">
-								
-                                <label for="email" class="ui-hidden-accessible">Email</label>
-								
-                                <input type="text" name="email" id="semail" data-clear-btn="true" placeholder="Enter Your Email...">
-								
-                                <label for="password" class="ui-hidden-accessible">Password</label>
-								
-                                <input type="password" name="password" id="spassword" data-clear-btn="true" placeholder="Enter A Password...">
-								
-                                <label for="nname" class="ui-hidden-accessible">Nickname</label>
-								
-                                <input type="text" name="nname" id="nname" data-clear-btn="true" placeholder="Enter A Nickname...">
-								
-                                <fieldset data-role="controlgroup">
+								<input type="text" name="fname" id="fname" data-clear-btn="true" placeholder="Enter Your First Name...">
+								<label for="sname" class="ui-hidden-accessible">Surname</label>
+								<input type="text" name="sname" id="sname" data-clear-btn="true" placeholder="Enter Your Last Name...">
+								<label for="email" class="ui-hidden-accessible">Email</label>
+								<input type="email" name="email" id="email" data-clear-btn="true" placeholder="Enter Your Email...">
+								<label for="password" class="ui-hidden-accessible">Password</label>
+								<input type="password" name="password" id="password" data-clear-btn="true" placeholder="Enter A Password...">
+								<label for="nname" class="ui-hidden-accessible">Nickname</label>
+								<input type="text" name="nname" id="nname" data-clear-btn="true" placeholder="Enter A Nickname...">
+								<fieldset data-role="controlgroup">
 									<label for="terms">Terms and Conditions</label>
 									<input type="checkbox" name="terms" id="terms" value="terms">
 									<label for="news">Weekly Newsletter</label>
 									<input type="checkbox" checked name="news" id="news" value="news">
 								</fieldset>
-                                 <button type="submit" id="sSubmit">Sign up</button>
 							</div>
-                            
-                            
-                            			<script>
-										$(document).ready(function () {
-											$("#sSubmit").click(function () {
-												var name = $("#fname").val();
-												var surname = $("#sname").val()
-												var email = $("#semail").val();
-												var password = $("#spassword").val();
-												var nickname = $("#nname").val();
-												// Returns successful data submission message when the entered information is stored in database.
-												var dataString = 'name1=' + name + '&surname1=' + surname + '&email1=' + email + '&password1=' + password + '&nickname1=' + nickname;
-												console.log(dataString);
-												if (name == '' ) { //|| surname == '' || email == '' || password == '' || nickname == ''
-													alert("Please Fill All Fields");
-												} else {
-													// AJAX Code To Submit Form.
-													$.ajax({
-														type: "POST",
-														url: "signup.php",
-														data: dataString,
-														cache: false,
-														success: function (result) {
-															alert ('signed up');
-															
-														},
-														error: function(result)
-														{
-															alert("failed not unquie nickname" + result);
-															}
-														
-														
-													
-													});
-
-												}
-												return false;
-											});
-
-										});
-									</script>
-                            
-                            
-                            
 						</form>
-						
+						<a href="#gameButton" class="ui-btn" id="gameButton">Sign Up!</a> </div>
 				</div>
 			</div>
 		</div>

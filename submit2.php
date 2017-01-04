@@ -14,16 +14,12 @@ mysql_select_db("w1469432_0", $conn);
 /////////////////////////////try include /////////////////////////////
 
 //Fetching Values from URL  
-$name2=$_POST['name1'];
-$email2=$_POST['email1'];
 $location2=$_POST['location1'];
 $date2=$_POST['date1'];
 
-//inner join 
 
 
-
-$query = mysql_query("SELECT time FROM booking "); 
+$query = mysql_query("SELECT time FROM booking where location ='".$location2."'"); 
 $data = array();
 while ($row = mysql_fetch_array($query)) {
     $data[] = $row;

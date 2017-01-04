@@ -10,7 +10,7 @@ if (!$conn)
   die('Could not connect: ' . mysql_error());
   }
 mysql_select_db("w1469432_0", $conn);
-
+echo "".$conn."";
 /////////////////////////////try include /////////////////////////////
 
 //Fetching Values from URL  
@@ -23,8 +23,6 @@ $password2= md5($password);
 
 
 
-
-echo "".$conn."";
 //Insert query 
   $query = mysql_query("insert into user_table(user_Name, user_Email, user_Surname, user_Password, user_Nickname ) values ('$name2', '$email2', '$surname2', '$password2', '$nickname2')");
   $exeprodSQL=mysql_query($query) or die(mysql_error());
