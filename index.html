@@ -12,6 +12,8 @@
 	<link href="assets/css/contactPage.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/bookingPage.css" rel="stylesheet" type="text/css">
 
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY"></script>
+
 	<!--jquery UI-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
@@ -780,6 +782,7 @@
 								<option value="2">Marylebone</option>
 								<option value="3">Little Titchfield</option>
 								<option value="4">The Prince Regent</option>
+							</select>
 								<label>
 									<span>&nbsp;</span>
 									<br>
@@ -794,47 +797,51 @@
 										<br>
 										<br>
 										<br>
-										<script>
-											$(document).ready(function () {
-												$("#bSubmit2").click(function () {
-													var name = $("#bName").val();
-													var email = $("#bEmail").val();
+									</label>
+								</label>
+						</label>
+					</label>
+					<script>
+						$(document).ready(function () {
+							$("#bSubmit2").click(function () {
+								var name = $("#bName").val();
+								var email = $("#bEmail").val();
 
-													var e = document.getElementById("bLocationSelector");
-													var location = e.options[e.selectedIndex].text;
-													var date = document.getElementById("bdate").value;
+								var e = document.getElementById("bLocationSelector");
+								var location = e.options[e.selectedIndex].text;
+								var date = document.getElementById("bdate").value;
 
-													console.log(date);
-													console.log(email);
-													console.log(location);
+								console.log(date);
+								console.log(email);
+								console.log(location);
 
-													// Returns successful data submission message when the entered information is stored in database.
-													var dataString = 'name1=' + name + '&email1=' + email + '&location1=' + location + '&date1=' + date;
-													console.log(dataString);
-													if (name == '' || email == '' || location == '') {
-														alert("Please Fill All Fields");
-													} else {
-														// AJAX Code To Submit Form.
-														$.ajax({
-															type: "POST",
-															url: "submit2.php",
-															data: dataString,
-															cache: false,
-															success: function (result) {
-																	var array = JSON.parse("[" + result + "]");
-																	console.log(array);
-															},
-															error: function () {
-																alert("Error please try again.");
-															}
-														});
+								// Returns successful data submission message when the entered information is stored in database.
+								var dataString = 'name1=' + name + '&email1=' + email + '&location1=' + location + '&date1=' + date;
+								console.log(dataString);
+								if (name == '' || email == '' || location == '') {
+									alert("Please Fill All Fields");
+								} else {
+									// AJAX Code To Submit Form.
+									$.ajax({
+										type: "POST",
+										url: "submit2.php",
+										data: dataString,
+										cache: false,
+										success: function (result) {
+												var array = JSON.parse("[" + result + "]");
+												console.log(array);
+										},
+										error: function () {
+											alert("Error please try again.");
+										}
+									});
 
-													}
-													return false;
-												});
+								}
+								return false;
+							});
 
-											});
-										</script>
+						});
+					</script>
 				</form>
 			</div>
 
@@ -873,32 +880,12 @@
 	<div data-role="page" class="ui-responsive-panel" id="game_page">
 		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
 			<h1> <a href=""><img src="assets/ico/small_logo.png"></a> </h1>
-			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#quitGamePopup" data-icon="home" data-iconpos="notext" data-rel="popup" data-position-to="window">Home</a> </div>
+			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#quitGamePopup" data-icon="home" data-iconpos="notext" data-rel="popup" data-position-to="window">Home</a> 
+		</div>
 		<!--HEADER END -->
 
-		<div data-role="content">
-			<div id="map"></div>
-			<!--
-			<script>
-			  function initMap() {
-				var uluru = {lat: -25.363, lng: 131.044};
-				var map = new google.maps.Map(document.getElementById('map'), {
-				  zoom: 3,
-				  center: uluru
-				});
-				var marker = new google.maps.Marker({
-				  position: uluru,
-				  map: map
-				});
-			  }
-			</script>
-			
-			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY&callback=initMap">
-			</script>
--->
-			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY"></script>
-			<script type="text/javascript">
-			</script>
+		<div data-role="content" id="game_ContentPage">
+			<div id="map" style="height:100%"></div>
 		</div>
 		<!--CONTENT-->
 

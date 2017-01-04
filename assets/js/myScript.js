@@ -3,7 +3,7 @@ var jQuery = jQuery.noConflict();
 jQuery(document).ready(function ($) {
 
 	"use strict";
-
+	
 	//Instantiate global newsletterPopup
 	$("#newsletterPopup").enhanceWithin().popup();
 

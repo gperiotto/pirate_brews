@@ -12,6 +12,7 @@ body {
 }
 
 [data-role=page] {
+	max-width: 1024px!important;
     height: 100% !important;
     position: relative !important;
     left: 0;
@@ -25,6 +26,7 @@ body {
 #menu_page .ui-panel-wrapper,
 #contactPage .ui-panel-wrapper,
 #bookingPage .ui-panel-wrapper{
+	max-width: 1024px!important;
 	background: #eaeaea !important;
 }
 
@@ -56,6 +58,7 @@ a[data-icon=calendar] {
 
 .ui-page .ui-header,
 .ui-page .ui-footer {
+	max-width: 1024px!important;
     background: #4e4e60 !important;
     text-shadow: none !important;
     color: white !important;

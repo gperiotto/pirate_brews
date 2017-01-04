@@ -6,21 +6,34 @@
 /***************GAME SIGN IN**************/
 
 #game_page .ui-panel-wrapper {
-	background: rgb(12, 56, 50) !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	height: 100% !important;
-	width: auto!important;
+	padding: 0;
+    position : absolute !important;
+    top : 0px !important;
+    right : 0;
+    bottom : -0px !important;
+    left : 0 !important;
 }
 
-#game_page[data-role=page] {
-	margin: 0 !important;
-	padding: 0 !important;
-	height: 100% !important;
-	position: relative !important;
-	left: 0;
-	right: 0;
-	overflow: auto;
+
+#InfoBoxContent{
+	width: 300px;
+}
+#InfoBoxContent img{
+	width: 50%;
+	height: auto;
+}
+
+#game_ContentPage {
+	padding: 0;
+    position : absolute !important;
+    top : 0px !important;
+    right : 0;
+    bottom : -0px !important;
+    left : 0 !important;
+}
+
+#game_page [data-role=header]{
+background: rgba(149, 214, 26, 0) !important;
 }
 
 #game_page [data-role=header] img {
@@ -31,13 +44,15 @@
 }
 
 #game_page.ui-page .ui-header h1 {
+	background: rgba(17, 135, 235, 0) !important;
 	margin: 0px;
 	padding: 0px;
 	padding-top: 3px;
+	
 }
 
 #game_page a[data-icon=bars],
-#game_page a[data-icon=calendar] {
+#game_page a[data-icon=home] {
 	border: 0 !important;
 	box-shadow: none !important;
 	background-color: transparent !important;
@@ -72,8 +87,7 @@
 #game_page[data-role=page] [data-role=content] {
 	background: rgba(255, 255, 255, 0);
 	padding: 0;
-	height: 100% !important;
-	width: 100%;
+
 }
 
 #game_page [data-role=footer] {
@@ -149,24 +163,6 @@
 	top: 0px;
 	border-left: 1px solid #eaeaea;
 	border-right: 1px solid #eaeaea;
-}
-
-#game_page.stickyFooterFix {
-	padding: 0;
-	margin: 0;
-	height: 60px;
-}
-
-#map {
-	padding: 0 !important;
-	margin: 0 !important;
-	height: 100%!important;
-	width: 100%!important;
-}
-
-.gmnoprint div,gm-style-cc{
- 	background: rgba(255, 13, 13, 0)!important;
-	color: aliceblue;
 }
 
 /***************GAME SIGN IN**************/
