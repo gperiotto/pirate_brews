@@ -796,7 +796,7 @@
 							let count=-1;
 								try{
 									for(let i=0; i<aparitions.length; i++) {
-										if(aparitions[i] == 0) {
+										if(aparitions[i] < 16) {
 											if (count >20) break;
 											var str="<option id='"+(++count)+"'>"+i+"</option>"
 											$("#surah_selection").append(str);
