@@ -790,7 +790,7 @@
                     
                 	<script>
 						var myTimeArray;
-						var aparitions = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+						var aparitions = [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 						
 						function timePopulate() {
 							let count=-1;
@@ -815,8 +815,22 @@
 							var date = document.getElementById("bdate").value;
 							var t = document.getElementById("surah_selection");
 							var time = t.options[t.selectedIndex].text;
-							var dataStringSubmit = 'nameB='+ name + 'emailB='+ email + 'locationB=' + location + '&dateB=' + date  + '&timeB=' + time;
-							alert("" + dataStringSubmit)
+							var dataStringSubmit = 'nameB='+ name + '&emailB='+ email + '&locationB=' + location + '&dateB=' + date  + '&timeB=' + time;
+
+							// AJAX Code To Submit Form.
+							$.ajax({
+								type: "POST",
+								url: "submitBooking.php",
+								data: dataStringSubmit,
+								cache: false,
+								success: function (result) {
+									alert(result);
+								},
+								error: function (err) {
+									alert(err);
+								}
+							});
+
 						}
 
 						function submitDetails() {
@@ -843,10 +857,14 @@
 											for(let i=0;i<=result.length - 1;i++) {
 												myTimeArray+= " " + result[i]['time'];
 											}
-											intArray = myTimeArray.split(" ").map(Number).filter(Boolean);
-											myTimeArray = intArray; //array with all the times booked
+											try{
+												intArray = myTimeArray.split(" ").map(Number).filter(Boolean);
+												myTimeArray = intArray; //array with all the times booked
+											} catch(err) {
 
+											}
 
+											if(myTimeArray!=undefined) {
 											for(let i=0; i<myTimeArray.length; i++) {
 												try {
 													if(aparitions[myTimeArray[i]]<16){
@@ -855,6 +873,7 @@
 												}catch (ex){
 													
 												}
+											}
 											}
 											timePopulate();
 										},
