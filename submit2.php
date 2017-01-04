@@ -27,11 +27,4 @@ while ($row = mysql_fetch_array($query)) {
 
 echo json_encode($data);
 
-
-//Insert query 
- // $query1 = mysql_query("insert into bookingInfo(user_Name, user_Email, user_Location, user_Date) values ('$name2', '$email2', '$location2','$date2')");
- // $exeprodSQL1=mysql_query($query1) or die(mysql_error());
- // echo "Form Submitted succesfully";  
-//connection closed 
-
 ?>

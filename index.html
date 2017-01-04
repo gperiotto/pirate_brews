@@ -795,7 +795,6 @@
 						function timePopulate() {
 							let count=-1;
 								try{
-									console.log(aparitions);
 									for(let i=0; i<aparitions.length; i++) {
 										if(aparitions[i] == 0) {
 											if (count >20) break;
@@ -809,7 +808,15 @@
 							}
 
 						function submitBooking() {
-							alert("now we can take care uf updateing !");
+							var name = $("#bName").val();
+							var email = $("#bEmail").val();
+							var e = document.getElementById("bLocationSelector");
+							var location = e.options[e.selectedIndex].text;
+							var date = document.getElementById("bdate").value;
+							var t = document.getElementById("surah_selection");
+							var time = t.options[t.selectedIndex].text;
+							var dataStringSubmit = 'nameB='+ name + 'emailB='+ email + 'locationB=' + location + '&dateB=' + date  + '&timeB=' + time;
+							alert("" + dataStringSubmit)
 						}
 
 						function submitDetails() {
@@ -820,13 +827,8 @@
 								var location = e.options[e.selectedIndex].text;
 								var date = document.getElementById("bdate").value;
 
-								// console.log(date);
-								// console.log(email);
-								// console.log(location);
-
 								// Returns successful data submission message when the entered information is stored in database.
 								var dataString = 'location1=' + location + '&date1=' + date;
-								console.log(dataString);
 								if (date == '' || location == '') {
 									alert("Please Fill teh details");
 								} else {
@@ -844,7 +846,6 @@
 											intArray = myTimeArray.split(" ").map(Number).filter(Boolean);
 											myTimeArray = intArray; //array with all the times booked
 
-											console.log(myTimeArray); 
 
 											for(let i=0; i<myTimeArray.length; i++) {
 												try {
@@ -855,7 +856,6 @@
 													
 												}
 											}
-											console.log(aparitions);
 											timePopulate();
 										},
 										error: function () {
@@ -866,7 +866,6 @@
 								}
 								document.getElementById("surah_selection").click();
 						}
-							// console.log(myTimeArray);
 					</script>
                     
 				<!--</form>-->
