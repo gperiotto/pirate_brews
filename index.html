@@ -669,57 +669,48 @@
 			<div class="contactPageTitle">
 				<h1><span>Contact Us</span></h1>
 			</div>
-			<br>
-			<br>
 			<div class="contactForm">
 				<form>
-					<input type="text" placeholder="Name" id="cName" autofocus/>
-					<label>
-						<span>&nbsp;</span>
-						<br>
-						<input type="text" placeholder="Email" id="cEmail" />
-						<label>
-							<span>&nbsp;</span>
-							<br>
-							<input type="text" placeholder="Subject" id="cSubject" />
-							<label>
-								<span>&nbsp;</span>
-								<br>
-								<input type="text" placeholder="Message" id="cMessage" />
-								<label>
-									<span>&nbsp;</span>
-									<br>
-									<button type="submit" id="cSubmit">Submit</button>
-									<script>
-										$(document).ready(function () {
-											$("#cSubmit").click(function () {
-												var name = $("#cName").val();
-												var email = $("#cEmail").val();
-												var subject = $("#cSubject").val();
-												var message = $("#cMessage").val();
-												// Returns successful data submission message when the entered information is stored in database.
-												var dataString = 'name1=' + name + '&email1=' + email + '&subject1=' + subject + '&message1=' + message;
-												if (name == '' || email == '' || subject == '' || message == '') {
-													alert("Please Fill All Fields");
-												} else {
-													// AJAX Code To Submit Form.
-													$.ajax({
-														type: "POST",
-														url: "submit.php",
-														data: dataString,
-														cache: false,
-														success: function (result) {
-															alert("Message sent!");
-															window.location.href = "#home_page";
-														}
-													});
+					<!--name-->
+					<input type="text" placeholder="Name" id="cName" autofocus/><br>
+					<!--email-->
+					<input type="text" placeholder="Email" id="cEmail" /><br>
+					<!--subject-->
+					<input type="text" placeholder="Subject" id="cSubject" /><br>
+					<!--message-->
+					<input type="text" placeholder="Message" id="cMessage" /><br>
+					<!--submit button-->
+					<button type="submit" id="cSubmit">Submit</button>
+					<script>
+					$(document).ready(function () {
+						$("#cSubmit").click(function () {
+							var name = $("#cName").val();
+							var email = $("#cEmail").val();
+							var subject = $("#cSubject").val();
+							var message = $("#cMessage").val();
+							// Returns successful data submission message when the entered information is stored in database.
+							var dataString = 'name1=' + name + '&email1=' + email + '&subject1=' + subject + '&message1=' + message;
+							if (name == '' || email == '' || subject == '' || message == '') {
+								alert("Please Fill All Fields");
+							} else {
+								// AJAX Code To Submit Form.
+								$.ajax({
+									type: "POST",
+									url: "submit.php",
+									data: dataString,
+									cache: false,
+									success: function (result) {
+										alert("Message sent!");
+										window.location.href = "#home_page";
+									}
+								});
 
-												}
-												return false;
-											});
+							}
+							return false;
+						});
 
-										});
-									</script>
+					});
+					</script>
 				</form>
 			</div>
 
