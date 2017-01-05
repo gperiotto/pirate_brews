@@ -838,7 +838,6 @@
 						function isAllValidated() {
 							let a = validateFields("name");
 							let b = validateFields("email");
-							console.log(fieldName +" "+fieldEmail);
 							if(fieldName == true && fieldEmail == true) {
 								return true;
 							} else {
@@ -1077,15 +1076,15 @@
 						<form method="post" action="demoform.asp">
 							<div class="ui-field-contain">
 								<label for="fname" class="ui-hidden-accessible">First Name</label>
-								<input type="text" name="fname" id="fname" data-clear-btn="true" placeholder="Enter Your First Name...">
+								<input type="text" name="fname" id="fnameSU" data-clear-btn="true" placeholder="Enter Your First Name...">
 								<label for="sname" class="ui-hidden-accessible">Surname</label>
-								<input type="text" name="sname" id="sname" data-clear-btn="true" placeholder="Enter Your Last Name...">
+								<input type="text" name="sname" id="snameSU" data-clear-btn="true" placeholder="Enter Your Last Name...">
 								<label for="email" class="ui-hidden-accessible">Email</label>
-								<input type="email" name="email" id="email" data-clear-btn="true" placeholder="Enter Your Email...">
+								<input type="email" name="email" id="emailSU" data-clear-btn="true" placeholder="Enter Your Email...">
 								<label for="password" class="ui-hidden-accessible">Password</label>
-								<input type="password" name="password" id="password" data-clear-btn="true" placeholder="Enter A Password...">
+								<input type="password" name="password" id="passwordSU" data-clear-btn="true" placeholder="Enter A Password...">
 								<label for="nname" class="ui-hidden-accessible">Nickname</label>
-								<input type="text" name="nname" id="nname" data-clear-btn="true" placeholder="Enter A Nickname...">
+								<input type="text" name="nname" id="nickSU" data-clear-btn="true" placeholder="Enter A Nickname...">
 								<fieldset data-role="controlgroup">
 									<label for="terms">Terms and Conditions</label>
 									<input type="checkbox" name="terms" id="terms" value="terms">
@@ -1094,8 +1093,41 @@
 								</fieldset>
 							</div>
 						</form>
-						<a href="#gameButton" class="ui-btn" id="gameButton">Sign Up!</a> </div>
+						<a onclick="submitSignUpGame()" href="#gameButton" class="ui-btn" id="signUpGameButton">Sign Up!</a> </div>
 				</div>
+				<script>
+
+					function _(x){
+    						return document.getElementById(x);
+						}
+					
+					function submitSignUpGame () {
+						
+							var firstName = $("#fnameSU").val();
+							var lastName = $("#snameSU").val();
+							var email = $("#emailSU").val();
+							var password = $("#passwordSU").val();
+							var nick = $("#nickSU").val();
+
+							var signUpSubmitString = 'emailS='+ email + '&firstNameS='+ firstName + '&lastNameS=' + lastName + '&passwordS=' + password  + '&nickS=' + nick;
+							console.log(signUpSubmitString)
+								console.log(isAllValidated());
+								// AJAX Code To Submit Form.
+								$.ajax({
+									type: "POST",
+									url: "submitSignUp.php",
+									data: signUpSubmitString,
+									cache: false,
+									success: function (result) {
+										alert(result);
+									},
+									error: function (err) {
+										alert(err);
+									}
+								});
+					}
+
+				</script>
 			</div>
 		</div>
 		<!--/CONTENT-->
