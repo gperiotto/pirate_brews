@@ -137,27 +137,60 @@ gamejQuery(document).ready(function ($) {
 			//////////////////////////////////////////////////
 			//MARKER CLICK LISTENERS
 			cav_Marker.addListener('click', function() {
-			  	cav_InfoWindow.open(map, cav_Marker);
+				
+				user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
+				cav_bounds = cav_pubCircle.getBounds();
+			  	
+				if(cav_bounds.contains(user_LatLng)){
+					cav_InfoWindow.open(map, cav_Marker);
+				}else{
+					alert("You are too far to play here");
+				}
 			});
 			
 			mar_Marker.addListener('click', function() {
-			  	mar_InfoWindow.open(map, mar_Marker);
+				
+				user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
+				mar_bounds = mar_pubCircle.getBounds();
+			  		
+				if(mar_bounds.contains(user_LatLng)){
+					mar_InfoWindow.open(map, mar_Marker);
+				}else{
+					alert("You are too far to play here");
+				}
 			});
 			
 			tit_Marker.addListener('click', function() {
-			  	tit_InfoWindow.open(map, tit_Marker);
+				
+				user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
+				tit_bounds = tit_pubCircle.getBounds();
+				
+				if(tit_bounds.contains(user_LatLng)){
+					tit_InfoWindow.open(map, tit_Marker);
+				}else{
+					alert("You are too far to play here");
+				}
 			});
 			
 			reg_Marker.addListener('click', function() {
-			  	reg_InfoWindow.open(map, reg_Marker);
+				
+				user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
+				reg_bounds = reg_pubCircle.getBounds();
+				
+				if(reg_bounds.contains(user_LatLng)){
+					reg_InfoWindow.open(map, reg_Marker);
+				}else{
+					alert("You are too far to play here");
+				}	
 			});
+			
 			///////////////////////////////////////////////////
 			
-			
-			cav_Marker.setIcon('assets/ico/pub_marker_logo.png');
-			mar_Marker.setIcon('assets/ico/pub_marker_logo.png');
-			tit_Marker.setIcon('assets/ico/pub_marker_logo.png');
-			reg_Marker.setIcon('assets/ico/pub_marker_logo.png');
+			//SETS MARKER ICONS
+			cav_Marker.setIcon('assets/ico/pub_marker_logo2.png');
+			mar_Marker.setIcon('assets/ico/pub_marker_logo2.png');
+			tit_Marker.setIcon('assets/ico/pub_marker_logo2.png');
+			reg_Marker.setIcon('assets/ico/pub_marker_logo2.png');
 
 			//USER CURRENT LOCATION
       		findMe();
@@ -168,13 +201,73 @@ gamejQuery(document).ready(function ($) {
 		}, 1);
 	}); 
 	
+	//GAME GPS BUTTON click LISTNER
+	$("#gameUserLocationBtn").on('click', function(){
+		findMe();
+		addMarker();
+//		withinRadius();
+	});
+	
+	
+	//Global VAr for user coords
+	var user_LatLng; 
+//	var user_Circle;
+//	var user_pubCircle;
+	var circle;
+	var bounds, cav_bounds, mar_bounds, tit_bounds, reg_bounds;
+	
+	
+	function withinRadius(){
+		
+		user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
+		circle = new google.maps.Circle({
+			map: map,
+			clickable: false,
+			// metres
+			radius: 30,
+			fillColor: '#fff',
+			fillOpacity: .0,
+			strokeColor: '#313131',
+			strokeOpacity: .0,
+			center: user_LatLng,
+			strokeWeight: .8
+		});
+		// Attach circle to marker
+		circle.bindTo('center', userPosMarker, 'position');
+
+//		var testBoundry = new google.maps.LatLng(51.606702, -0.193597);
+		
+		bounds = circle.getBounds();
+		cav_bounds = cav_pubCircle.getBounds();
+		mar_bounds = mar_pubCircle.getBounds();
+		tit_bounds = tit_pubCircle.getBounds();
+		reg_bounds = reg_pubCircle.getBounds();
+
+		if(bounds.contains(user_LatLng)){
+			alert("home");
+		}else if(cav_bounds.contains(user_LatLng)){
+			alert("cav");
+		}else if(mar_bounds.contains(user_LatLng)){
+			alert("mar");
+		}else if(tit_bounds.contains(user_LatLng)){
+			alert("tit");
+		}else if(reg_bounds.contains(user_LatLng)){
+			alert("reg");
+		}else{
+			alert("nothing near by");
+		}
+//		alert( bounds.contains(user_LatLng));
+//		alert(cav_latlng);
+	}
+	
+	//Adds 40 meters radius to pubs
 	function addPubRadius(){
 		cav_latlng = new google.maps.LatLng(51.520780, -0.139900);
 		mar_latlng = new google.maps.LatLng(51.522351, -0.154974);
 		tit_latlng = new google.maps.LatLng(51.518154, -0.141053);
 		reg_latlng = new google.maps.LatLng(51.516931, -0.142847);
 		
-		
+		//Radius Options
 		cav_Circle = {
 			strokeColor: "#ffffff",
 			strokeOpacity: 0.8,
@@ -183,7 +276,7 @@ gamejQuery(document).ready(function ($) {
 			fillOpacity: 0.35,
 			map: map,
 			center: cav_latlng,
-			radius: 60 // in meters
+			radius: 30 // in meters
 		};	
 		mar_Circle = {
 			strokeColor: "#ffffff",
@@ -193,7 +286,7 @@ gamejQuery(document).ready(function ($) {
 			fillOpacity: 0.35,
 			map: map,
 			center: mar_latlng,
-			radius: 60 // in meters
+			radius: 30 // in meters
 		};	
 		tit_Circle = {
 			strokeColor: "#ffffff",
@@ -203,7 +296,7 @@ gamejQuery(document).ready(function ($) {
 			fillOpacity: 0.35,
 			map: map,
 			center: tit_latlng,
-			radius: 60 // in meters
+			radius: 30 // in meters
 		};
 		reg_Circle = {
 			strokeColor: "#ffffff",
@@ -213,9 +306,10 @@ gamejQuery(document).ready(function ($) {
 			fillOpacity: 0.35,
 			map: map,
 			center: reg_latlng,
-			radius: 60 // in meters
+			radius: 30 // in meters
 		};
 		
+		//ACtual radius objs
 		cav_pubCircle = new google.maps.Circle(cav_Circle);
 		cav_pubCircle.bindTo('center', cav_Marker, 'position');
 		
@@ -259,11 +353,6 @@ gamejQuery(document).ready(function ($) {
                               'Error: Your browser doesn\'t support geolocation.');
       }
 	
-	//GAME GPS BUTTON click LISTNER
-	$("#gameUserLocationBtn").on('click', function(){
-		findMe();
-		addMarker();
-	});
 	
 	//ADDS MARKER AND UPDATES LOCATION
 	function addMarker(){
