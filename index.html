@@ -1028,13 +1028,45 @@
 				<div class="innerContent"> <img class="gameFormLogo" src="assets/ico/text_logo.png">
 					<form method="post" action="demoform.asp">
 						<label for="email" class="ui-hidden-accessible">Email</label>
-						<input type="email" name="email" id="email" data-clear-btn="true" placeholder="Enter Your Email...">
+						<input type="email" name="email" id="emailL" data-clear-btn="true" placeholder="Enter Your Email...">
 						<label for="password" class="ui-hidden-accessible">Password</label>
-						<input type="password" name="password" id="password" data-clear-btn="true" placeholder="Enter Your Password...">
+						<input type="password" name="password" id="passwordL" data-clear-btn="true" placeholder="Enter Your Password...">
 					</form>
-					<a href="#gameButton" class="ui-btn" id="gameButton">Sign In!</a>
+					<a onclick="singnIn()" class="ui-btn" id="gameButton">Sign In!</a>
 					<a href="#signUp_page" class="ui-btn" id="signUpButton">Sign Up!</a> </div>
 			</div>
+
+			<script> 
+
+				function openIfCorrectLogin() {
+					document.getElementById("gameWindowToggle").click();
+				}
+
+				function singnIn() {
+						var signArray;
+						var emailL =  $("#emailL").val(); 
+						var passwordL =  $("#passwordL").val(); 
+						var dataStringLOGIN = 'emailL='+ emailL + '&passwordL='+ passwordL;
+
+						$.ajax({
+						type: "POST",
+						url: "signIn.php",
+						data: dataStringLOGIN,
+						cache: false,
+						dataType: "json",
+						success: function (result) {
+							if(passwordL == result[0].password) {
+								return true;
+							} else {
+								alert("Wrong password");
+							}
+						},
+						error: function (err) {
+							alert(err);
+						}
+					});
+				}
+			</script>
 
 			<!--This div fixes footer overlaping content -->
 			<!--			<div class="stickyFooterFix"></div>-->
