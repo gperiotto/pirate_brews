@@ -1034,13 +1034,18 @@
 					</form>
 					<a onclick="singnIn()" class="ui-btn" id="gameButton">Sign In!</a>
 					<a href="#signUp_page" class="ui-btn" id="signUpButton">Sign Up!</a> </div>
+					<a  style="visibility: hidden;" href="#game_page"> <img  id="goGameTrigger"><p>PlayGame</p></a>
+					
 			</div>
 
-			<script> 
+			<script>
 
-				function openIfCorrectLogin() {
-					document.getElementById("gameWindowToggle").click();
-				}
+				var nick;
+
+				function openGame() {
+					$("#goGameTrigger").click();
+					alert("Welcome" + nick)
+				} 
 
 				function singnIn() {
 						var signArray;
@@ -1055,11 +1060,17 @@
 						cache: false,
 						dataType: "json",
 						success: function (result) {
-							if(passwordL == result[0].password) {
-								return true;
-							} else {
-								alert("Wrong password");
+							try {
+							if(emailL == "" || emailL == "") {
+								alert("You need to complete the 2 fields before signing in.");
+							}else if(passwordL == result[0].password) {
+								nick = result[0].nickname;
+								openGame();
 							}
+							}catch (err){
+								alert("Wrong password or username");
+							}
+
 						},
 						error: function (err) {
 							alert(err);

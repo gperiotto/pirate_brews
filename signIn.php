@@ -18,7 +18,7 @@ $emailL=$_POST['emailL'];
 $passwordL=$_POST['passwordL'];
 
 
-$query = mysql_query("SELECT password FROM people where email = '".$emailL."' "); 
+$query = mysql_query("SELECT password, nickname FROM people where email = '".$emailL."' "); 
 $data = array();
 while ($row = mysql_fetch_array($query)) {
     $data[] = $row;
