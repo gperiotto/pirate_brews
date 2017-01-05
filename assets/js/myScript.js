@@ -7,6 +7,8 @@ jQuery(document).ready(function ($) {
 	//Instantiate global newsletterPopup
 	$("#newsletterPopup").enhanceWithin().popup();
 
+	$("#bookingPopup").enhanceWithin().popup();
+
 	//Instantiate global menuPanel
 	$("#navPanel").panel().enhanceWithin();
 

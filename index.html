@@ -759,9 +759,9 @@
 			</div>
 			<div class="bookingPage">
 					<!--name-->
-					<input type="text" placeholder="Name" id="bName" name="bName" autofocus/><br>
+					<input onblur="validateFields('name')" type="text" placeholder="Name" id="bName" name="bName" autofocus/><br>
 					<!--email-->
-					<input type="text" placeholder="Email" id="bEmail" name="bEmail" /><br>
+					<input onblur="validateFields('name')" type="text" placeholder="Email" id="bEmail" name="bEmail" /><br>
 					<!--location-->
 					<select name="select-native-4" id="bLocationSelector">
 						<option>Location...</option>
@@ -773,15 +773,20 @@
 					<!--date-->
 					<input onblur="submitDetails()" type="date" data-role="date" id="bdate"><br>
 					<!--time-->
-					<select  id="surah_selection"> 
+					<select  id="timeSelectorB"> 
 								<option id="1">Select Time</option>      
 					</select><br>
 					<!--submit button-->
                     <button onclick="submitBooking()" id="bSubmit2" name="cInputButton"> Submit </button>
+					<!--booking popup trigger-->
+					<a  style="visibility: hidden;" href="#bookingPopup" data-rel="popup" data-position-to="window"> <img  id="bookingPopTrigger" src="assets/ico/star.png">
+						<p>Favourites</p>
+					</a>
                     
                 	<script>
 						var myTimeArray;
 						var aparitions = [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+						var fieldName=false,fieldEmail=false;
 						
 						function timePopulate() {
 							let count=-1;
@@ -790,7 +795,7 @@
 										if(aparitions[i] < 16) {
 											if (count >20) break;
 											var str="<option id='"+(++count)+"'>"+i+"</option>"
-											$("#surah_selection").append(str);
+											$("#timeSelectorB").append(str);
 										}
 									}
 								}catch (ex){
@@ -798,30 +803,75 @@
 								}
 							}
 
+						function _(x){
+    						return document.getElementById(x);
+						}
+
+						function hasSpecialCharacters(str){
+							if( /[^a-zA-Z0-9\-\/]/.test( str ) ) {
+								return true;
+							}
+							return false;     
+						}
+
+						function validateFields(field) {
+							switch(field){
+								case "name": 
+									   if(_("bName").value.length <3 || hasSpecialCharacters(_("bName").value)){
+       										fieldName = false;
+      									}
+   									    else {
+            								fieldName = true;
+    									}
+									break;
+								case "email": 
+									    if( /(.+)@(.+){2,}\.(.+){2,}/.test(_("bEmail").value ) ){
+											fieldEmail = true;
+										} else {
+											fieldEmail = false;
+										}
+									break;
+							}
+
+						}
+
+						function isAllValidated() {
+							let a = validateFields("name");
+							let b = validateFields("email");
+							console.log(fieldName +" "+fieldEmail);
+							if(fieldName == true && fieldEmail == true) {
+								return true;
+							} else {
+								return false;
+							}
+						}
+
 						function submitBooking() {
 							var name = $("#bName").val();
 							var email = $("#bEmail").val();
 							var e = document.getElementById("bLocationSelector");
 							var location = e.options[e.selectedIndex].text;
 							var date = document.getElementById("bdate").value;
-							var t = document.getElementById("surah_selection");
+							var t = document.getElementById("timeSelectorB");
 							var time = t.options[t.selectedIndex].text;
 							var dataStringSubmit = 'nameB='+ name + '&emailB='+ email + '&locationB=' + location + '&dateB=' + date  + '&timeB=' + time;
 
-							// AJAX Code To Submit Form.
-							$.ajax({
-								type: "POST",
-								url: "submitBooking.php",
-								data: dataStringSubmit,
-								cache: false,
-								success: function (result) {
-									alert(result);
-								},
-								error: function (err) {
-									alert(err);
-								}
-							});
-
+							if(isAllValidated()) {
+								console.log(isAllValidated());
+								// AJAX Code To Submit Form.
+								$.ajax({
+									type: "POST",
+									url: "submitBooking.php",
+									data: dataStringSubmit,
+									cache: false,
+									success: function (result) {
+										document.getElementById("bookingPopTrigger").click();
+									},
+									error: function (err) {
+										alert(err);
+									}
+								});
+							}
 						}
 
 						function submitDetails() {
@@ -834,8 +884,8 @@
 
 								// Returns successful data submission message when the entered information is stored in database.
 								var dataString = 'location1=' + location + '&date1=' + date;
-								if (date == '' || location == '') {
-									alert("Please Fill teh details");
+								if (!isAllValidated()) {
+									alert("Make sure you fill in the email corectly. ( example: john@email.com). Also the name is not allowed with special characters.");
 								} else {
 									// AJAX Code To Submit Form.
 									$.ajax({
@@ -874,7 +924,7 @@
 									});
 
 								}
-								document.getElementById("surah_selection").click();
+								document.getElementById("timeSelectorB").click();
 						}
 					</script>
                     
@@ -1365,6 +1415,26 @@
 		</div>
 	</div>
 	<!--GAME FAV POPUP-->
+
+
+	<div data-role="popup" id="bookingPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>Booking</h1>
+		</div>
+			<div role="main" class="ui-content newsletterPopupMain">
+				<p>
+				As a reward you receive a pirate chest. Do you want to 
+				<a id="signInPopupBooking" href="#signUp_page">Sign Up </a>
+				for our game to use it?
+				</p>
+				<div align="center">
+					<a href="#signUp_page"><input type="button" id="pupupYesB" value="Yes" /></a>
+					<a href="#home_page"><input type="button" id="pupupNoB" value="No" /></a>
+				</div>
+			</div>
+	</div>
+
+
 
 	<!--DEPENDENCIES-->
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
