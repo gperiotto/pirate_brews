@@ -52,7 +52,7 @@
 				<div class="item"><img src="assets/img/bar-872161_1280.jpg"></div>
 				<div class="item"><img src="assets/img/bar-923632_1280.jpg"></div>
 			</div>
-			<div>
+			<div id="searchDiv">
 				<div id="users">
 					<input class="search" placeholder="Search our Pubs" id="home_SearchBar" />
 					<div class="home_SearchContent">
@@ -112,12 +112,29 @@
 								</div>
 							</li>
 						</ul>
-						<button class="close home_DismissSearch">Close</button>
+						<button id="closeSearchButton" class="close home_DismissSearch">Close</button>
 					</div>
 				</div>
 			</div>
 
 <script>
+	//if the user clicks outside the serch div 
+	$(function() {
+		$("body").click(function(e) {
+			if (e.target.id == "searchDiv" || $(e.target).parents("#searchDiv").size()
+				||e.target.id == "home_SearchBar" || $(e.target).parents("#home_SearchBar").size()) { 
+				// alert("Inside div");
+			} else { 
+				try{
+					document.getElementById("closeSearchButton").click();
+				}catch(err){
+					console.log(err);
+				}
+			}
+		});
+	})
+
+
 	function hideShow(obj) {
     var el = document.getElementById(obj);
 		try {
@@ -688,13 +705,13 @@
 			<div class="contactForm">
 				<form>
 					<!--name-->
-					<input type="text" placeholder="Name" id="cName" autofocus/><br>
+					<input type="text" placeholder="Name" id="cName" data-clear-btn="true"  autofocus/><br>
 					<!--email-->
-					<input type="text" placeholder="Email" id="cEmail" /><br>
+					<input type="text" placeholder="Email" id="cEmail" data-clear-btn="true" /><br>
 					<!--subject-->
-					<input type="text" placeholder="Subject" id="cSubject" /><br>
+					<input type="text" placeholder="Subject" id="cSubject" data-clear-btn="true" /><br>
 					<!--message-->
-					<input type="text" placeholder="Message" id="cMessage" /><br>
+					<input type="text" placeholder="Message" id="cMessage" data-clear-btn="true" /><br>
 					<!--submit button-->
 					<button type="submit" id="cSubmit">Submit</button>
 					<script>
@@ -775,9 +792,9 @@
 			</div>
 			<div class="bookingPage">
 					<!--name-->
-					<input onblur="validateFields('name')" type="text" placeholder="Name" id="bName" name="bName" autofocus/><br>
+					<input onblur="validateFields('name')" type="text" placeholder="Name" id="bName" name="bName" data-clear-btn="true" autofocus/><br>
 					<!--email-->
-					<input onblur="validateFields('name')" type="text" placeholder="Email" id="bEmail" name="bEmail" /><br>
+					<input onblur="validateFields('name')" type="text" placeholder="Email" id="bEmail"  data-clear-btn="true" name="bEmail" /><br>
 					<!--location-->
 					<select name="select-native-4" id="bLocationSelector">
 						<option>Location...</option>
