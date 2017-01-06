@@ -23,12 +23,52 @@
 	height: auto;
 }
 
+#gamePubPopup_img{
+	width: 20%;
+}
+
+#gamePubPopup_points{
+	display: inline-block;
+	float: right;
+	margin-top: -40px;
+}
+
+#gamePubPopup_tokenTitle{
+/*	position: relative;*/
+	margin-top: -40px;
+	float: left;
+	display: inline-block;
+}
+
+
+#gamePubPopup_hints {
+	margin: 0;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	display: block;
+	text-align: center;
+	color: #4e9ee3;
+}
+
+#gamePubPopup_setSailButton{
+	background: #4e4e60;
+	color: white;
+	border-radius: 0;
+	margin: auto;
+	width: 30%;
+}
+
+#gamePubPopup_setSailButton:active{
+
+	box-shadow:0px 0px 5px 0px #000000 !important;
+}
+
 #gameUserLocationBtn{
 	margin: auto;
 	text-align: center;
 	padding: 0;
     position : absolute !important;
-    right : 0;
+    right : 5px;
     bottom : 130px !important;
 	height: 50px;
 	width: 50px;
@@ -37,6 +77,23 @@
 }
 
 #gameUserLocationBtn img{
+	padding-top: 4px;
+}
+
+#gameDigForTreasureBtn{
+	margin: auto;
+	text-align: center;
+	padding: 0;
+    position : absolute !important;
+    left : 5px;
+    bottom : 130px !important;
+	height: 50px;
+	width: 50px;
+	z-index: 9999!important;
+	border-radius: 3px;
+}
+
+#gameDigForTreasureBtn img{
 	padding-top: 4px;
 }
 

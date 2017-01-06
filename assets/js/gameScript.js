@@ -12,6 +12,9 @@ gamejQuery(document).ready(function ($) {
 	$("#quitGamePopup").enhanceWithin().popup();
 
 	$("#gameFavPopup").enhanceWithin().popup();
+	
+	$("#gamePubPopup").enhanceWithin().popup();
+	
 
 	//Instantiate GAME menuPanel
 	$("#gameNavPanel").panel().enhanceWithin();
@@ -20,14 +23,14 @@ gamejQuery(document).ready(function ($) {
 	
 	////////////////////////////////////////////////////
 	////////////////////////////////////////////////////
-	//Game pave slide animation 
-	// $(document).on('pagebeforeshow', '#signIn_page', function () {
-	// 	$(document).on('click', '#gameButton', function () {
-	// 		$.mobile.navigate("#game_page", {
-	// 			transition: "slide"
-	// 		});
-	// 	});
-	// });
+	//Game pane slide animation 
+//	$(document).on('pagebeforeshow', '#signIn_page', function () {
+//		$(document).on('click', '#gameButton', function () {
+//			$.mobile.navigate("#game_page", {
+//				transition: "slide"
+//			});
+//		});
+//	});
 	////////////////////////////////////////////////////
 	
 	////////////////////////////////////////////////////
@@ -52,6 +55,16 @@ gamejQuery(document).ready(function ($) {
 
 	////////////////////////////////////////////////////
 	
+	//GAME POPUP AFTERCLOSE EVENT
+	$( "#gamePubPopup" ).popup({
+		afterclose: function( event, ui ) {
+			$("#gamePubPopup_hints").html('');
+			$("#gamePubPopup_points span").html('0');
+	  	}
+	});
+	
+	////////////////////////////////////////////////////
+	
 	//Map GLOBAL VARIABLES
 	
 	var map;//GOOGLE MAPS OBJ
@@ -63,8 +76,22 @@ gamejQuery(document).ready(function ($) {
 	var userPosMarker;//MARKER USED TO SHOW USER POSITION
 	var posBoolean=0;//variable used to update user's position. Don't judge
 	var cav_latlng, mar_latlng, tit_latlng, reg_latlng;//Pubs coords - google.maps.LatLng obj
-	var cav_Circle, mar_Circle, tit_Circle, reg_Circle;//PUB boundaries circle
-	var cav_pubCircle, mar_pubCircle, tit_pubCircle, reg_pubCircle;
+	var cav_Circle, mar_Circle, tit_Circle, reg_Circle;//PUB boundaries circle OPTIONS
+	var cav_pubCircle, mar_pubCircle, tit_pubCircle, reg_pubCircle;//CIRCLE OBJ - google.maps.Circle obj
+	var pubIndex=0;//used to determine selected pub
+	var pts=0;// variable for turn points
+	
+	var poi_Marker1, poi_Marker2, poi_Marker3, poi_Marker4; //GMAPS POINT OF INTEREST MARKERS
+	var poi_latlng1, poi_latlng2, poi_latlng3, poi_latlng4; // Gmaps POI COORDiNATES
+	var poi_Circle1, poi_Circle2, poi_Circle3, poi_Circle4; // GMAPS CIRCLE OPTIONS
+	var poi_pubCircle1, poi_pubCircle2, poi_pubCircle3, poi_pubCircle4; //GMAPS CIRCLE OBJS
+	
+	var userName='';
+	var userScore=0;
+	var userTokens =5;
+	var treasureHints = ["false", "false", "false", "false", "false", "false", "false", "false"];
+	var userPoi = ["false", "false", "false", "false"];
+	
 	
 	$(document).on('pageshow', '#game_page', function (e, data) {
 		setTimeout(function () {
@@ -112,6 +139,30 @@ gamejQuery(document).ready(function ($) {
 				title: 'Little Titchfield!'
 			});
 			
+			poi_Marker1 = new google.maps.Marker({
+				position: new google.maps.LatLng(51.521366, -0.139042),
+				map: map,
+				title: 'BT Tower'
+			});
+			
+			poi_Marker2 = new google.maps.Marker({
+				position: new google.maps.LatLng(51.522878, -0.154973),
+				map: map,
+				title: 'Madame Tussauds'
+			});
+			
+			poi_Marker3 = new google.maps.Marker({
+				position: new google.maps.LatLng(51.515199, -0.141834),
+				map: map,
+				title: 'Oxford street'
+			});
+			
+			poi_Marker4 = new google.maps.Marker({
+				position: new google.maps.LatLng(51.516560, -0.145087),
+				map: map,
+				title: 'Cavendish Square Gardens'
+			});
+			
 			
 			////////////////////////////////////////////////////
 			//MARKER INFO WINDOW CONTENT
@@ -138,23 +189,33 @@ gamejQuery(document).ready(function ($) {
 			//MARKER CLICK LISTENERS
 			cav_Marker.addListener('click', function() {
 				
+				pubIndex=1;//sets index
+				updateGamePopup();//UPDATES GAME POPUP
+				
 				user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
 				cav_bounds = cav_pubCircle.getBounds();
 			  	
 				if(cav_bounds.contains(user_LatLng)){
-					cav_InfoWindow.open(map, cav_Marker);
+//					cav_InfoWindow.open(map, cav_Marker);
+					$( "#gamePubPopup" ).popup( "open" ); 
 				}else{
-					alert("You are too far to play here");
+//					alert("You are too far to play here");
+					$( "#gamePubPopup" ).popup( "open" ); 
+					
 				}
 			});
 			
 			mar_Marker.addListener('click', function() {
 				
+				pubIndex=2;//sets index
+				updateGamePopup();//UPDATES GAME POPUP
+				
 				user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
 				mar_bounds = mar_pubCircle.getBounds();
 			  		
 				if(mar_bounds.contains(user_LatLng)){
-					mar_InfoWindow.open(map, mar_Marker);
+//					mar_InfoWindow.open(map, mar_Marker);
+					$( "#gamePubPopup" ).popup( "open" ); 
 				}else{
 					alert("You are too far to play here");
 				}
@@ -162,11 +223,15 @@ gamejQuery(document).ready(function ($) {
 			
 			tit_Marker.addListener('click', function() {
 				
+				pubIndex=3;//sets index
+				updateGamePopup();//UPDATES GAME POPUP
+				
 				user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
 				tit_bounds = tit_pubCircle.getBounds();
 				
 				if(tit_bounds.contains(user_LatLng)){
-					tit_InfoWindow.open(map, tit_Marker);
+//					tit_InfoWindow.open(map, tit_Marker);
+					$( "#gamePubPopup" ).popup( "open" ); 
 				}else{
 					alert("You are too far to play here");
 				}
@@ -174,15 +239,21 @@ gamejQuery(document).ready(function ($) {
 			
 			reg_Marker.addListener('click', function() {
 				
+				pubIndex=4;//sets index
+				updateGamePopup();//UPDATES GAME POPUP
+				
 				user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
 				reg_bounds = reg_pubCircle.getBounds();
 				
 				if(reg_bounds.contains(user_LatLng)){
-					reg_InfoWindow.open(map, reg_Marker);
+//					reg_InfoWindow.open(map, reg_Marker);
+					$( "#gamePubPopup" ).popup( "open" ); 
 				}else{
 					alert("You are too far to play here");
 				}	
 			});
+			
+			
 			
 			///////////////////////////////////////////////////
 			
@@ -192,11 +263,23 @@ gamejQuery(document).ready(function ($) {
 			tit_Marker.setIcon('assets/ico/pub_marker_logo2.png');
 			reg_Marker.setIcon('assets/ico/pub_marker_logo2.png');
 
+			poi_Marker1.setIcon('assets/ico/cross.png');
+			poi_Marker2.setIcon('assets/ico/cross.png');
+			poi_Marker3.setIcon('assets/ico/cross.png');
+			poi_Marker4.setIcon('assets/ico/cross.png');
+			
+			//hides POIs
+			poi_Marker1.setVisible(false); 
+			poi_Marker2.setVisible(false); 
+			poi_Marker3.setVisible(false); 
+			poi_Marker4.setVisible(false); 
+			
 			//USER CURRENT LOCATION
       		findMe();
-			
+			//Well what the function says
       		addPubRadius();
 			
+			updateGamePopup();
 			
 		}, 1);
 	}); 
@@ -205,69 +288,175 @@ gamejQuery(document).ready(function ($) {
 	$("#gameUserLocationBtn").on('click', function(){
 		findMe();
 		addMarker();
-//		withinRadius();
+	});
+	
+	//GAME DIG FOR TREASURE btn click Listener
+	$("#gameDigForTreasureBtn").on('click', function(){
+		findMe();
+//		addMarker();
+		
+		
+		user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
+		poi_bounds1 = poi_pubCircle1.getBounds();
+		poi_bounds2 = poi_pubCircle2.getBounds();
+		poi_bounds3 = poi_pubCircle3.getBounds();
+		poi_bounds4 = poi_pubCircle4.getBounds();
+		
+		if(poi_bounds1.contains(user_LatLng)){
+			alert("HOLY FUCK ITS WORKING 1");
+			poi_Marker1.setVisible(true); 
+			userPoi[0]='true';
+			
+		}else if(poi_bounds2.contains(user_LatLng)){
+			alert("HOLY FUCK ITS WORKING 2");
+			poi_Marker2.setVisible(true); 
+			userPoi[1]='true';
+			
+		}else if(poi_bounds3.contains(user_LatLng)){
+			alert("HOLY FUCK ITS WORKING 3");
+			poi_Marker3.setVisible(true); 
+			userPoi[2]='true';
+			
+		}else if(poi_bounds4.contains(user_LatLng)){
+			alert("HOLY FUCK ITS WORKING 4");
+			poi_Marker4.setVisible(true); 
+			userPoi[3]='true';
+		}else{
+			alert("Found nothing");
+		}
+			
+		
 	});
 	
 	
-	//Global VAr for user coords
-	var user_LatLng; 
-//	var user_Circle;
-//	var user_pubCircle;
-	var circle;
-	var bounds, cav_bounds, mar_bounds, tit_bounds, reg_bounds;
-	
-	
-	function withinRadius(){
+	//gamepopup PLAY BUTTON CLICK LISTENER
+	$("#gamePubPopup_setSailButton").on('click', function(){
 		
-		user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
-		circle = new google.maps.Circle({
-			map: map,
-			clickable: false,
-			// metres
-			radius: 30,
-			fillColor: '#fff',
-			fillOpacity: .0,
-			strokeColor: '#313131',
-			strokeOpacity: .0,
-			center: user_LatLng,
-			strokeWeight: .8
-		});
-		// Attach circle to marker
-		circle.bindTo('center', userPosMarker, 'position');
-
-//		var testBoundry = new google.maps.LatLng(51.606702, -0.193597);
-		
-		bounds = circle.getBounds();
-		cav_bounds = cav_pubCircle.getBounds();
-		mar_bounds = mar_pubCircle.getBounds();
-		tit_bounds = tit_pubCircle.getBounds();
-		reg_bounds = reg_pubCircle.getBounds();
-
-		if(bounds.contains(user_LatLng)){
-			alert("home");
-		}else if(cav_bounds.contains(user_LatLng)){
-			alert("cav");
-		}else if(mar_bounds.contains(user_LatLng)){
-			alert("mar");
-		}else if(tit_bounds.contains(user_LatLng)){
-			alert("tit");
-		}else if(reg_bounds.contains(user_LatLng)){
-			alert("reg");
+		if(userTokens===0){
+			alert("Buy more tokens");
 		}else{
-			alert("nothing near by");
+			
+			//Animates logo
+			$({deg: 0}).animate({deg: 1080}, {
+				step: function(now, fx){
+					$("#gamePubPopup_img").css({
+						 transform: "rotate(" + now + "deg)"
+					});
+				}
+			});
+
+			//RUNS AFTER ANIMATION PLAYS
+			setTimeout(function () {
+				pts = 0;
+
+				var mapChance = Math.floor(Math.random() * 80) + 1 ;
+					console.log("mapChance val:"+mapChance);
+
+				//hint finder
+				if(mapChance===1){
+					alert("hint piece 1");
+					treasureHints[0]='true';
+					pts=pts+900;
+					$("#gamePubPopup_hints").html('Found a Hint!');	
+				}else if(mapChance===2){
+					alert("hint piece 2");
+					treasureHints[1]='true';
+					pts=pts+900;
+					$("#gamePubPopup_hints").html('Found a Hint!');	
+				}else if(mapChance===3){
+					alert("hint piece 3");
+					treasureHints[2]='true';
+					pts=pts+900;
+					$("#gamePubPopup_hints").html('Found a Hint!');	
+				}else if(mapChance===4){
+					alert("hint piece 4");
+					treasureHints[3]='true';
+					pts=pts+900;
+					$("#gamePubPopup_hints").html('Found a Hint!');	
+				}else if(mapChance===5){
+					alert("hint piece 5");
+					treasureHints[4]='true';
+					pts=pts+900;
+					$("#gamePubPopup_hints").html('Found a Hint!');	
+				}else if(mapChance===6){
+					alert("hint piece 6");
+					treasureHints[5]='true';
+					pts=pts+900;
+					$("#gamePubPopup_hints").html('Found a Hint!');	
+				}else if(mapChance===7){
+					alert("hint piece 7");
+					treasureHints[6]='true';
+					pts=pts+900;
+					$("#gamePubPopup_hints").html('Found a Hint!');	
+				}else if(mapChance===8){
+					alert("hint piece 8");
+					treasureHints[7]='true';
+					pts=pts+900;
+					$("#gamePubPopup_hints").html('Found a Hint!');	
+				}else{
+					$("#gamePubPopup_hints").html('');	
+				}
+				
+				//base scoring
+				pts=pts+100;
+
+				//adds to USER SCORE
+				userScore=userScore+pts;
+
+				updateGamePopup();
+			}, 500);
+			
+			//Deducts User Token
+			userTokens=userTokens-1;
+			
+			updateGamePopup();//update Popup
 		}
-//		alert( bounds.contains(user_LatLng));
-//		alert(cav_latlng);
+		
+		
+
+		
+	});
+	
+	//what the func says
+	function updateGamePopup(){
+		
+		//updates heading
+		if(pubIndex===1){
+			$("#gamePubPopup_header").html('Welcome to The Old Cavendish');
+		} else if(pubIndex===2){
+			$("#gamePubPopup_header").html('Welcome to Marylebone');
+		} else if(pubIndex===3){
+			$("#gamePubPopup_header").html('Welcome to Little Titchfield');
+		} else if(pubIndex===4){
+			$("#gamePubPopup_header").html('Welcome to The Prince Regent');
+		} 
+		//updates tokens
+		$("#gamePubPopup_tokens").html(userTokens.toString());
+		//updates points
+		$("#gamePubPopup_points span").html(pts.toString());
+		
 	}
 	
-	//Adds 40 meters radius to pubs
+	//Global VAr for user coords
+	var user_LatLng; 
+	var circle;
+	var bounds, cav_bounds, mar_bounds, tit_bounds, reg_bounds;
+	var poi_bounds1, poi_bounds2, poi_bounds3, poi_bounds4;
+	
+	
+	//Adds 30 meters radius to pubs
 	function addPubRadius(){
 		cav_latlng = new google.maps.LatLng(51.520780, -0.139900);
 		mar_latlng = new google.maps.LatLng(51.522351, -0.154974);
 		tit_latlng = new google.maps.LatLng(51.518154, -0.141053);
 		reg_latlng = new google.maps.LatLng(51.516931, -0.142847);
 		
-		//Radius Options
+		poi_latlng1 = new google.maps.LatLng(51.521366, -0.139042);
+		poi_latlng2 = new google.maps.LatLng(51.522878, -0.154973);
+		poi_latlng3 = new google.maps.LatLng(51.515199, -0.141834);
+		poi_latlng4 = new google.maps.LatLng(51.516560, -0.145087);
+		
+		//CIRCLE Options
 		cav_Circle = {
 			strokeColor: "#ffffff",
 			strokeOpacity: 0.8,
@@ -309,7 +498,48 @@ gamejQuery(document).ready(function ($) {
 			radius: 30 // in meters
 		};
 		
-		//ACtual radius objs
+		poi_Circle1 = {
+			strokeColor: "#ffffff",
+			strokeOpacity: 0.0,
+			strokeWeight: 2,
+			fillColor: "#dedede",
+			fillOpacity: 0.0,
+			map: map,
+			center: poi_latlng1,
+			radius: 60 // in meters
+		};
+		poi_Circle2 = {
+			strokeColor: "#ffffff",
+			strokeOpacity: 0.0,
+			strokeWeight: 2,
+			fillColor: "#dedede",
+			fillOpacity: 0.0,
+			map: map,
+			center: poi_latlng2,
+			radius: 60 // in meters
+		};
+		poi_Circle3 = {
+			strokeColor: "#ffffff",
+			strokeOpacity: 0.0,
+			strokeWeight: 2,
+			fillColor: "#dedede",
+			fillOpacity: 0.0,
+			map: map,
+			center: poi_latlng3,
+			radius: 60 // in meters
+		};
+		poi_Circle4 = {
+			strokeColor: "#ffffff",
+			strokeOpacity: 0.0,
+			strokeWeight: 2,
+			fillColor: "#dedede",
+			fillOpacity: 0.0,
+			map: map,
+			center: poi_latlng4,
+			radius: 60 // in meters
+		};
+		
+		//ACtual CIRCLE objs
 		cav_pubCircle = new google.maps.Circle(cav_Circle);
 		cav_pubCircle.bindTo('center', cav_Marker, 'position');
 		
@@ -321,6 +551,20 @@ gamejQuery(document).ready(function ($) {
 		
 		reg_pubCircle = new google.maps.Circle(reg_Circle);
 		reg_pubCircle.bindTo('center', reg_Marker, 'position');
+		
+		poi_pubCircle1 = new google.maps.Circle(poi_Circle1);
+		poi_pubCircle1.bindTo('center', poi_Marker1, 'position');
+		
+		poi_pubCircle2 = new google.maps.Circle(poi_Circle2);
+		poi_pubCircle2.bindTo('center', poi_Marker2, 'position');
+		
+		poi_pubCircle3 = new google.maps.Circle(poi_Circle3);
+		poi_pubCircle3.bindTo('center', poi_Marker3, 'position');
+		
+		poi_pubCircle4 = new google.maps.Circle(poi_Circle4);
+		poi_pubCircle4.bindTo('center', poi_Marker4, 'position');
+		
+		
 	}
 	
 	//FUNCTION FOR FINDING USER LOCATION
@@ -379,44 +623,14 @@ gamejQuery(document).ready(function ($) {
 
 	
 	
-	cav_InfoContent = '<div id="InfoBoxContent">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Old Cavendish</h1>'+
-            '<div id="bodyContent">'+
-            '<img src="assets/img/pub1.jpg"><p>Something</p><button>Something Else</button>'+
-            '</div>'+
-            '</div>';
-	mar_InfoContent = '<div id="InfoBoxContent">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Marylebone</h1>'+
-            '<div id="bodyContent">'+
-            '<img src="assets/img/pub2.jpg"><p>Something</p><button>Something Else</button>'+
-            '</div>'+
-            '</div>';
-	tit_InfoContent = '<div id="InfoBoxContent">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Little Titchfield</h1>'+
-            '<div id="bodyContent">'+
-            '<img src="assets/img/pub3.jpg"><p>Something</p><button>Something Else</button>'+
-            '</div>'+
-            '</div>';
-	reg_InfoContent = '<div id="InfoBoxContent">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">The Prince Regent</h1>'+
-            '<div id="bodyContent">'+
-            '<img src="assets/img/pub4.jpg"><p>Something</p><button>Something Else</button>'+
-            '</div>'+
-            '</div>';
+	cav_InfoContent = '';
+	mar_InfoContent = ''; 
+	tit_InfoContent = '';
+	reg_InfoContent = '';
 	
 	
-
-		
 	
-	////////////////////////////////////////////////////
-	//END OF SCRIPT
+	
+	
 
 });
