@@ -1036,7 +1036,7 @@
 					<a onclick="singnIn()" class="ui-btn" id="gameButton">Sign In!</a>
 					<a href="#signUp_page" class="ui-btn" id="signUpButton">Sign Up!</a> </div>
 					<a  style="visibility: hidden;" href="#game_page"> <img  id="goGameTrigger"><p>PlayGame</p></a>
-					
+					<br><center><a href="#forgetPopup" data-rel="popup" data-position-to="window" >Forgot password</a></center>
 			</div>
 
 			<script>
@@ -1509,7 +1509,23 @@
 				</div>
 			</div>
 	</div>
+	<!--BOOKING POPUP-->
 
+		<div data-role="popup" id="forgetPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>Recover Password</h1>
+		</div>
+		<div role="main" class="ui-content newsletterPopupMain">
+			<form id="forgetPassword">
+				<input type="email" name="forgetEmail" id="forgetEmailField" placeholder="Email Address" value="">
+				<p class="newsletterTextFieldValidation">&nbsp;</p>
+				<input class="forgetButton" type="submit" value="Recover">
+			</form>
+			<p>Please enter the email you wish to receive the password reset to.</p>
+			</div>
+		</div>
+
+	<!--FORGET PASSWORD POPUP-->
 
 
 	<!--DEPENDENCIES-->

@@ -9,6 +9,8 @@ jQuery(document).ready(function ($) {
 
 	$("#bookingPopup").enhanceWithin().popup();
 
+	$("#forgetPopup").enhanceWithin().popup();
+
 	//Instantiate global menuPanel
 	$("#navPanel").panel().enhanceWithin();
 
