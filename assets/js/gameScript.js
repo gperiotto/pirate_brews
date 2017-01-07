@@ -17,6 +17,8 @@ gamejQuery(document).ready(function ($) {
 	
 	$("#gamePubPopup").enhanceWithin().popup();
 	
+	$("#gameUserStatsPopup").enhanceWithin().popup();
+	
 	$("#gameTreasureFoundPopup").enhanceWithin().popup();
 	
 	//Instantiate GAME menuPanel
@@ -57,20 +59,38 @@ gamejQuery(document).ready(function ($) {
 	});
 
 	////////////////////////////////////////////////////
-	//updates hint popup window
+	
+	
+	////////////////////////////////////////////////////
+	//GAME STATUS POPUP - AFETR OPEN
 	$("#gameHintsPopup").popup({
 		afteropen: function (event, ui) {
 			hintsUpdater();
 		}
 	});
 	
+	//GAME STATS POPUP - AFTER OPEN
+	$("#gameUserStatsPopup").popup({
+		afteropen: function (event, ui) {
+			hintsUpdater();
+			userStatsUpdater();
+		}
+	});
+	
+	
 	////////////////////////////////////////////////////
-	//GAME POPUP - AFTERCLOSE EVENT
+	//GAME PLAY POPUP - AFTERCLOSE EVENT
 	$( "#gamePubPopup" ).popup({
 		afterclose: function( event, ui ) {
 			$("#gamePubPopup_hints").html('');
 			$("#gamePubPopup_points span").html('0');
 	  	}
+	});
+	//GAME PLAY POPUP - AFTEROPEN EVENT
+	$("#gamePubPopup").popup({
+		afteropen: function (event, ui) {
+			$("#gamePubPopup_tokens").html(userTokens);
+		}
 	});
 	
 	////////////////////////////////////////////////////
@@ -109,7 +129,7 @@ gamejQuery(document).ready(function ($) {
 	var poi_latlng1, poi_latlng2, poi_latlng3, poi_latlng4; // Gmaps POI COORDiNATES
 	var poi_Circle1, poi_Circle2, poi_Circle3, poi_Circle4; // GMAPS CIRCLE OPTIONS
 	var poi_pubCircle1, poi_pubCircle2, poi_pubCircle3, poi_pubCircle4; //GMAPS CIRCLE OBJS
-//	var userPoi = ["false", "false", "false", "false"];
+	var foundThisPoi = [false, false, false, false];
 	
 	//Global VAr for user coords
 	var user_LatLng; 
@@ -121,9 +141,9 @@ gamejQuery(document).ready(function ($) {
 	//VARs WHICH ARE CONNECTED TO DB
 	var userName='';
 	var userScore=0;
-	var userTokens =5;
+	var userTokens =30;
 	var treasureHints = ["false", "false", "false", "false", "false", "false", "false", "false"];
-	var userFavorites = ["false", "false", "false", "true"];
+	var userFavorites = ["true", "false", "false", "true"];
 	
 	//GOOGLE MAPS with rendering fix
 	$(document).on('pageshow', '#game_page', function (e, data) {
@@ -228,11 +248,11 @@ gamejQuery(document).ready(function ($) {
 				user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
 				cav_bounds = cav_pubCircle.getBounds();
 			  	
-				if(cav_bounds.contains(user_LatLng)){
+				if(cav_bounds.contains(user_LatLng)){				
 					$( "#gamePubPopup" ).popup( "open" ); 
 				}else{
-//					alert("You are too far to play here");
-					$( "#gamePubPopup" ).popup( "open" ); 
+					alert("You are too far to play here");
+//					$( "#gamePubPopup" ).popup( "open" ); 
 					
 				}
 			});
@@ -323,10 +343,10 @@ gamejQuery(document).ready(function ($) {
 			poi_Marker4.setIcon('assets/ico/cross.png');
 			
 			//hides POIs
-//			poi_Marker1.setVisible(false); 
-//			poi_Marker2.setVisible(false); 
-//			poi_Marker3.setVisible(false); 
-//			poi_Marker4.setVisible(false); 
+			poi_Marker1.setVisible(false); 
+			poi_Marker2.setVisible(false); 
+			poi_Marker3.setVisible(false); 
+			poi_Marker4.setVisible(false); 
 			
 			//USER CURRENT LOCATION
       		findMe();
@@ -359,43 +379,65 @@ gamejQuery(document).ready(function ($) {
 		poi_bounds4 = poi_pubCircle4.getBounds();
 		
 		if(poi_bounds1.contains(user_LatLng)){
-			
-			poi_Marker1.setVisible(true);//makes marker visible 
-			userScore=userScore+2000; //adds 2k points
-			treasureIndex=1; //setsINDEX
-			updatePoiPopup();//well what it says
-			$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
-			$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
-			
+			if(foundThisPoi[0]){
+				
+				alert("You have been here already")
+			}else{
+				foundThisPoi[0]=true;
+				
+				poi_Marker1.setVisible(true);//makes marker visible 
+				userScore=userScore+2000; //adds 2k points
+				userTokens= userTokens+5;
+				treasureIndex=1; //setsINDEX
+				updatePoiPopup();//well what it says
+				$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
+				$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
+			}		
 		}else if(poi_bounds2.contains(user_LatLng)){
-
-			poi_Marker2.setVisible(true); 
-			userScore=userScore+2000; //adds 2k points
-			treasureIndex=2; //setsINDEX
-			updatePoiPopup();//well what it says
-			$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
-			$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
-			
+			if(foundThisPoi[1]){
+				
+				alert("You have been here already")
+			}else{
+				foundThisPoi[1]=true;
+				
+				poi_Marker2.setVisible(true); 
+				userScore=userScore+2000; //adds 2k points
+				userTokens= userTokens+5;
+				treasureIndex=2; //setsINDEX
+				updatePoiPopup();//well what it says
+				$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
+				$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
+			}			
 		}else if(poi_bounds3.contains(user_LatLng)){
-
-			poi_Marker3.setVisible(true); 
-			userScore=userScore+2000; //adds 2k points
-			treasureIndex=3; //setsINDEX
-			updatePoiPopup();//well what it says
-			$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
-			$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
-
-			
+			if(foundThisPoi[2]){
+				
+				alert("You have been here already")
+			}else{
+				foundThisPoi[2]=true;
+				
+				poi_Marker3.setVisible(true); 
+				userScore=userScore+2000; //adds 2k points
+				userTokens= userTokens+5;
+				treasureIndex=3; //setsINDEX
+				updatePoiPopup();//well what it says
+				$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
+				$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
+			}		
 		}else if(poi_bounds4.contains(user_LatLng)){
-
-			poi_Marker4.setVisible(true); 
-			userScore=userScore+2000; //adds 2k points
-			treasureIndex=4; //setsINDEX
-			updatePoiPopup();//well what it says
-			$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
-			$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
-
-			
+			if(foundThisPoi[3]){
+				
+				alert("You have been here already")
+			}else{
+				foundThisPoi[3]=true;
+				
+				poi_Marker4.setVisible(true); 
+				userScore=userScore+2000; //adds 2k points
+				userTokens= userTokens+5;
+				treasureIndex=4; //setsINDEX
+				updatePoiPopup();//well what it says
+				$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
+				$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
+			}			
 		}else{
 			alert("No treasure here.");
 		}
@@ -427,44 +469,52 @@ gamejQuery(document).ready(function ($) {
 
 				//hint finder
 				if(mapChance===1){
-					alert("hint piece 1");
+					console.log("hint piece 1");
 					treasureHints[0]='true';
 					pts=pts+900;
+					userTokens= userTokens+2;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===2){
-					alert("hint piece 2");
+					console.log("hint piece 2");
 					treasureHints[1]='true';
 					pts=pts+900;
+					userTokens= userTokens+2;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===3){
-					alert("hint piece 3");
+					console.log("hint piece 3");
 					treasureHints[2]='true';
 					pts=pts+900;
+					userTokens= userTokens+2;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===4){
-					alert("hint piece 4");
+					console.log("hint piece 4");
 					treasureHints[3]='true';
 					pts=pts+900;
+					userTokens= userTokens+2;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===5){
-					alert("hint piece 5");
+					console.log("hint piece 5");
 					treasureHints[4]='true';
 					pts=pts+900;
+					userTokens= userTokens+2;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===6){
-					alert("hint piece 6");
+					console.log("hint piece 6");
 					treasureHints[5]='true';
 					pts=pts+900;
+					userTokens= userTokens+2;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===7){
-					alert("hint piece 7");
+					console.log("hint piece 7");
 					treasureHints[6]='true';
 					pts=pts+900;
+					userTokens= userTokens+2;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===8){
-					alert("hint piece 8");
+					console.log("hint piece 8");
 					treasureHints[7]='true';
 					pts=pts+900;
+					userTokens= userTokens+2;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else{
 					$("#gamePubPopup_hints").html('');	
@@ -497,6 +547,7 @@ gamejQuery(document).ready(function ($) {
 			userFavorites[0]='true';
 		} else {
 			userFavorites[0]='false';
+			poi_Marker1.setVisible(false);
 		}
 		favoritesUpdater();
 	});
@@ -505,6 +556,7 @@ gamejQuery(document).ready(function ($) {
 			userFavorites[1]='true';
 		} else {
 			userFavorites[1]='false';
+			poi_Marker2.setVisible(false);
 		}
 		favoritesUpdater();
 	});
@@ -513,6 +565,7 @@ gamejQuery(document).ready(function ($) {
 			userFavorites[2]='true';
 		} else {
 			userFavorites[2]='false';
+			poi_Marker3.setVisible(false);
 		}
 		favoritesUpdater();
 	});
@@ -521,10 +574,17 @@ gamejQuery(document).ready(function ($) {
 			userFavorites[3]='true';
 		} else {
 			userFavorites[3]='false';
+			poi_Marker4.setVisible(false);
 		}
 		favoritesUpdater();
 	});
 	////////////////////////////////////////////////////////////////
+	
+	//CLICK EVENT FOR STATS POPUP
+	$("#gameUserStatsPopup_TokensContainer").click(function(){
+		//ADD ME ONCE SHOP IS UP AND RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//		opnMyPopup();
+	});
 	
 	////////////////////////////////////////////////////////////////
 	//Click events for SAVED FAVs -tab
@@ -554,13 +614,37 @@ gamejQuery(document).ready(function ($) {
 	
 	
 	////////////////////////////////////////////////////////////////
+	
+	function userStatsUpdater(){
+		//Hints
+//		hintsUpdater();
+		
+		
+		//Score 
+		$("#gameUserStatsPopup_score").html(userScore);
+		if(userScore>2500 && userScore<5000){
+			$("#gameUserStatsPopup_lvlContainer img").attr('src', 'assets/ico/lvl2.png');
+		} else if(userScore>4999 && userScore<10000){
+			$("#gameUserStatsPopup_lvlContainer img").attr('src', 'assets/ico/lvl3.png');
+		} else if(userScore>9999 && userScore<15000){
+			$("#gameUserStatsPopup_lvlContainer img").attr('src', 'assets/ico/lvl4.png');
+		} else if(userScore>14999){
+			$("#gameUserStatsPopup_lvlContainer img").attr('src', 'assets/ico/lvl5.png');
+		} else {
+			$("#gameUserStatsPopup_lvlContainer img").attr('src', 'assets/ico/lvl1.png');
+		}
+		
+		//Tokens
+		$("#gameUserStatsPopup_Tokens").html(userTokens);
+		
+	}
+	
 	//updates FavsCheckBoxes From userFavorites Array
 	function hintsUpdater(){
 		var noHints=0;
 		for(var x=0;x<treasureHints.length;x++){
 			
 			var hintItems = 'hint'+(x+1);
-			console.log(treasureHints[x]+":"+x);
 			
 			if(treasureHints[x]==='true'){		
 				$('#'+hintItems).css("display", "block");
@@ -584,6 +668,9 @@ gamejQuery(document).ready(function ($) {
 		}else{
 			$("#hintsPopupEmpty").css("display", "none");
 		}
+		
+		//updates user Stats Popup
+		$("#gameUserStatsPopup_hints").html(noHints);
 	}
 	
 	//Populates TreasurePOI popup
@@ -624,19 +711,32 @@ gamejQuery(document).ready(function ($) {
 		}, 100);
 	}
 	
+	
 	//updates FavsCheckBoxes From userFavorites Array
 	function favoritesUpdater(){
 		
 		for(var x=0;x<userFavorites.length;x++){
 			var chkbox = 'poiFav'+(x+1)+' input';
 			var favTabItems = 'favoritedPoi'+(x+1);
+			
 			if(userFavorites[x]==='true'){		
 				$('#'+chkbox).attr("checked", true);
-				$('#'+favTabItems).css("display", "block");
-			}else{
+				$('#'+favTabItems).css("display", "block");	
+			}else {
 				$('#'+favTabItems).css("display", "none");
 			}
+			
+			if(x===0 && userFavorites[x]==='true'){		
+				poi_Marker1.setVisible(true);
+			}else if(x===1 && userFavorites[x]==='true'){		
+				poi_Marker2.setVisible(true);
+			}else if(x===2 && userFavorites[x]==='true'){			
+				poi_Marker3.setVisible(true);
+			}else if(x===3 && userFavorites[x]==='true'){			
+				poi_Marker4.setVisible(true);
+			}
 		}
+		
 		if($('#favoritedPoi1').css('display') == 'none' && $('#favoritedPoi2').css('display') == 'none' && $('#favoritedPoi3').css('display') == 'none' && $('#favoritedPoi4').css('display') == 'none'){
 			$("#favPopupEmpty").css("display", "block");
 		}else{

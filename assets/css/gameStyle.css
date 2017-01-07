@@ -97,6 +97,37 @@ input[type=checkbox].glyphicon{
 }
 
 
+/*GAME STATS*/
+
+#gameUserStatsPopup [role=main]{
+	text-align: left;
+}
+#gameUserStatsPopup_TokensContainer img{
+	vertical-align:middle;
+	width: 40px;
+}
+#gameUserStatsPopup_lvlContainer img{
+	width: 40px;
+/*	border: 2px solid #1f1f1f;*/
+/*    border-radius: 100px;*/
+/*    -webkit-border-radius: 100px;*/
+/*    -moz-border-radius: 100px;*/
+	position: relative;
+	left: 10px;
+	
+}
+#gameUserStatsPopup_lvlContainer span{
+	position: relative;
+	top: 4px;
+}
+#gameUserStatsPopup hr{
+	width: 300px;
+ 	border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+
 
 /*GAME HINTS POPUP*/
 .gameHintsPopupDiv > h5{
@@ -109,7 +140,6 @@ input[type=checkbox].glyphicon{
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 	display: none;
 }
-
 .gameHintsPopupDiv hr:nth-of-type(1){
 	
 }
@@ -124,15 +154,12 @@ input[type=checkbox].glyphicon{
 	float: right;
 	margin-top: -40px;
 }
-
 #gamePubPopup_tokenTitle{
 /*	position: relative;*/
 	margin-top: -40px;
 	float: left;
 	display: inline-block;
 }
-
-
 #gamePubPopup_hints {
 	margin: 0;
 	margin-top: 10px;
@@ -141,7 +168,6 @@ input[type=checkbox].glyphicon{
 	text-align: center;
 	color: #4e9ee3;
 }
-
 #gamePubPopup_setSailButton{
 	background: #4e4e60;
 	color: white;
@@ -149,9 +175,6 @@ input[type=checkbox].glyphicon{
 	margin: auto;
 	width: 30%;
 }
-
-
-
 #gamePubPopup_setSailButton:active{
 	box-shadow:0px 0px 5px 0px #000000 !important;
 }
@@ -170,7 +193,6 @@ input[type=checkbox].glyphicon{
 	z-index: 9999!important;
 	border-radius: 3px;
 }
-
 #gameUserLocationBtn img{
 	padding-top: 2px;
 }
@@ -189,7 +211,6 @@ input[type=checkbox].glyphicon{
 	z-index: 9999!important;
 	border-radius: 3px;
 }
-
 #gameDigForTreasureBtn img{
 	padding-top: 4px;
 }
@@ -204,18 +225,15 @@ input[type=checkbox].glyphicon{
     bottom : -0px !important;
     left : 0 !important;
 }
-
 #game_page [data-role=header]{
 background: rgba(149, 214, 26, 0) !important;
 }
-
 #game_page [data-role=header] img {
 	height: 35px;
 	padding: 0;
 	margin: 0;
 	border: 0 !important;
 }
-
 #game_page.ui-page .ui-header h1 {
 	background: rgba(17, 135, 235, 0) !important;
 	margin: 0px;
@@ -223,27 +241,26 @@ background: rgba(149, 214, 26, 0) !important;
 	padding-top: 3px;
 	
 }
-
 #game_page a[data-icon=bars],
 #game_page a[data-icon=home] {
 	border: 0 !important;
 	box-shadow: none !important;
 	background-color: transparent !important;
 }
-
 #game_page.ui-page .ui-header h1 a:nth-child(1) {
 	margin: 0;
 	display: block;
 	padding: 0;
 }
-
+.gameNav_hidden{
+	visibility: hidden;
+}
 
 /*TOP BANNER*/
 
 #game_page.ui-page .ui-header {
 	background: rgba(0, 0, 0, 0) !important;
 }
-
 #game_page.ui-page .ui-footer {
 	background: #4e4e60 !important;
 	text-shadow: none !important;
@@ -262,14 +279,12 @@ background: rgba(149, 214, 26, 0) !important;
 	padding: 0;
 
 }
-
 #game_page [data-role=footer] {
 	bottom: 0;
 	position: fixed!important;
 	top: auto !important;
 	width: 100%;
 }
-
 #game_page [data-role=footer] .footerContainer {
 	display: inline-block;
 	margin: 0;
@@ -278,7 +293,6 @@ background: rgba(149, 214, 26, 0) !important;
 	width: 100%;
 	text-align: center;
 }
-
 #game_page [data-role=footer] .footerTaskbar1,
 #game_page [data-role=footer] .footerTaskbar2,
 #game_page [data-role=footer] .footerTaskbar3,
@@ -289,7 +303,6 @@ background: rgba(149, 214, 26, 0) !important;
 	height: auto;
 	width: 23%;
 }
-
 #game_page [data-role=footer] .footerTaskbar1 img,
 #game_page [data-role=footer] .footerTaskbar2 img,
 #game_page [data-role=footer] .footerTaskbar3 img,
@@ -300,7 +313,6 @@ background: rgba(149, 214, 26, 0) !important;
 	top: 1px;
 	z-index: 1;
 }
-
 #game_page [data-role=footer] .footerTaskbar1 p,
 #game_page [data-role=footer] .footerTaskbar2 p,
 #game_page [data-role=footer] .footerTaskbar3 p,
@@ -314,14 +326,12 @@ background: rgba(149, 214, 26, 0) !important;
 	position: relative;
 	display: block;
 	text-align: center;
-	top: -5px;
+	top: -0px;
 	z-index: 2;
 }
-
 #game_page [data-role=footer] a {
 	text-decoration: none;
 }
-
 #game_page [data-role=footer] div .footerVRuler {
 	height: 100%;
 	position: relative;
@@ -329,7 +339,6 @@ background: rgba(149, 214, 26, 0) !important;
 	/*	border-left: 1px solid #eaeaea;*/
 	border-right: 1px solid #eaeaea;
 }
-
 #game_page [data-role=footer] div .footerVRuler1 {
 	height: 100%;
 	position: relative;

@@ -1004,7 +1004,8 @@
 	<div data-role="page" class="ui-responsive-panel" id="game_page">
 		<div data-role="header" data-theme="b" data-tap-toggle="false" data-position="fixed" class="ui-nodisc-icon">
 			<h1> <a href=""><img src="assets/ico/small_logo.png"></a> </h1>
-			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="">Menu</a> <a href="#quitGamePopup" data-icon="home" data-iconpos="notext" data-rel="popup" data-position-to="window">Home</a>
+			<a href="#gameNavPanel" data-icon="bars" data-iconpos="notext" class="gameNav_hidden">Menu</a>
+			<a href="#quitGamePopup" data-icon="home" data-iconpos="notext" data-rel="popup" data-position-to="window">Home</a>
 		</div>
 		<!--HEADER END -->
 
@@ -1024,7 +1025,7 @@
 				</div>
 				<div class="footerTaskbar2">
 					<div class="footerVRuler1">
-						<a href="#" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/bag.png">
+						<a href="#gamePubPopup" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/bag.png">
 							<p>Shop</p>
 						</a>
 					</div>
@@ -1037,8 +1038,8 @@
 					</div>
 				</div>
 				<div class="footerTaskbar4">
-					<a href="#gamePubPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/achievement.png">
-						<p>Achievement</p>
+					<a href="#gameUserStatsPopup" data-rel="popup" data-position-to="window"> <img src="assets/ico/avatar.png">
+						<p>Stats</p>
 					</a>
 				</div>
 			</div>
@@ -1628,6 +1629,33 @@
 	</div>
 	<!--GAME TREASURE FOUND POPUP-->
 
+	<div data-role="popup" id="gameUserStatsPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>Player Stats</h1>
+
+		</div>
+		<div role="main" class="ui-content newsletterPopupMain">
+			
+			<h4 href="#" id="gameUserStatsPopup_lvlContainer">
+				<span>Level: </span>
+				<img src="assets/ico/lvl1.png" style"vertical-align:middle;">
+				
+			</h4>
+			<hr>
+			<h4>Score: <span id='gameUserStatsPopup_score'>"xxxx"</span></h4>
+			<hr>
+			<h4>Hints Found: <span id='gameUserStatsPopup_hints'>"xxxx"</span></h4>
+			<hr>
+			<a href="#" id="gameUserStatsPopup_TokensContainer">
+				
+				Tokens: <span id='gameUserStatsPopup_Tokens'>xxxx</span>
+				<img src="assets/ico/coin.png">
+			</a>
+						
+		</div>
+	</div>
+	<!--GAME STATS POPUP-->
+
 	<div data-role="popup" id="gamePubPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 			<div data-role="header">
 				<h1 id="gamePubPopup_header">Welcome</h1>
@@ -1649,7 +1677,7 @@
 
 			</div>
 		</div>
-	<!--GAME PUB POPUP-->
+	<!--GAME PLAY PUB POPUP-->
 
 	<div data-role="popup" id="bookingPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 		<div data-role="header">
