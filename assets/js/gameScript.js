@@ -13,6 +13,8 @@ gamejQuery(document).ready(function ($) {
 
 	$("#gameFavPopup").enhanceWithin().popup();
 	
+	$('#gameHintsPopup').enhanceWithin().popup();
+	
 	$("#gamePubPopup").enhanceWithin().popup();
 	
 	$("#gameTreasureFoundPopup").enhanceWithin().popup();
@@ -48,14 +50,21 @@ gamejQuery(document).ready(function ($) {
 	//highlight game tabs
 	$("#gameFavPopup").popup({
 		afteropen: function (event, ui) {
-			$("#game_page [data-role=footer] .footerTaskbar1 p").css("color", "#f03820");
+//			$("#game_page [data-role=footer] .footerTaskbar1 p").css("color", "#f03820");
 
 			//			$("#game_page [data-role=footer] .footerTaskbar1 p").text(" ");
 		}
 	});
 
 	////////////////////////////////////////////////////
+	//updates hint popup window
+	$("#gameHintsPopup").popup({
+		afteropen: function (event, ui) {
+			hintsUpdater();
+		}
+	});
 	
+	////////////////////////////////////////////////////
 	//GAME POPUP - AFTERCLOSE EVENT
 	$( "#gamePubPopup" ).popup({
 		afterclose: function( event, ui ) {
@@ -328,9 +337,9 @@ gamejQuery(document).ready(function ($) {
 			
 			
 			favoritesUpdater();
+			hintsUpdater();
 		}, 1);
 	}); 
-	
 	
 	
 	//GAME GPS BUTTON click LISTNER
@@ -392,106 +401,6 @@ gamejQuery(document).ready(function ($) {
 		}
 		
 	});
-	
-	//Populates TreasurePOI popup
-	function updatePoiPopup(){
-		
-		if(treasureIndex===1){
-			$("#gameTreasureFoundPopup_item").html('BT Tower');	
-			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi1.png');
-			$("#poiInfo").html("The BT Tower is a communications tower located in Fitzrovia, London, owned by BT Group.");
-			$('#poiFav1 input').css('display','block');
-			
-		}else if(treasureIndex===2){
-			$("#gameTreasureFoundPopup_item").html('Madame Tussauds');	
-			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi2.png');
-			$("#poiInfo").html("Madame Tussauds is a museum that contains wax models of famous people.");
-			$('#poiFav2 input').css('display','block');
-			
-		}else if(treasureIndex===3){
-			$("#gameTreasureFoundPopup_item").html('Oxford street');	
-			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi3.png');
-			$("#poiInfo").html("Oxford Street is Europe's busiest shopping street.");
-			$('#poiFav3 input').css('display','block');
-			
-		}else if(treasureIndex===4){
-			$("#gameTreasureFoundPopup_item").html('Cavendish Square Gardens');	
-			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi4.png');
-			$("#poiInfo").html("Cavendish Square Garden is a formal London Square, laid out on a circular plan enclosed with a perimeter hedge.");
-			$('#poiFav4 input').css('display','block');
-			
-		}else{}
-	}
-	
-	////////////////////////////////////////////////////////////////
-	//Favourite Checkbox clicklistner
-	$('#poiFav1 input').click(function(){
-		if($(this).is(':checked')){
-			userFavorites[0]='true';
-		} else {
-			userFavorites[0]='false';
-		}
-		favoritesUpdater();
-	});
-	$('#poiFav2 input').click(function(){
-		if($(this).is(':checked')){
-			userFavorites[1]='true';
-		} else {
-			userFavorites[1]='false';
-		}
-		favoritesUpdater();
-	});
-	$('#poiFav3 input').click(function(){
-		if($(this).is(':checked')){
-			userFavorites[2]='true';
-		} else {
-			userFavorites[2]='false';
-		}
-		favoritesUpdater();
-	});
-	$('#poiFav4 input').click(function(){
-		if($(this).is(':checked')){
-			userFavorites[3]='true';
-		} else {
-			userFavorites[3]='false';
-		}
-		favoritesUpdater();
-	});
-	////////////////////////////////////////////////////////////////
-	
-	////////////////////////////////////////////////////////////////
-	//Click events for SAVED FAVs -tab
-	$('#favoritedPoi1').click(function(){
-		treasureIndex=1;
-		updatePoiPopup();
-		opnMyPopup("#gameTreasureFoundPopup");
-	});
-	$('#favoritedPoi2').click(function(){
-		treasureIndex=2;
-		updatePoiPopup();
-		opnMyPopup("#gameTreasureFoundPopup");
-	});
-	$('#favoritedPoi3').click(function(){
-		treasureIndex=3;
-		updatePoiPopup();
-		opnMyPopup("#gameTreasureFoundPopup");
-	});
-	$('#favoritedPoi4').click(function(){
-		treasureIndex=4;
-		updatePoiPopup();	
-		opnMyPopup("#gameTreasureFoundPopup");
-		
-	});
-
-	////////////////////////////////////////////////////////////////
-	//JQM DOESNT SUPPORT popup CHAINING.. So this is a fix
-	function opnMyPopup(myPage) {
-		history.back();
-		setTimeout(function () {
-			$(myPage).popup('open');
-		}, 100);
-	}
-	
 	
 	//gamepopup PLAY BUTTON CLICK LISTENER
 	$("#gamePubPopup_setSailButton").on('click', function(){
@@ -577,7 +486,143 @@ gamejQuery(document).ready(function ($) {
 		}
 		
 	});
+	
 	////////////////////////////////////////////////////////////////
+	
+	
+	////////////////////////////////////////////////////////////////
+	//Favourite Checkbox clicklistner
+	$('#poiFav1 input').click(function(){
+		if($(this).is(':checked')){
+			userFavorites[0]='true';
+		} else {
+			userFavorites[0]='false';
+		}
+		favoritesUpdater();
+	});
+	$('#poiFav2 input').click(function(){
+		if($(this).is(':checked')){
+			userFavorites[1]='true';
+		} else {
+			userFavorites[1]='false';
+		}
+		favoritesUpdater();
+	});
+	$('#poiFav3 input').click(function(){
+		if($(this).is(':checked')){
+			userFavorites[2]='true';
+		} else {
+			userFavorites[2]='false';
+		}
+		favoritesUpdater();
+	});
+	$('#poiFav4 input').click(function(){
+		if($(this).is(':checked')){
+			userFavorites[3]='true';
+		} else {
+			userFavorites[3]='false';
+		}
+		favoritesUpdater();
+	});
+	////////////////////////////////////////////////////////////////
+	
+	////////////////////////////////////////////////////////////////
+	//Click events for SAVED FAVs -tab
+	$('#favoritedPoi1').click(function(){
+		treasureIndex=1;
+		updatePoiPopup();
+		opnMyPopup("#gameTreasureFoundPopup");
+	});
+	$('#favoritedPoi2').click(function(){
+		treasureIndex=2;
+		updatePoiPopup();
+		opnMyPopup("#gameTreasureFoundPopup");
+	});
+	$('#favoritedPoi3').click(function(){
+		treasureIndex=3;
+		updatePoiPopup();
+		opnMyPopup("#gameTreasureFoundPopup");
+	});
+	$('#favoritedPoi4').click(function(){
+		treasureIndex=4;
+		updatePoiPopup();	
+		opnMyPopup("#gameTreasureFoundPopup");
+		
+	});
+
+	////////////////////////////////////////////////////////////////
+	
+	
+	////////////////////////////////////////////////////////////////
+	//updates FavsCheckBoxes From userFavorites Array
+	function hintsUpdater(){
+		var noHints=0;
+		for(var x=0;x<treasureHints.length;x++){
+			
+			var hintItems = 'hint'+(x+1);
+			console.log(treasureHints[x]+":"+x);
+			
+			if(treasureHints[x]==='true'){		
+				$('#'+hintItems).css("display", "block");
+				noHints=noHints+1;
+				
+				if(x===0 || x===1){
+					$('.gameHintsPopupDiv hr:nth-of-type(1)').css("display", "block");
+				}else if(x===2 || x===3){
+					$('.gameHintsPopupDiv hr:nth-of-type(2)').css("display", "block");
+				}else if (x===4 || x===5){
+					$('.gameHintsPopupDiv hr:nth-of-type(3)').css("display", "block");
+				}
+				
+			}else{
+				$('#'+hintItems).css("display", "none");
+			}
+		}	
+		
+		if(noHints===0){
+			$('#hintsPopupEmpty').css("display", "block");
+		}else{
+			$("#hintsPopupEmpty").css("display", "none");
+		}
+	}
+	
+	//Populates TreasurePOI popup
+	function updatePoiPopup(){
+		
+		if(treasureIndex===1){
+			$("#gameTreasureFoundPopup_item").html('BT Tower');	
+			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi1.png');
+			$("#poiInfo").html("The BT Tower is a communications tower located in Fitzrovia, London, owned by BT Group.");
+			$('#poiFav1 input').css('display','block');
+			
+		}else if(treasureIndex===2){
+			$("#gameTreasureFoundPopup_item").html('Madame Tussauds');	
+			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi2.png');
+			$("#poiInfo").html("Madame Tussauds is a museum that contains wax models of famous people.");
+			$('#poiFav2 input').css('display','block');
+			
+		}else if(treasureIndex===3){
+			$("#gameTreasureFoundPopup_item").html('Oxford street');	
+			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi3.png');
+			$("#poiInfo").html("Oxford Street is Europe's busiest shopping street.");
+			$('#poiFav3 input').css('display','block');
+			
+		}else if(treasureIndex===4){
+			$("#gameTreasureFoundPopup_item").html('Cavendish Square Gardens');	
+			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi4.png');
+			$("#poiInfo").html("Cavendish Square Garden is a formal London Square, laid out on a circular plan enclosed with a perimeter hedge.");
+			$('#poiFav4 input').css('display','block');
+			
+		}else{}
+	}
+	
+	//JQM DOESNT SUPPORT popup CHAINING.. So this is a fix
+	function opnMyPopup(myPage) {
+		history.back();
+		setTimeout(function () {
+			$(myPage).popup('open');
+		}, 100);
+	}
 	
 	//updates FavsCheckBoxes From userFavorites Array
 	function favoritesUpdater(){
