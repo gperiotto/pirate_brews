@@ -13,7 +13,8 @@
 	<link href="assets/css/bookingPage.css" rel="stylesheet" type="text/css">
 
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzWKpYofh0Ffcev-q_aQtL3LFE_AvpOnY&libraries=geometry"></script>
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
 	<!--jquery UI-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.js"></script>
@@ -1544,10 +1545,64 @@
 			<h1>FAVOURITES</h1>
 		</div>
 		<div role="main" class="ui-content newsletterPopupMain">
-			<p>Lorem ipsum dolor sit amet, volutpat libero non ultricies, ultrices neque non mauris. Vitae malesuada pulvinar libero, commodo arcu habitasse auctor lectus mauris ac, duis tincidunt, gravida aliquam sit euismod, diam est ligula</p>
+			<div class="gameFavPopupDiv">
+				<a href="#" id="favoritedPoi1">
+					<img src="assets/img/poi1.png">
+					<span style="">BT Tower</span>
+				</a>
+			</div>	
+			<div>
+				<a href="#" id="favoritedPoi2">
+					<img src="assets/img/poi2.png">
+					<span style="">Madame Tussauds</span>
+				</a>
+			</div>
+			<div>
+				<a href="#" id="favoritedPoi3">
+					<img src="assets/img/poi3.png">
+					<span style="">Oxford street</span>
+				</a>
+			</div>
+			<div>
+				<a href="#" id="favoritedPoi4">
+					<img src="assets/img/poi4.png">
+					<span style="">Cavendish Square Gardens</span>
+				</a>
+			</div>
+			<h3 id="favPopupEmpty">No Favourites added</h3>
 		</div>
 	</div>
 	<!--GAME FAV POPUP-->
+
+	<div data-role="popup" id="gameTreasureFoundPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			
+			<div id="poiFav1">
+				<input type="checkbox" class="glyphicon glyphicon-star-empty" >
+			</div>
+			<div id="poiFav2">
+				<input type="checkbox" class="glyphicon glyphicon-star-empty" >
+			</div>
+			<div id="poiFav3">
+				<input type="checkbox" class="glyphicon glyphicon-star-empty" >
+			</div>
+			<div id="poiFav4">
+				<input type="checkbox" class="glyphicon glyphicon-star-empty" >
+			</div>
+
+		</div>
+		<div role="main" class="ui-content newsletterPopupMain">
+			<h4>Argh matey, you found: <span id='gameTreasureFoundPopup_item'>"xxxx"</span></h4>
+			<img id="gameTreasureFoundPopup_img" src="assets/img/poi2.png">
+			<p id="poiInfo"></p>
+			<div>	
+				<h4 id="gameTreasureFoundPopup_pts"></h4>
+				<h4 id="gameTreasureFoundPopup_discount">Discount code: <span>brew25</span></h4>
+			</div>
+						
+		</div>
+	</div>
+	<!--GAME TREASURE FOUND POPUP-->
 
 	<div data-role="popup" id="gamePubPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 			<div data-role="header">

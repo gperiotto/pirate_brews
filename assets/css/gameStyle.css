@@ -23,6 +23,82 @@
 	height: auto;
 }
 
+/*GAME POI POPUP*/
+#gameTreasureFoundPopup [role=main]{
+	padding-top: 5px;
+}
+
+#gameTreasureFoundPopup_item{
+	text-decoration: underline;
+}
+
+#gameTreasureFoundPopup_img{
+	text-align: center;
+	width: 200px;
+	width: 50%;
+	display: inline;
+}
+
+#gameTreasureFoundPopup_discount{
+	display: block;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+#gameTreasureFoundPopup_discount span{
+	text-decoration: underline;
+}
+
+#gameTreasureFoundPopup_pts{
+	display: block;
+	padding: 15px;
+	margin: 0;
+}
+
+#gameTreasureFoundPopup_pts span{
+	 color: #4e9ee3;	
+}
+
+/*FAV ICON SHENANIGANS*/
+.glyphicon:before {
+ visibility: visible;
+}
+.glyphicon.glyphicon-star-empty:checked:before {
+   content: "\e006";
+	color: rgb(172, 161, 28);
+}
+input[type=checkbox].glyphicon{
+    visibility: hidden;
+	color: #000000;
+	font-size:25px;
+    top: 10px;
+	left: 5px;
+}
+#poiFav1 input,
+#poiFav2 input,
+#poiFav3 input,
+#poiFav4 input{
+	display: none;
+}
+
+
+/*FAV POPUP */
+#gameFavPopup img{
+	width: 50px;
+	vertical-align:middle;
+}
+
+#favoritedPoi1,
+#favoritedPoi2,
+#favoritedPoi3,
+#favoritedPoi4{
+	text-align: left;
+	display: none;
+	margin-bottom: 10px;
+}
+
+/*GAME POPUP*/
 #gamePubPopup_img{
 	width: 20%;
 }
@@ -58,18 +134,21 @@
 	width: 30%;
 }
 
-#gamePubPopup_setSailButton:active{
 
+
+#gamePubPopup_setSailButton:active{
 	box-shadow:0px 0px 5px 0px #000000 !important;
 }
 
+
+/*GAME FIND USER BUTTON - GPS*/
 #gameUserLocationBtn{
 	margin: auto;
 	text-align: center;
 	padding: 0;
     position : absolute !important;
     right : 5px;
-    bottom : 130px !important;
+    bottom : 50px !important;
 	height: 50px;
 	width: 50px;
 	z-index: 9999!important;
@@ -77,16 +156,18 @@
 }
 
 #gameUserLocationBtn img{
-	padding-top: 4px;
+	padding-top: 2px;
 }
 
+
+/*GAME FIND TREASURE BUTTON*/
 #gameDigForTreasureBtn{
 	margin: auto;
 	text-align: center;
 	padding: 0;
     position : absolute !important;
     left : 5px;
-    bottom : 130px !important;
+    bottom : 50px !important;
 	height: 50px;
 	width: 50px;
 	z-index: 9999!important;
@@ -97,6 +178,8 @@
 	padding-top: 4px;
 }
 
+
+/*CHROME STUFF*/
 #game_ContentPage {
 	padding: 0;
     position : absolute !important;

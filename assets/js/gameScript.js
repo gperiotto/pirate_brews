@@ -15,7 +15,8 @@ gamejQuery(document).ready(function ($) {
 	
 	$("#gamePubPopup").enhanceWithin().popup();
 	
-
+	$("#gameTreasureFoundPopup").enhanceWithin().popup();
+	
 	//Instantiate GAME menuPanel
 	$("#gameNavPanel").panel().enhanceWithin();
 
@@ -55,12 +56,25 @@ gamejQuery(document).ready(function ($) {
 
 	////////////////////////////////////////////////////
 	
-	//GAME POPUP AFTERCLOSE EVENT
+	//GAME POPUP - AFTERCLOSE EVENT
 	$( "#gamePubPopup" ).popup({
 		afterclose: function( event, ui ) {
 			$("#gamePubPopup_hints").html('');
 			$("#gamePubPopup_points span").html('0');
 	  	}
+	});
+	
+	////////////////////////////////////////////////////
+	//TREASURE POPUP - ON CLOSE
+	$("#gameTreasureFoundPopup").popup({
+		afterclose: function (event, ui) {
+			$('#poiFav1 input').css('display','none');
+			$('#poiFav2 input').css('display','none');
+			$('#poiFav3 input').css('display','none');
+			$('#poiFav4 input').css('display','none');
+			
+			$("#gameTreasureFoundPopup_pts").html("");
+		}
 	});
 	
 	////////////////////////////////////////////////////
@@ -79,20 +93,30 @@ gamejQuery(document).ready(function ($) {
 	var cav_Circle, mar_Circle, tit_Circle, reg_Circle;//PUB boundaries circle OPTIONS
 	var cav_pubCircle, mar_pubCircle, tit_pubCircle, reg_pubCircle;//CIRCLE OBJ - google.maps.Circle obj
 	var pubIndex=0;//used to determine selected pub
+	var treasureIndex=0;//determines treasure item
 	var pts=0;// variable for turn points
 	
 	var poi_Marker1, poi_Marker2, poi_Marker3, poi_Marker4; //GMAPS POINT OF INTEREST MARKERS
 	var poi_latlng1, poi_latlng2, poi_latlng3, poi_latlng4; // Gmaps POI COORDiNATES
 	var poi_Circle1, poi_Circle2, poi_Circle3, poi_Circle4; // GMAPS CIRCLE OPTIONS
 	var poi_pubCircle1, poi_pubCircle2, poi_pubCircle3, poi_pubCircle4; //GMAPS CIRCLE OBJS
+//	var userPoi = ["false", "false", "false", "false"];
 	
+	//Global VAr for user coords
+	var user_LatLng; 
+	var circle;
+	var bounds, cav_bounds, mar_bounds, tit_bounds, reg_bounds;
+	var poi_bounds1, poi_bounds2, poi_bounds3, poi_bounds4;
+	
+	
+	//VARs WHICH ARE CONNECTED TO DB
 	var userName='';
 	var userScore=0;
 	var userTokens =5;
 	var treasureHints = ["false", "false", "false", "false", "false", "false", "false", "false"];
-	var userPoi = ["false", "false", "false", "false"];
+	var userFavorites = ["false", "false", "false", "true"];
 	
-	
+	//GOOGLE MAPS with rendering fix
 	$(document).on('pageshow', '#game_page', function (e, data) {
 		setTimeout(function () {
 
@@ -196,7 +220,6 @@ gamejQuery(document).ready(function ($) {
 				cav_bounds = cav_pubCircle.getBounds();
 			  	
 				if(cav_bounds.contains(user_LatLng)){
-//					cav_InfoWindow.open(map, cav_Marker);
 					$( "#gamePubPopup" ).popup( "open" ); 
 				}else{
 //					alert("You are too far to play here");
@@ -214,7 +237,6 @@ gamejQuery(document).ready(function ($) {
 				mar_bounds = mar_pubCircle.getBounds();
 			  		
 				if(mar_bounds.contains(user_LatLng)){
-//					mar_InfoWindow.open(map, mar_Marker);
 					$( "#gamePubPopup" ).popup( "open" ); 
 				}else{
 					alert("You are too far to play here");
@@ -230,7 +252,6 @@ gamejQuery(document).ready(function ($) {
 				tit_bounds = tit_pubCircle.getBounds();
 				
 				if(tit_bounds.contains(user_LatLng)){
-//					tit_InfoWindow.open(map, tit_Marker);
 					$( "#gamePubPopup" ).popup( "open" ); 
 				}else{
 					alert("You are too far to play here");
@@ -253,6 +274,30 @@ gamejQuery(document).ready(function ($) {
 				}	
 			});
 			
+			poi_Marker1.addListener('click', function() {
+				treasureIndex=1;
+				updatePoiPopup();
+				$( "#gameTreasureFoundPopup" ).popup( "open" );
+			});
+			
+			poi_Marker2.addListener('click', function() {
+				treasureIndex=2;
+				updatePoiPopup();
+				$( "#gameTreasureFoundPopup" ).popup( "open" );
+			});
+			
+			poi_Marker3.addListener('click', function() {
+				treasureIndex=3;
+				updatePoiPopup();
+				$( "#gameTreasureFoundPopup" ).popup( "open" );
+			});
+			
+			poi_Marker4.addListener('click', function() {
+				treasureIndex=4;
+				updatePoiPopup();
+				$( "#gameTreasureFoundPopup" ).popup( "open" );
+			});
+			
 			
 			
 			///////////////////////////////////////////////////
@@ -269,20 +314,24 @@ gamejQuery(document).ready(function ($) {
 			poi_Marker4.setIcon('assets/ico/cross.png');
 			
 			//hides POIs
-			poi_Marker1.setVisible(false); 
-			poi_Marker2.setVisible(false); 
-			poi_Marker3.setVisible(false); 
-			poi_Marker4.setVisible(false); 
+//			poi_Marker1.setVisible(false); 
+//			poi_Marker2.setVisible(false); 
+//			poi_Marker3.setVisible(false); 
+//			poi_Marker4.setVisible(false); 
 			
 			//USER CURRENT LOCATION
       		findMe();
-			//Well what the function says
+			//DRAWs PUB RADIUS
       		addPubRadius();
-			
+			//Well what the function says x2
 			updateGamePopup();
 			
+			
+			favoritesUpdater();
 		}, 1);
 	}); 
+	
+	
 	
 	//GAME GPS BUTTON click LISTNER
 	$("#gameUserLocationBtn").on('click', function(){
@@ -293,8 +342,6 @@ gamejQuery(document).ready(function ($) {
 	//GAME DIG FOR TREASURE btn click Listener
 	$("#gameDigForTreasureBtn").on('click', function(){
 		findMe();
-//		addMarker();
-		
 		
 		user_LatLng = new google.maps.LatLng(userCurrentPos.lat,userCurrentPos.lng);
 		poi_bounds1 = poi_pubCircle1.getBounds();
@@ -303,30 +350,147 @@ gamejQuery(document).ready(function ($) {
 		poi_bounds4 = poi_pubCircle4.getBounds();
 		
 		if(poi_bounds1.contains(user_LatLng)){
-			alert("HOLY FUCK ITS WORKING 1");
-			poi_Marker1.setVisible(true); 
-			userPoi[0]='true';
+			
+			poi_Marker1.setVisible(true);//makes marker visible 
+			userScore=userScore+2000; //adds 2k points
+			treasureIndex=1; //setsINDEX
+			updatePoiPopup();//well what it says
+			$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
+			$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
 			
 		}else if(poi_bounds2.contains(user_LatLng)){
-			alert("HOLY FUCK ITS WORKING 2");
+
 			poi_Marker2.setVisible(true); 
-			userPoi[1]='true';
+			userScore=userScore+2000; //adds 2k points
+			treasureIndex=2; //setsINDEX
+			updatePoiPopup();//well what it says
+			$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
+			$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
 			
 		}else if(poi_bounds3.contains(user_LatLng)){
-			alert("HOLY FUCK ITS WORKING 3");
+
 			poi_Marker3.setVisible(true); 
-			userPoi[2]='true';
+			userScore=userScore+2000; //adds 2k points
+			treasureIndex=3; //setsINDEX
+			updatePoiPopup();//well what it says
+			$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
+			$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
+
 			
 		}else if(poi_bounds4.contains(user_LatLng)){
-			alert("HOLY FUCK ITS WORKING 4");
+
 			poi_Marker4.setVisible(true); 
-			userPoi[3]='true';
-		}else{
-			alert("Found nothing");
-		}
+			userScore=userScore+2000; //adds 2k points
+			treasureIndex=4; //setsINDEX
+			updatePoiPopup();//well what it says
+			$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
+			$( "#gameTreasureFoundPopup" ).popup( "open" );//opens
+
 			
+		}else{
+			alert("No treasure here.");
+		}
 		
 	});
+	
+	//Populates TreasurePOI popup
+	function updatePoiPopup(){
+		
+		if(treasureIndex===1){
+			$("#gameTreasureFoundPopup_item").html('BT Tower');	
+			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi1.png');
+			$("#poiInfo").html("The BT Tower is a communications tower located in Fitzrovia, London, owned by BT Group.");
+			$('#poiFav1 input').css('display','block');
+			
+		}else if(treasureIndex===2){
+			$("#gameTreasureFoundPopup_item").html('Madame Tussauds');	
+			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi2.png');
+			$("#poiInfo").html("Madame Tussauds is a museum that contains wax models of famous people.");
+			$('#poiFav2 input').css('display','block');
+			
+		}else if(treasureIndex===3){
+			$("#gameTreasureFoundPopup_item").html('Oxford street');	
+			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi3.png');
+			$("#poiInfo").html("Oxford Street is Europe's busiest shopping street.");
+			$('#poiFav3 input').css('display','block');
+			
+		}else if(treasureIndex===4){
+			$("#gameTreasureFoundPopup_item").html('Cavendish Square Gardens');	
+			$("#gameTreasureFoundPopup_img").attr('src', 'assets/img/poi4.png');
+			$("#poiInfo").html("Cavendish Square Garden is a formal London Square, laid out on a circular plan enclosed with a perimeter hedge.");
+			$('#poiFav4 input').css('display','block');
+			
+		}else{}
+	}
+	
+	////////////////////////////////////////////////////////////////
+	//Favourite Checkbox clicklistner
+	$('#poiFav1 input').click(function(){
+		if($(this).is(':checked')){
+			userFavorites[0]='true';
+		} else {
+			userFavorites[0]='false';
+		}
+		favoritesUpdater();
+	});
+	$('#poiFav2 input').click(function(){
+		if($(this).is(':checked')){
+			userFavorites[1]='true';
+		} else {
+			userFavorites[1]='false';
+		}
+		favoritesUpdater();
+	});
+	$('#poiFav3 input').click(function(){
+		if($(this).is(':checked')){
+			userFavorites[2]='true';
+		} else {
+			userFavorites[2]='false';
+		}
+		favoritesUpdater();
+	});
+	$('#poiFav4 input').click(function(){
+		if($(this).is(':checked')){
+			userFavorites[3]='true';
+		} else {
+			userFavorites[3]='false';
+		}
+		favoritesUpdater();
+	});
+	////////////////////////////////////////////////////////////////
+	
+	////////////////////////////////////////////////////////////////
+	//Click events for SAVED FAVs -tab
+	$('#favoritedPoi1').click(function(){
+		treasureIndex=1;
+		updatePoiPopup();
+		opnMyPopup("#gameTreasureFoundPopup");
+	});
+	$('#favoritedPoi2').click(function(){
+		treasureIndex=2;
+		updatePoiPopup();
+		opnMyPopup("#gameTreasureFoundPopup");
+	});
+	$('#favoritedPoi3').click(function(){
+		treasureIndex=3;
+		updatePoiPopup();
+		opnMyPopup("#gameTreasureFoundPopup");
+	});
+	$('#favoritedPoi4').click(function(){
+		treasureIndex=4;
+		updatePoiPopup();	
+		opnMyPopup("#gameTreasureFoundPopup");
+		
+	});
+
+	////////////////////////////////////////////////////////////////
+	//JQM DOESNT SUPPORT popup CHAINING.. So this is a fix
+	function opnMyPopup(myPage) {
+		history.back();
+		setTimeout(function () {
+			$(myPage).popup('open');
+		}, 100);
+	}
 	
 	
 	//gamepopup PLAY BUTTON CLICK LISTENER
@@ -412,12 +576,30 @@ gamejQuery(document).ready(function ($) {
 			updateGamePopup();//update Popup
 		}
 		
-		
-
-		
 	});
+	////////////////////////////////////////////////////////////////
 	
-	//what the func says
+	//updates FavsCheckBoxes From userFavorites Array
+	function favoritesUpdater(){
+		
+		for(var x=0;x<userFavorites.length;x++){
+			var chkbox = 'poiFav'+(x+1)+' input';
+			var favTabItems = 'favoritedPoi'+(x+1);
+			if(userFavorites[x]==='true'){		
+				$('#'+chkbox).attr("checked", true);
+				$('#'+favTabItems).css("display", "block");
+			}else{
+				$('#'+favTabItems).css("display", "none");
+			}
+		}
+		if($('#favoritedPoi1').css('display') == 'none' && $('#favoritedPoi2').css('display') == 'none' && $('#favoritedPoi3').css('display') == 'none' && $('#favoritedPoi4').css('display') == 'none'){
+			$("#favPopupEmpty").css("display", "block");
+		}else{
+			$("#favPopupEmpty").css("display", "none");
+		}
+	}
+	
+	//Adds correct pub info to GAME popup
 	function updateGamePopup(){
 		
 		//updates heading
@@ -436,13 +618,6 @@ gamejQuery(document).ready(function ($) {
 		$("#gamePubPopup_points span").html(pts.toString());
 		
 	}
-	
-	//Global VAr for user coords
-	var user_LatLng; 
-	var circle;
-	var bounds, cav_bounds, mar_bounds, tit_bounds, reg_bounds;
-	var poi_bounds1, poi_bounds2, poi_bounds3, poi_bounds4;
-	
 	
 	//Adds 30 meters radius to pubs
 	function addPubRadius(){
