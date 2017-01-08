@@ -156,22 +156,36 @@ gamejQuery(document).ready(function ($) {
 	
 	//JOHNNIE ADDS YOUR PHP MAGIC TO THIS 2 FUNCTIONS
 	function databaseWrite(){
-		var db_fav = userFavorites.join(",");
-		var db_hints = treasureHints.join(",");
+
+
+		var db_fav = userFavorites;
+		var db_hints = treasureHints;
 		var db_tokens = userTokens;
 		var db_score = userScore;
-		var db_nickname = userNickname; 
-		
+		var db_nickname = userName; 
+
+		console.log(db_fav);
+		console.log(db_hints);
+		console.log(db_tokens);
+		console.log(db_score);
+		console.log(db_nickname);
+
 		//string to hold all the posted information 
 		
-		var dataString = 'db_fav=' + db_fav + '&db_hints=' + db_hints + '&db_tokens=' + db_tokens + '&db_score=' + db_score + '&db_nickname=' + db_nickname;
+		var dataStringX = 'db_fav=' + db_fav + '&db_hints=' + db_hints + '&db_tokens=' + db_tokens + '&db_score=' + db_score + '&db_nickname=' + db_nickname;
 		//AJAX Code To Submit Form.
 			$.ajax({
 					type: "POST",
 					url: "game.php",
-					data: dataString, 
+					data: dataStringX,
+							dataType: "json",
+							success: function (result) {
+								console.log(result);
+							},
+							error: function (err) {
+								alert(err);
+							} 
 			}) ;
-		databaseRead(); // call on this function to display data which is now saved.  
 	}
 	
 	function databaseRead(){		
@@ -194,6 +208,7 @@ gamejQuery(document).ready(function ($) {
 			userTokens = parseInt(result[0].tokens);
 			treasureHints = result[0].hints;
 			userFavorites = result[0].favorites;
+			databaseWrite();
 		},
 		error: function () {
 			alert("Error please try again.");

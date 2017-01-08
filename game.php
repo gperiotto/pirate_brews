@@ -20,6 +20,19 @@ $db_tokens=$_POST['db_tokens'];
 $db_score=$_POST['db_score'];
 $db_nickname=$_POST['db_nickname'];
 
-$query = mysql_query("insert into people(favorites, hints, tokens, score ) values ('".$db_fav."', '".$db_hints."', '".$db_tokens."', '".$db_score."') WHERE nickname ='".$db_nickname."'"); 
+$query = mysql_query("update people set achivementsPoints = '".$db_score."' ,  hints = '".$db_hints."',  favorites = '".$db_fav."' ,  tokens = '".$db_tokens."' where email = 'j@j.com'");
+
+$data = array();
+while ($row = mysql_fetch_array($query)) {
+    $data[] = $row;
+}
+
+// UPDATE suppliers
+// SET supplier_id = 150,
+//     supplier_name = 'Apple',
+//     city = 'Cupertino'
+// WHERE supplier_name = 'Google';
+
+echo json_encode($data);
 
 ?>
