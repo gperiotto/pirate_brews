@@ -429,6 +429,12 @@ gamejQuery(document).ready(function ($) {
 	}); 
 	
 	
+	//GAME SEND FAV EMAIL
+	$("#gameEmailFavBtn").on("click", function(){
+		alert("email button");
+	});
+	
+	
 	//GAME GPS BUTTON click LISTNER
 	$("#gameUserLocationBtn").on('click', function(){
 		findMe();
