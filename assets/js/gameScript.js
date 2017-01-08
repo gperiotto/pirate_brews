@@ -598,7 +598,7 @@ gamejQuery(document).ready(function ($) {
 
 				//adds to USER SCORE
 				userScore=userScore+pts;
-
+				databaseWrite();
 				updateGamePopup();
 			}, 500);
 			
@@ -607,7 +607,7 @@ gamejQuery(document).ready(function ($) {
 			
 			updateGamePopup();//update Popup
 		}
-		
+		databaseWrite();
 	});
 	
 	////////////////////////////////////////////////////////////////
