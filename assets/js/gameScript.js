@@ -156,11 +156,24 @@ gamejQuery(document).ready(function ($) {
 	
 	//JOHNNIE ADDS YOUR PHP MAGIC TO THIS 2 FUNCTIONS
 	function databaseWrite(){
-		var db_fav = userFavorites.join(",");//SAVE THIS TO DB - ITS A STRING WITH COMMAS !!!!!!
-		var db_hints = treasureHints.join(",");//SAVE THIS TO DB - ITS A STRING WITH COMMAS !!!!!!
-		var db_tokens = userTokens;//SAVE THIS TO DB !!!!!!
-		var db_score = userScore;//SAVE THIS TO DB !!!!!!	
+		var db_fav = userFavorites.join(",");
+		var db_hints = treasureHints.join(",");
+		var db_tokens = userTokens;
+		var db_score = userScore;
+		var db_nickname = userNickname; 
+		
+		//string to hold all the posted information 
+		
+		var dataString = 'db_fav=' + db_fav + '&db_hints=' + db_hints + '&db_tokens=' + db_tokens + '&db_score=' + db_score + '&db_nickname=' + db_nickname;
+		//AJAX Code To Submit Form.
+			$.ajax({
+					type: "POST",
+					url: "game.php",
+					data: dataString, 
+			}) ;
+		databaseRead(); // call on this function to display data which is now saved.  
 	}
+	
 	function databaseRead(){		
 		//Fetch user favs and hints as string
 		//Fetch tokens and score as int
