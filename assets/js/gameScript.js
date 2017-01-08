@@ -164,12 +164,6 @@ gamejQuery(document).ready(function ($) {
 		var db_score = userScore;
 		var db_nickname = userName; 
 
-		console.log(db_fav);
-		console.log(db_hints);
-		console.log(db_tokens);
-		console.log(db_score);
-		console.log(db_nickname);
-
 		//string to hold all the posted information 
 		
 		var dataStringX = 'db_fav=' + db_fav + '&db_hints=' + db_hints + '&db_tokens=' + db_tokens + '&db_score=' + db_score + '&db_nickname=' + db_nickname;
