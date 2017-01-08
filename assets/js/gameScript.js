@@ -151,7 +151,22 @@ gamejQuery(document).ready(function ($) {
 	var userScore=0;
 	var userTokens =10;
 	var treasureHints = ["false", "false", "false", "false", "false", "false", "false", "false"];
-	var userFavorites = ["true", "false", "false", "true"];
+	var userFavorites = ["false", "false", "false", "false"];
+	
+	
+	//JOHNNIE ADDS YOUR PHP MAGIC TO THIS 2 FUNCTIONS
+	function databaseWrite(){
+		var db_fav = userFavorites.join(",");//SAVE THIS TO DB - ITS A STRING WITH COMMAS !!!!!!
+		var db_hints = treasureHints.join(",");//SAVE THIS TO DB - ITS A STRING WITH COMMAS !!!!!!
+		var db_tokens = userTokens;//SAVE THIS TO DB !!!!!!
+		var db_score = userScore;//SAVE THIS TO DB !!!!!!	
+	}
+	function databaseRead(){		
+		//Fetch user favs and hints as string
+		//Fetch tokens and score as int
+	}
+	
+	
 	
 	//GOOGLE MAPS with rendering fix
 	$(document).on('pageshow', '#game_page', function (e, data) {
