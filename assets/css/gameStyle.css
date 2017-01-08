@@ -97,8 +97,8 @@ input[type=checkbox].glyphicon{
 }
 
 
-/*GAME STATS*/
 
+/*GAME STATS*/
 #gameUserStatsPopup [role=main]{
 	text-align: left;
 }
@@ -129,6 +129,57 @@ input[type=checkbox].glyphicon{
 
 
 
+/*GAME SHOP*/
+#gameShopPopup .ui-content.newsletterPopupMain{
+	height: 280px!important;
+/*	overflow: hidden;*/
+}
+#gameShopPopup_buyTokens img{
+	width: 40px;
+}
+#gameShopPopup_comingSoon{
+	background: rgba(234, 234, 234, 0.42);
+	height: 100px;
+	position: relative;
+	top: -84px;
+	margin: 0;
+	padding: 0;
+	
+}
+#gameShopPopup_comingSoon div{
+	
+	color: rgb(59, 59, 59);
+	text-shadow: 0 0 0;
+	position: relative;
+	top: 36px;
+	font-size: 35px;
+	-ms-transform: rotate(-17deg); /* IE 9 */
+    -webkit-transform: rotate(-17deg); /* Chrome, Safari, Opera */
+    transform: rotate(-17deg);
+}
+#gameShopPopup_Fix{
+	position: relative;
+	top: -84px;
+}
+#gameShopPopup hr{
+	width: 300px;
+ 	border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+#gameShop_form a{
+	text-decoration: none;
+	background: #4e4e60;
+	padding: 5px;
+	text-shadow: 0 0 0 ;
+	color: white;
+}
+#gameShopPopup input[type=text]{
+	text-align: left;
+}
+
+
+
 /*GAME HINTS POPUP*/
 .gameHintsPopupDiv > h5{
 	text-align: left;
@@ -143,6 +194,7 @@ input[type=checkbox].glyphicon{
 .gameHintsPopupDiv hr:nth-of-type(1){
 	
 }
+
 
 
 /*GAME POPUP*/
@@ -180,6 +232,7 @@ input[type=checkbox].glyphicon{
 }
 
 
+
 /*GAME FIND USER BUTTON - GPS*/
 #gameUserLocationBtn{
 	margin: auto;
@@ -198,6 +251,7 @@ input[type=checkbox].glyphicon{
 }
 
 
+
 /*GAME FIND TREASURE BUTTON*/
 #gameDigForTreasureBtn{
 	margin: auto;
@@ -214,6 +268,7 @@ input[type=checkbox].glyphicon{
 #gameDigForTreasureBtn img{
 	padding-top: 4px;
 }
+
 
 
 /*CHROME STUFF*/
@@ -256,8 +311,9 @@ background: rgba(149, 214, 26, 0) !important;
 	visibility: hidden;
 }
 
-/*TOP BANNER*/
 
+
+/*TOP BANNER*/
 #game_page.ui-page .ui-header {
 	background: rgba(0, 0, 0, 0) !important;
 }
@@ -273,7 +329,6 @@ background: rgba(149, 214, 26, 0) !important;
 
 
 /*Content */
-
 #game_page[data-role=page] [data-role=content] {
 	background: rgba(255, 255, 255, 0);
 	padding: 0;

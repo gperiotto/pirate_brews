@@ -21,6 +21,8 @@ gamejQuery(document).ready(function ($) {
 	
 	$("#gameTreasureFoundPopup").enhanceWithin().popup();
 	
+	$("#gameShopPopup").enhanceWithin().popup();
+	
 	//Instantiate GAME menuPanel
 	$("#gameNavPanel").panel().enhanceWithin();
 
@@ -129,7 +131,13 @@ gamejQuery(document).ready(function ($) {
 	var poi_latlng1, poi_latlng2, poi_latlng3, poi_latlng4; // Gmaps POI COORDiNATES
 	var poi_Circle1, poi_Circle2, poi_Circle3, poi_Circle4; // GMAPS CIRCLE OPTIONS
 	var poi_pubCircle1, poi_pubCircle2, poi_pubCircle3, poi_pubCircle4; //GMAPS CIRCLE OBJS
-	var foundThisPoi = [false, false, false, false];
+	var foundThisPoi = [false, false, false, false];//validates if user has found a poi already
+
+	var foundPoiTokens = 5;//Reward for finding a POI
+	var foundHintTokens = 2;//Rewards for finding a Hint
+	
+	var gamePromoCode = 'brew25';//static GAME promocodes
+	var cashedGamePromoCode= false;//user can only use promo code once
 	
 	//Global VAr for user coords
 	var user_LatLng; 
@@ -141,7 +149,7 @@ gamejQuery(document).ready(function ($) {
 	//VARs WHICH ARE CONNECTED TO DB
 	var userName='';
 	var userScore=0;
-	var userTokens =30;
+	var userTokens =10;
 	var treasureHints = ["false", "false", "false", "false", "false", "false", "false", "false"];
 	var userFavorites = ["true", "false", "false", "true"];
 	
@@ -387,7 +395,7 @@ gamejQuery(document).ready(function ($) {
 				
 				poi_Marker1.setVisible(true);//makes marker visible 
 				userScore=userScore+2000; //adds 2k points
-				userTokens= userTokens+5;
+				userTokens= userTokens+foundPoiTokens;//gives user tokens
 				treasureIndex=1; //setsINDEX
 				updatePoiPopup();//well what it says
 				$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
@@ -402,7 +410,7 @@ gamejQuery(document).ready(function ($) {
 				
 				poi_Marker2.setVisible(true); 
 				userScore=userScore+2000; //adds 2k points
-				userTokens= userTokens+5;
+				userTokens= userTokens+foundPoiTokens;//gives user tokens
 				treasureIndex=2; //setsINDEX
 				updatePoiPopup();//well what it says
 				$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
@@ -417,7 +425,7 @@ gamejQuery(document).ready(function ($) {
 				
 				poi_Marker3.setVisible(true); 
 				userScore=userScore+2000; //adds 2k points
-				userTokens= userTokens+5;
+				userTokens= userTokens+foundPoiTokens;//gives user tokens
 				treasureIndex=3; //setsINDEX
 				updatePoiPopup();//well what it says
 				$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
@@ -432,7 +440,7 @@ gamejQuery(document).ready(function ($) {
 				
 				poi_Marker4.setVisible(true); 
 				userScore=userScore+2000; //adds 2k points
-				userTokens= userTokens+5;
+				userTokens= userTokens+foundPoiTokens;//gives user tokens
 				treasureIndex=4; //setsINDEX
 				updatePoiPopup();//well what it says
 				$("#gameTreasureFoundPopup_pts").html("<span>+2000 </span>Points");
@@ -472,49 +480,49 @@ gamejQuery(document).ready(function ($) {
 					console.log("hint piece 1");
 					treasureHints[0]='true';
 					pts=pts+900;
-					userTokens= userTokens+2;
+					userTokens= userTokens+foundHintTokens;//token reward
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===2){
 					console.log("hint piece 2");
 					treasureHints[1]='true';
 					pts=pts+900;
-					userTokens= userTokens+2;
+					userTokens= userTokens+foundHintTokens;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===3){
 					console.log("hint piece 3");
 					treasureHints[2]='true';
 					pts=pts+900;
-					userTokens= userTokens+2;
+					userTokens= userTokens+foundHintTokens;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===4){
 					console.log("hint piece 4");
 					treasureHints[3]='true';
 					pts=pts+900;
-					userTokens= userTokens+2;
+					userTokens= userTokens+foundHintTokens;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===5){
 					console.log("hint piece 5");
 					treasureHints[4]='true';
 					pts=pts+900;
-					userTokens= userTokens+2;
+					userTokens= userTokens+foundHintTokens;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===6){
 					console.log("hint piece 6");
 					treasureHints[5]='true';
 					pts=pts+900;
-					userTokens= userTokens+2;
+					userTokens= userTokens+foundHintTokens;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===7){
 					console.log("hint piece 7");
 					treasureHints[6]='true';
 					pts=pts+900;
-					userTokens= userTokens+2;
+					userTokens= userTokens+foundHintTokens;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else if(mapChance===8){
 					console.log("hint piece 8");
 					treasureHints[7]='true';
 					pts=pts+900;
-					userTokens= userTokens+2;
+					userTokens= userTokens+foundHintTokens;
 					$("#gamePubPopup_hints").html('Found a Hint!');	
 				}else{
 					$("#gamePubPopup_hints").html('');	
@@ -580,10 +588,9 @@ gamejQuery(document).ready(function ($) {
 	});
 	////////////////////////////////////////////////////////////////
 	
-	//CLICK EVENT FOR STATS POPUP
+	//CLICK EVENT FOR STATS POPUP - REDIRECTS TO SHOP
 	$("#gameUserStatsPopup_TokensContainer").click(function(){
-		//ADD ME ONCE SHOP IS UP AND RUNNING!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//		opnMyPopup();
+		opnMyPopup('#gameShopPopup');
 	});
 	
 	////////////////////////////////////////////////////////////////
@@ -612,13 +619,28 @@ gamejQuery(document).ready(function ($) {
 
 	////////////////////////////////////////////////////////////////
 	
+	//SHOP PROMOCODE Click listner 
+	$("#gamePromoCode_submit").click(function(){
+		
+		var promoCode= document.getElementById('gamePromoTextField').value;
+		
+		if(cashedGamePromoCode){
+			alert("Cannot use this code again");
+		}else{
+			if(promoCode === gamePromoCode){
+				userTokens = userTokens+2;
+				cashedGamePromoCode=true;
+				alert("Gained 2 tokens");
+			}else{
+				alert("Code not valid.");
+			}
+		}
+	});
+	
 	
 	////////////////////////////////////////////////////////////////
-	
-	function userStatsUpdater(){
-		//Hints
-//		hintsUpdater();
-		
+	//POPULATES STATS POPUP 
+	function userStatsUpdater(){		
 		
 		//Score 
 		$("#gameUserStatsPopup_score").html(userScore);

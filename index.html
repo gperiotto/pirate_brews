@@ -1025,7 +1025,7 @@
 				</div>
 				<div class="footerTaskbar2">
 					<div class="footerVRuler1">
-						<a href="#gamePubPopup" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/bag.png">
+						<a href="#gameShopPopup" data-rel="popup" data-position-to="window"> <img id="" src="assets/ico/bag.png">
 							<p>Shop</p>
 						</a>
 					</div>
@@ -1655,6 +1655,36 @@
 		</div>
 	</div>
 	<!--GAME STATS POPUP-->
+
+	<div data-role="popup" id="gameShopPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+		<div data-role="header">
+			<h1>Shop</h1>
+
+		</div>
+		<div role="main" class="ui-content newsletterPopupMain">
+			
+		
+				<a href="#" id="gameShopPopup_buyTokens">		
+					<span>Buy Treasure Chest</span>
+					<img src="assets/ico/treasureColor.png">
+				</a>
+				<p>This item contains 10 tokens and a Point Booster!</p>
+				<div id="gameShopPopup_comingSoon"><div>COMING SOON</div></div>
+			
+			<div id="gameShopPopup_Fix">
+				<hr>
+				<form id="gameShop_form">
+					Redeem Promo Code: <input id="gamePromoTextField" type="text" name="promoCode" placeholder="xxxx"><br>
+					<a href="#" id="gamePromoCode_submit">Submit</a>
+				</form>
+			</div>
+			
+			
+			
+						
+		</div>
+	</div>
+	<!--GAME SHOP POPUP-->
 
 	<div data-role="popup" id="gamePubPopup" data-overlay-theme="b" data-dismissible="true"> <a href="#" data-rel="back" class=" ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
 			<div data-role="header">
