@@ -164,6 +164,28 @@ gamejQuery(document).ready(function ($) {
 	function databaseRead(){		
 		//Fetch user favs and hints as string
 		//Fetch tokens and score as int
+		var emailP = $("#emailL").val();
+		var passwordP = $("#passwordL").val();
+		var dataStringPOPULATE = 'emailP=' + emailP + '&passwordP=' + passwordP;
+
+		$.ajax({
+		type: "POST",
+		url: "getStats.php",
+		data: dataStringPOPULATE,
+		cache: false,
+		dataType: "json",
+		success: function (result) {
+			console.log(result);
+			userName = result[0].nickname;
+			userScore= parseInt(result[0].achivementsPoints);
+			userTokens = parseInt(result[0].tokens);
+			treasureHints = result[0].hints;
+			userFavorites = result[0].favorites;
+		},
+		error: function () {
+			alert("Error please try again.");
+		}
+	});
 	}
 	
 	
@@ -656,7 +678,7 @@ gamejQuery(document).ready(function ($) {
 	////////////////////////////////////////////////////////////////
 	//POPULATES STATS POPUP 
 	function userStatsUpdater(){		
-		
+		databaseRead();
 		//Score 
 		$("#gameUserStatsPopup_score").html(userScore);
 		if(userScore>2500 && userScore<5000){
@@ -783,7 +805,7 @@ gamejQuery(document).ready(function ($) {
 	
 	//Adds correct pub info to GAME popup
 	function updateGamePopup(){
-		
+		databaseRead();
 		//updates heading
 		if(pubIndex===1){
 			$("#gamePubPopup_header").html('Welcome to The Old Cavendish');
