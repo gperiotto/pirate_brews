@@ -816,6 +816,20 @@
 					<option id="1">Select Time</option>
 				</select>
 				<br>
+				<form action="/your-server-side-code" method="POST">
+				<!--payment method-->
+				<script
+					src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+					data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+					data-amount="999"
+					data-name="Stripe.com"
+					data-description="Widget"
+					data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+					data-locale="auto"
+					data-zip-code="true">
+				</script>
+				</form>
+				<br>
 				<!--submit button-->
 				<button onclick="submitBooking()" id="bSubmit2" name="cInputButton"> Submit </button>
 				<!--booking popup trigger-->
