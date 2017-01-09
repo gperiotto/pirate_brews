@@ -432,7 +432,40 @@ databaseRead();
 	
 	//GAME SEND FAV EMAIL
 	$("#gameEmailFavBtn").on("click", function(){
-		alert("email button");
+		var email = $("#emailL").val();
+		console.log(email);
+		var x = ""; 
+		console.log(userFavorites);
+		//var userFav = ["true","true","true","true"]
+		var userFav = userFavorites.split(",");
+		
+		console.log(userFav[2] + ""); 
+				
+		
+		if (userFav[0]==='true'){
+			x =x+"BT tower ";
+		}
+		if (userFav[1]==='true'){
+			x =x+"Madame ";
+		}
+		if (userFav[2]==='true'){
+			x =x+"Oxford Street ";
+		}
+		if (userFav[3]==='true'){
+			x =x+"Cavendish";
+		}
+
+		
+		console.log(x);
+		
+		var dataString = 'emailP=' + email + '&string=' + x;
+			console.log(dataString);
+					
+				$.ajax({
+					type: "POST",
+					url: "emailPOI.php",
+					data: dataString,
+					}); 
 	});
 	
 	
