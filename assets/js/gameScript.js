@@ -44,6 +44,7 @@ gamejQuery(document).ready(function ($) {
 	//sign up to game
 	$(document).on('pagebeforeshow', '#signUp_page', function () {
 		$(document).on('click', '#gameButton', function () {
+
 			$.mobile.navigate("#game_page", {
 				transition: "slide"
 			});
@@ -155,32 +156,6 @@ gamejQuery(document).ready(function ($) {
 	
 	
 	//JOHNNIE ADDS YOUR PHP MAGIC TO THIS 2 FUNCTIONS
-	function databaseWrite(){
-
-
-		var db_fav = userFavorites;
-		var db_hints = treasureHints;
-		var db_tokens = userTokens;
-		var db_score = userScore;
-		var db_nickname = userName; 
-
-		//string to hold all the posted information 
-		
-		var dataStringX = 'db_fav=' + db_fav + '&db_hints=' + db_hints + '&db_tokens=' + db_tokens + '&db_score=' + db_score + '&db_nickname=' + db_nickname;
-		//AJAX Code To Submit Form.
-			$.ajax({
-					type: "POST",
-					url: "game.php",
-					data: dataStringX,
-							dataType: "json",
-							success: function (result) {
-								console.log(result);
-							},
-							error: function (err) {
-								alert(err);
-							} 
-			}) ;
-	}
 	
 	function databaseRead(){		
 		//Fetch user favs and hints as string
@@ -196,18 +171,43 @@ gamejQuery(document).ready(function ($) {
 		cache: false,
 		dataType: "json",
 		success: function (result) {
-			console.log(result);
 			userName = result[0].nickname;
 			userScore= parseInt(result[0].achivementsPoints);
 			userTokens = parseInt(result[0].tokens);
 			treasureHints = result[0].hints;
 			userFavorites = result[0].favorites;
-			databaseWrite();
+			console.log("pulaa1" + treasureHints[5]);
 		},
-		error: function () {
-			alert("Error please try again.");
+		error: function (err) {
+			alert(err);
 		}
 	});
+	}
+
+	function databaseWrite(){		
+		var db_fav = userFavorites;
+		var db_hints = treasureHints;
+		var db_tokens = userTokens;
+		var db_score = userScore;
+		var db_nickname = userName;
+		var db_email = $("#emailL").val(); 
+
+		//string to hold all the posted information 
+		
+		var dataStringX = 'db_fav=' + db_fav + '&db_hints=' + db_hints + '&db_tokens=' + db_tokens + '&db_score=' + db_score + '&db_nickname=' + db_nickname + '&db_email=' + db_email;
+		//AJAX Code To Submit Form.
+			$.ajax({
+					type: "POST",
+					url: "game.php",
+					data: dataStringX,
+							dataType: "json",
+							success: function (result) {
+								console.log(result);
+							},
+							error: function (err) {
+								alert(err);
+							} 
+			}) ;
 	}
 	
 	
@@ -216,7 +216,8 @@ gamejQuery(document).ready(function ($) {
 	$(document).on('pageshow', '#game_page', function (e, data) {
 		setTimeout(function () {
 
-			
+/////aici citesc 
+databaseRead();
 			var mapOptions = {
 			zoom: 11,
 			disableDefaultUI: true,
@@ -598,7 +599,7 @@ gamejQuery(document).ready(function ($) {
 
 				//adds to USER SCORE
 				userScore=userScore+pts;
-				databaseWrite();
+
 				updateGamePopup();
 			}, 500);
 			
@@ -607,7 +608,7 @@ gamejQuery(document).ready(function ($) {
 			
 			updateGamePopup();//update Popup
 		}
-		databaseWrite();
+
 	});
 	
 	////////////////////////////////////////////////////////////////
@@ -706,6 +707,9 @@ gamejQuery(document).ready(function ($) {
 	////////////////////////////////////////////////////////////////
 	//POPULATES STATS POPUP 
 	function userStatsUpdater(){		
+
+		// aici scriud dupa citesct 
+		databaseWrite();
 		databaseRead();
 		//Score 
 		$("#gameUserStatsPopup_score").html(userScore);
@@ -833,7 +837,6 @@ gamejQuery(document).ready(function ($) {
 	
 	//Adds correct pub info to GAME popup
 	function updateGamePopup(){
-		databaseRead();
 		//updates heading
 		if(pubIndex===1){
 			$("#gamePubPopup_header").html('Welcome to The Old Cavendish');
