@@ -61,3 +61,11 @@
     margin-top: 50px;
 }
 
+#contactPage #cSubmit{
+	width: 300px;
+	border-radius: 0;
+	background: #4e4e60;
+	color: white;
+	text-shadow: 0 0 0 #fff;
+	margin: auto;
+}

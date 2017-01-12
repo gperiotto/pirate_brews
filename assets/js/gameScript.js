@@ -65,10 +65,29 @@ gamejQuery(document).ready(function ($) {
 	
 	
 	////////////////////////////////////////////////////
-	//GAME STATUS POPUP - AFETR OPEN
+	//GAME HINTS POPUP - AFETR OPEN
 	$("#gameHintsPopup").popup({
 		afteropen: function (event, ui) {
 			hintsUpdater();
+			
+		
+			if(userFavorites[0]==='true'){
+				$("#hint1").css("text-decoration","line-through");
+				$("#hint2").css("text-decoration","line-through");
+			}
+			if(userFavorites[1]==='true'){
+				$("#hint3").css("text-decoration","line-through");
+				$("#hint4").css("text-decoration","line-through");
+			}
+			if(userFavorites[2]==='true'){
+				$("#hint5").css("text-decoration","line-through");
+				$("#hint6").css("text-decoration","line-through");
+			}
+			if(userFavorites[3]==='true'){
+				$("#hint7").css("text-decoration","line-through");
+				$("#hint8").css("text-decoration","line-through");
+			}
+			
 		}
 	});
 	
@@ -83,7 +102,7 @@ gamejQuery(document).ready(function ($) {
 	
 	////////////////////////////////////////////////////
 	//GAME PLAY POPUP - AFTERCLOSE EVENT
-	$( "#gamePubPopup" ).popup({
+	$("#gamePubPopup").popup({
 		afterclose: function( event, ui ) {
 			$("#gamePubPopup_hints").html('');
 			$("#gamePubPopup_points span").html('0');
@@ -155,7 +174,6 @@ gamejQuery(document).ready(function ($) {
 	var userFavorites = ["false", "false", "false", "false"];
 	
 	
-	//JOHNNIE ADDS YOUR PHP MAGIC TO THIS 2 FUNCTIONS
 	
 	function databaseRead(){		
 		//Fetch user favs and hints as string
@@ -179,7 +197,7 @@ gamejQuery(document).ready(function ($) {
 			console.log("pulaa1" + treasureHints[5]);
 		},
 		error: function (err) {
-			alert(err);
+			alert(err.Message);
 		}
 	});
 	}
@@ -205,7 +223,7 @@ gamejQuery(document).ready(function ($) {
 								console.log(result);
 							},
 							error: function (err) {
-								alert(err);
+								alert(err.Message);
 							} 
 			}) ;
 	}
@@ -219,7 +237,7 @@ gamejQuery(document).ready(function ($) {
 /////aici citesc 
 databaseRead();
 			var mapOptions = {
-			zoom: 11,
+			zoom: 5,
 			disableDefaultUI: true,
 			gestureHandling: 'auto',
 			center: new google.maps.LatLng(51.520780, -0.139900), // Cavendish
@@ -420,7 +438,7 @@ databaseRead();
       		findMe();
 			//DRAWs PUB RADIUS
       		addPubRadius();
-			//Well what the function says x2
+			//Well what the function says
 			updateGamePopup();
 			
 			
@@ -492,6 +510,9 @@ databaseRead();
 			}else{
 				foundThisPoi[0]=true;
 				
+				$("#hint1").css("text-decoration","line-through");
+				$("#hint2").css("text-decoration","line-through");
+				
 				poi_Marker1.setVisible(true);//makes marker visible 
 				userScore=userScore+2000; //adds 2k points
 				userTokens= userTokens+foundPoiTokens;//gives user tokens
@@ -506,6 +527,9 @@ databaseRead();
 				alert("You have been here already")
 			}else{
 				foundThisPoi[1]=true;
+				
+				$("#hint3").css("text-decoration","line-through");
+				$("#hint4").css("text-decoration","line-through");
 				
 				poi_Marker2.setVisible(true); 
 				userScore=userScore+2000; //adds 2k points
@@ -522,6 +546,9 @@ databaseRead();
 			}else{
 				foundThisPoi[2]=true;
 				
+				$("#hint5").css("text-decoration","line-through");
+				$("#hint6").css("text-decoration","line-through");
+				
 				poi_Marker3.setVisible(true); 
 				userScore=userScore+2000; //adds 2k points
 				userTokens= userTokens+foundPoiTokens;//gives user tokens
@@ -536,6 +563,9 @@ databaseRead();
 				alert("You have been here already")
 			}else{
 				foundThisPoi[3]=true;
+				
+				$("#hint7").css("text-decoration","line-through");
+				$("#hint8").css("text-decoration","line-through");
 				
 				poi_Marker4.setVisible(true); 
 				userScore=userScore+2000; //adds 2k points
@@ -835,7 +865,6 @@ databaseRead();
 		}, 100);
 	}
 	
-	
 	//updates FavsCheckBoxes From userFavorites Array
 	function favoritesUpdater(){
 		
@@ -1039,7 +1068,6 @@ databaseRead();
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
       }
-	
 	
 	//ADDS MARKER AND UPDATES LOCATION
 	function addMarker(){

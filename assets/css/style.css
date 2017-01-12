@@ -1,5 +1,17 @@
 @charset "utf-8";
 
+
+/*IPHONE 6 PORTRAIT*/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) {
+	
+
+	
+}
+
+
 /*********************GLOBAL*********************/
 
 body {
@@ -51,7 +63,8 @@ a[data-icon=calendar] {
 }
 
 .ui-page .ui-header h1 a:nth-child(1) {
-    margin: 0;
+	width: 100px;
+    margin: auto;
     display: block;
     padding: 0;
 }
@@ -306,6 +319,7 @@ a[data-icon=calendar] {
     height: auto;
 }
 
+
 .home_SearchContent {
     border-radius: 3px;
     margin: auto;
@@ -400,6 +414,7 @@ ul.list {
 #home_page .gridItem1,
 #home_page .gridItem2,
 #home_page .gridItem3 {
+	margin-top: 30px;
     text-align: center;
     display: block;
 }

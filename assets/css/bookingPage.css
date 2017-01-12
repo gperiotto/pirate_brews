@@ -1,4 +1,4 @@
-.bookingPage {
+#bookingPage .bookingPage {
     margin-top: 50px;
 }
 
@@ -47,3 +47,16 @@
     opacity: 0.3;
 }
 
+#bookingPage [data-role=content]{
+	height: 660px;
+	overflow: hidden;
+}
+
+#bookingPage #bSubmit2{
+	width: 300px;
+	border-radius: 0;
+	background: #4e4e60;
+	color: white;
+	text-shadow: 0 0 0 #fff;
+	margin: auto;
+}

@@ -2,8 +2,83 @@
 
 /* GAME CSS Document */
 
+/*IPHONE 6 PORTRAIT*/
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) {
+	
+	/*GAME SIGN IN*/
+	#signIn_page .signInContainer{
+		height: 375px;
+	}
+	#signIn_page .gameFormLogo {
+		width: 40%;
+		position: relative;
+		top: -30px;
+	}
+	#signIn_page .innerContent form{
+		margin: auto;
+		position: relative;
+		top: -40px;
+		width: 55%;
+		right: -25px;	
+	}
+	#signIn_page #gameButton,
+	#signUpButton{
+		position: relative;
+		top: -35px;
+	}
+	.signInContainer center a{
+		position: relative;
+		top: -35px;
+	}
+	
+	
+	/*GAME SIGN UP*/
+	#signUp_page .gameFormLogo{
+		width: 45%;
+		position: relative;
+		top: -35px;
+	}
+	#signUp_page .signUpContainer form{
+		font-size: 14px;
+		position: relative;
+		top: -55px;
+		right: -70px; 
+		width: 550px;
+	}
+	#signUp_page .signUpContainer {
+		margin: 0;
+		padding: 0;
+		height: 370px;
+		width: auto;
+		background: url(../img/mapBGp.png) no-repeat ;
+		background-size: cover;
+		overflow: hidden;
+	}
+	#signUp_page #signUpGameButton{
+		position: relative;
+		top: -130px!important;
+		right: -120px;
+	}
+	#signUp_page [data-role=controlgroup]{
+		position: relative;
+		left: -110px;
+		
+	}
+	
+	
+	/*GLOBAL SIDE PANEL*/
+	[data-role=panel] li a {
+		margin-top: 5px !important;
+		margin-bottom: 5px !important;
+		font-size: 15px;
+		
+	}
+}
 
-/***************GAME SIGN IN**************/
+/***************GAME**************/
 
 #game_page .ui-panel-wrapper {
 	padding: 0;
@@ -23,6 +98,11 @@
 	height: auto;
 }
 
+
+/*QUIT GAME POPUP*/
+#quitGamePopup{
+	width: 200px;
+}
 
 
 /*GAME POI POPUP*/
@@ -185,6 +265,7 @@ input[type=checkbox].glyphicon{
 	text-align: left;
 	font-size: 15px;
 }
+
 .gameHintsPopupDiv hr{
     border: 0;
     height: 1px;
@@ -298,7 +379,7 @@ input[type=checkbox].glyphicon{
     left : 0 !important;
 }
 #game_page [data-role=header]{
-background: rgba(149, 214, 26, 0) !important;
+	background: #4e4e60 !important;
 }
 #game_page [data-role=header] img {
 	height: 35px;
@@ -332,7 +413,7 @@ background: rgba(149, 214, 26, 0) !important;
 
 /*TOP BANNER*/
 #game_page.ui-page .ui-header {
-	background: rgba(0, 0, 0, 0) !important;
+	background: #4e4e60 !important;
 }
 #game_page.ui-page .ui-footer {
 	background: #4e4e60 !important;
@@ -609,31 +690,56 @@ background: rgba(149, 214, 26, 0) !important;
 	margin: auto;
 	width: auto;
 	height: 500px;
-	background: url(../img/mapBG.png) no-repeat center;
+	background: url(../img/mapBGp.png) no-repeat center;
 	background-size: contain;
-	/*	opacity: 0.8;*/
 }
-
 /*ADJUST THIS TO MOVE ELEMENTS UP AND DOWN*/
-
 .innerContent {
 	text-align: center;
 	position: relative;
 	top: 10%;
 }
 
-.gameFormLogo {
+ #signIn_page .gameFormLogo {
 	margin: auto;
 	display: block;
 	width: 80%;
 }
+
+#signIn_page .innerContent form{
+	
+	position: relative;
+	padding: 0;
+	margin: 0;
+	margin: auto;
+	right: -5px;
+	margin-bottom: 30px;
+	margin-top:20px;
+	width: 400px;
+}
+
+#signIn_page .innerContent form input{
+	
+/*	position: relative;*/
+	padding: 0;
+	margin: 0;
+	margin: auto!imporant;
+/*	right: -35px;*/
+/*	width: 300px;*/
+}
+
+#passwordL, #emailL{
+	font-size: 14px;
+}
+
 #signIn_page #gameButton,
 #signUpButton {
 	padding: 0 !important;
-	padding-top:8px !important;
+	padding-top:5px !important;
+	padding-bottom:8px !important;
 	margin: 0 !important;
 	margin: auto!important;
-	margin-top: 20px !important;
+	margin-top: 15px !important;
 	width: 100px !important;
 	height: 30px;
 	border: 0!important;
@@ -642,6 +748,9 @@ background: rgba(149, 214, 26, 0) !important;
 	color: white!important;
 	text-shadow: 0 0px 0 #000 !important;
 }
+
+
+
 
 /***************GAME SIGN UP**************/
 
@@ -856,14 +965,42 @@ background: rgba(149, 214, 26, 0) !important;
 	height: 60px;
 }
 
-.signUpContainer {
+#signUp_page .signUpContainer {
 	margin: auto;
 	width: auto;
 	height: 500px;
-	background: url(../img/mapBG.png) no-repeat center;
+	background: url(../img/mapBGp.png) no-repeat center;
 	background-size: contain;
-	/*	opacity: 0.8;*/
 }
+
+
+ #signUp_page .gameFormLogo {
+	margin: auto;
+	display: block;
+	width: 80%;
+ 	position: relative;
+ 	top:-30px;
+}
+
+#signUp_page .signUpContainer form{
+	position: relative;
+	top: -35px;
+}
+
+#signUp_page .signUpContainer form .ui-field-contain{
+	position: relative;
+	left: 25px;
+}
+
+#signUp_page center a{
+	position: relative;
+	top: -35px;
+	text-shadow: 0 0 0 #fff;
+}
+
+
+
+
 
 /***************GAME NAV**************/
 
