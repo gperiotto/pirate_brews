@@ -55,9 +55,7 @@ gamejQuery(document).ready(function ($) {
 	//highlight game tabs
 	$("#gameFavPopup").popup({
 		afteropen: function (event, ui) {
-//			$("#game_page [data-role=footer] .footerTaskbar1 p").css("color", "#f03820");
-
-			//			$("#game_page [data-role=footer] .footerTaskbar1 p").text(" ");
+favoritesUpdater();
 		}
 	});
 
@@ -192,27 +190,28 @@ gamejQuery(document).ready(function ($) {
 			userName = result[0].nickname;
 			userScore= parseInt(result[0].achivementsPoints);
 			userTokens = parseInt(result[0].tokens);
-			treasureHints = result[0].hints;
-			userFavorites = result[0].favorites;
-			console.log("pulaa1" + treasureHints[5]);
+			treasureHints = result[0].hints.split(',');
+			userFavorites = result[0].favorites.split(',');
 		},
 		error: function (err) {
-			alert(err.Message);
+			// alert("read" + err.Message);
 		}
 	});
 	}
 
-	function databaseWrite(){		
-		var db_fav = userFavorites;
-		var db_hints = treasureHints;
+function databaseWrite(){	
+	
+		var db_fav = userFavorites[0]  + "," + userFavorites[1]+ "," + userFavorites[2]+ "," + userFavorites[3];
+		var db_hints = treasureHints[0] + "," +treasureHints[1] + "," +treasureHints[2] 
+					 + "," +treasureHints[3]  + "," + treasureHints[4]  + "," +treasureHints[5]  + "," +treasureHints[6] 
+					+ "," +treasureHints[7];
 		var db_tokens = userTokens;
 		var db_score = userScore;
-		var db_nickname = userName;
 		var db_email = $("#emailL").val(); 
-
+	
 		//string to hold all the posted information 
 		
-		var dataStringX = 'db_fav=' + db_fav + '&db_hints=' + db_hints + '&db_tokens=' + db_tokens + '&db_score=' + db_score + '&db_nickname=' + db_nickname + '&db_email=' + db_email;
+		var dataStringX = 'db_fav=' + db_fav + '&db_hints=' + db_hints + '&db_tokens=' + db_tokens + '&db_score=' + db_score + '&db_email=' + db_email;
 		//AJAX Code To Submit Form.
 			$.ajax({
 					type: "POST",
@@ -220,16 +219,18 @@ gamejQuery(document).ready(function ($) {
 					data: dataStringX,
 							dataType: "json",
 							success: function (result) {
-								console.log(result);
+								//error
 							},
 							error: function (err) {
-								alert(err.Message);
+								// alert(err);
 							} 
 			}) ;
 	}
 	
-	
-	
+	$("#quitSave").on("click", function () {
+		databaseWrite();
+	}); 
+
 	//GOOGLE MAPS with rendering fix
 	$(document).on('pageshow', '#game_page', function (e, data) {
 		setTimeout(function () {
@@ -600,7 +601,7 @@ databaseRead();
 			//RUNS AFTER ANIMATION PLAYS
 			setTimeout(function () {
 				pts = 0;
-
+				databaseRead();
 				var mapChance = Math.floor(Math.random() * 80) + 1 ;
 					console.log("mapChance val:"+mapChance);
 
@@ -772,7 +773,6 @@ databaseRead();
 	function userStatsUpdater(){		
 
 		// aici scriud dupa citesct 
-		databaseWrite();
 		databaseRead();
 		//Score 
 		$("#gameUserStatsPopup_score").html(userScore);
@@ -867,7 +867,6 @@ databaseRead();
 	
 	//updates FavsCheckBoxes From userFavorites Array
 	function favoritesUpdater(){
-		
 		for(var x=0;x<userFavorites.length;x++){
 			var chkbox = 'poiFav'+(x+1)+' input';
 			var favTabItems = 'favoritedPoi'+(x+1);
@@ -978,7 +977,7 @@ databaseRead();
 			fillOpacity: 0.0,
 			map: map,
 			center: poi_latlng1,
-			radius: 60 // in meters
+			radius: 360 // in meters
 		};
 		poi_Circle2 = {
 			strokeColor: "#ffffff",

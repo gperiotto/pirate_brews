@@ -18,22 +18,8 @@ $db_fav=$_POST['db_fav'];
 $db_hints=$_POST['db_hints'];  
 $db_tokens=$_POST['db_tokens'];
 $db_score=$_POST['db_score'];
-$db_nickname=$_POST['db_nickname'];
 $db_email=$_POST['db_email'];
 
-$query = mysql_query("update people set achivementsPoints = '".$db_score."' ,  hints = '".$db_hints."',  favorites = '".$db_fav."' ,  tokens = '".$db_tokens."' where email = '".$db_email."'");
-
-$data = array();
-while ($row = mysql_fetch_array($query)) {
-    $data[] = $row;
-}
-
-// UPDATE suppliers
-// SET supplier_id = 150,
-//     supplier_name = 'Apple',
-//     city = 'Cupertino'
-// WHERE supplier_name = 'Google';
-
-echo json_encode($data);
+$query = mysql_query("update people set achivementsPoints = '".$db_score."' ,  hints = '".$db_hints."',  favorites = '".$db_fav."' ,  tokens = '".$db_tokens."' where email = '".$db_email."'")or die(mysql_error());
 
 ?>
