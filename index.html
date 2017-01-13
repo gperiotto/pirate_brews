@@ -1204,12 +1204,17 @@
 						<center><a onclick="submitSignUpGame()" href="#gameButton" class="ui-btn" id="signUpGameButton" style="width: 40%; color: white; background: #4e4e60;" >Sign Up!</a> </center></div>
 				</div>
 				<script>
+					var isCheckboxTicked = false;
+					function isTicked(){
+						isCheckboxTicked = document.getElementById("terms").checked;
+					}
+
 					function _(x) {
 						return document.getElementById(x);
 					}
 
 					function submitSignUpGame() {
-
+						isTicked();
 						var firstName = $("#fnameSU").val();
 						var lastName = $("#snameSU").val();
 						var email = $("#emailSU").val();
@@ -1220,18 +1225,22 @@
 						console.log(signUpSubmitString)
 						console.log(isAllValidated());
 						// AJAX Code To Submit Form.
-						$.ajax({
-							type: "POST",
-							url: "submitSignUp.php",
-							data: signUpSubmitString,
-							cache: false,
-							success: function (result) {
-								alert(result);
-							},
-							error: function (err) {
-								alert(err);
-							}
-						});
+						if(isCheckboxTicked) {
+							$.ajax({
+								type: "POST",
+								url: "submitSignUp.php",
+								data: signUpSubmitString,
+								cache: false,
+								success: function (result) {
+									alert(result);
+								},
+								error: function (err) {
+									alert(err);
+								}
+							});
+						} else {
+							alert("You need to accept the terms and conditions");
+						}
 					}
 				</script>
 			</div>

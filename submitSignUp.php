@@ -22,8 +22,8 @@ $nickS=$_POST['nickS'];
 
 
 
-$query = mysql_query("insert into people(email, firstName, lastName, password, nickname, achivementsPoints, favorites, newsletterBoost, bookingBoosts, hints, location ) 
-                                        values ('$emailS', '$fnameS', '$snameS', '$passwordS', '$nickS', ' ', ' ', ' ', ' ', ' ', ' ')")or die(mysql_error()); 
+$query = mysql_query("insert into people(email, firstName, lastName, password, nickname) 
+                      values ('$emailS', '$fnameS', '$snameS', '$passwordS', '$nickS')")or die(mysql_error()); 
 
 
 echo "Sign Up Success!";
